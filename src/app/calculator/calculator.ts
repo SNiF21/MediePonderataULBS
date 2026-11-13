@@ -16,6 +16,7 @@ import {
 import { CURRICULUM_DATA } from '../data/curriculumData';
 import { CalculatorResultsComponent } from './components/calculator-results/calculator-results';
 import { AnnualResultsComponent } from './components/annual-results/annual-results';
+import { ResetGradesModalComponent } from './components/reset-grades-modal/reset-grades-modal';
 
 export type SortOrder = 'default' | 'alfabetic' | 'crescator' | 'descrescator';
 
@@ -28,6 +29,7 @@ export type SortOrder = 'default' | 'alfabetic' | 'crescator' | 'descrescator';
     RouterLink,
     CalculatorResultsComponent,
     AnnualResultsComponent,
+    ResetGradesModalComponent,
   ],
   templateUrl: './calculator.html',
 })
@@ -503,6 +505,21 @@ export class Calculator {
     } finally {
       this.isSaving.set(false);
     }
+  }
+
+  public readonly showResetModal = signal<boolean>(false);
+
+  public openResetModal(): void {
+    this.showResetModal.set(true);
+  }
+
+  public closeResetModal(): void {
+    this.showResetModal.set(false);
+  }
+
+  public async confirmResetGrades(): Promise<void> {
+    await this.resetGrades();
+    this.closeResetModal();
   }
 
   protected async resetGrades(): Promise<void> {

@@ -78,4 +78,28 @@ describe('ProfileComponent', () => {
     component['onYearSelect']('IV');
     expect(component['selectedYear']()).toBe('III');
   });
+
+  it('should compute personalized student greeting from institutional email', () => {
+    const authService = TestBed.inject(AuthService);
+
+    // Default with no user
+    authService.user.set(null);
+    expect(component.studentGreeting()).toBe('Profil Student');
+
+    // Standard ULBS email with first names and last name (requested: dragosconstantin.braicu@ulbsibiu.ro -> Salut, Braicu)
+    authService.user.set({ email: 'dragosconstantin.braicu@ulbsibiu.ro' } as any);
+    expect(component.studentGreeting()).toBe('Salut, Braicu');
+
+    // Multiple first names or dotted parts
+    authService.user.set({ email: 'ion.vasile.ionescu@ulbsibiu.ro' } as any);
+    expect(component.studentGreeting()).toBe('Salut, Ionescu');
+
+    // Single name
+    authService.user.set({ email: 'student@ulbsibiu.ro' } as any);
+    expect(component.studentGreeting()).toBe('Salut, Student');
+
+    // Hyphenated last name
+    authService.user.set({ email: 'maria.ionescu-radulescu@ulbsibiu.ro' } as any);
+    expect(component.studentGreeting()).toBe('Salut, Ionescu-Radulescu');
+  });
 });

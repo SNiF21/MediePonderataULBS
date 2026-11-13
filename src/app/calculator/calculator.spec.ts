@@ -271,4 +271,26 @@ describe('Calculator', () => {
     expect(qp['major']).toBe('Drept');
     expect(qp['subjectTitle']).toContain('Plan de învățământ');
   });
+
+  it('should manage reset modal state and reset grades upon confirmation', async () => {
+    expect(component.showResetModal()).toBe(false);
+
+    component.openResetModal();
+    expect(component.showResetModal()).toBe(true);
+
+    component.closeResetModal();
+    expect(component.showResetModal()).toBe(false);
+
+    // Set a grade first
+    const subs = component.subjects();
+    component['setGrade'](subs[0].name, '9');
+    expect(component['grades']()[subs[0].name]).toBe(9);
+
+    // Confirm reset
+    component.openResetModal();
+    await component.confirmResetGrades();
+
+    expect(component.showResetModal()).toBe(false);
+    expect(component['grades']()[subs[0].name]).toBeNull();
+  });
 });

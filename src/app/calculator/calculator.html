@@ -317,10 +317,10 @@
           </button>
         </ng-container>
 
-        <!-- Reset Button -->
+        <!-- Reset Button with Confirmation -->
         <button
           type="button"
-          (click)="resetGrades()"
+          (click)="openResetModal()"
           class="text-xs text-rose-600 dark:text-rose-400 hover:text-rose-700 font-medium px-3 py-2 rounded-xl border border-rose-200 dark:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition cursor-pointer"
         >
           Resetează notele
@@ -404,5 +404,15 @@
       </a>
     </p>
   </div>
+
+  <!-- ================= MODAL: CONFIRMARE RESETARE NOTE ================= -->
+  <app-reset-grades-modal
+    *ngIf="showResetModal()"
+    [yearLabel]="studyContext.yearLabel()"
+    [semesterLabel]="studyContext.semester()"
+    [isLoggedIn]="authService.isLoggedIn()"
+    (closeModal)="closeResetModal()"
+    (confirmReset)="confirmResetGrades()"
+  ></app-reset-grades-modal>
 
 </section>

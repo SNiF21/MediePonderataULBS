@@ -62,6 +62,30 @@ export class ProfileComponent {
   protected readonly user = this.authService.user;
   protected readonly studentEmail = computed(() => this.user()?.email ?? '');
 
+  public readonly studentGreeting = computed<string>(() => {
+    const email = this.studentEmail().trim();
+    if (!email) return 'Profil Student';
+    const username = email.split('@')[0];
+    const parts = username.split('.').filter(Boolean);
+    if (parts.length >= 2) {
+      const lastName = this.formatName(parts[parts.length - 1]);
+      return `Salut, ${lastName}`;
+    }
+    if (parts.length === 1 && parts[0]) {
+      const name = this.formatName(parts[0]);
+      return `Salut, ${name}`;
+    }
+    return 'Profil Student';
+  });
+
+  private formatName(raw: string): string {
+    if (!raw) return '';
+    return raw
+      .split('-')
+      .map((seg) => seg.charAt(0).toUpperCase() + seg.slice(1).toLowerCase())
+      .join('-');
+  }
+
   // Email verification state
   protected readonly isSendingVerification = signal<boolean>(false);
   protected readonly verificationSuccess = signal<string | null>(null);
