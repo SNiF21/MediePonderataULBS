@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
 import { ContactService, ContactSubmission } from './contact.service';
 import { FirebaseService } from './firebase.service';
 
@@ -13,7 +14,18 @@ describe('ContactService', () => {
     } as any);
 
     TestBed.configureTestingModule({
-      providers: [ContactService, FirebaseService],
+      providers: [
+        ContactService,
+        {
+          provide: FirebaseService,
+          useValue: {
+            firestore: null,
+            auth: null,
+            isConfigured: signal(false),
+            getApp: () => null,
+          },
+        },
+      ],
     });
     service = TestBed.inject(ContactService);
     if (typeof localStorage !== 'undefined') {

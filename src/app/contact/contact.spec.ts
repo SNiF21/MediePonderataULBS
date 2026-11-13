@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { ContactComponent } from './contact';
 import { AuthService } from '../services/auth.service';
@@ -25,7 +26,15 @@ describe('ContactComponent', () => {
         AuthService,
         StudyContextService,
         ContactService,
-        FirebaseService,
+        {
+          provide: FirebaseService,
+          useValue: {
+            firestore: null,
+            auth: null,
+            isConfigured: signal(false),
+            getApp: () => null,
+          },
+        },
       ],
     }).compileComponents();
 
