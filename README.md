@@ -94,3 +94,9 @@ Proiect conceput și dezvoltat de:
 ## Disclaimer Legal
 
 Această aplicație este un proiect independent, **neoficial și neafiliat** Universității „Lucian Blaga” din Sibiu (ULBS). Datele curriculare sunt extrase periodic din planurile de învățământ făcute publice de facultățile de profil. Aplicația este furnizată gratuit, ca instrument de sprijin și simulare pentru studenți.
+
+---
+
+## Licență
+
+Acest proiect este licențiat sub termenii licenței **MIT**. Consultă fișierul [LICENSE.md](LICENSE.md) pentru detalii complete.
