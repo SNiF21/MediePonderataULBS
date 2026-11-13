@@ -1,0 +1,189 @@
+{
+  "Mecatronică (în limba engleză) - Anul 1, Semestrul 1": [
+    { "name": "Chemistry", "credits": 3, "type": "Colocviu" },
+    { "name": "Computer-aided graphics 1", "credits": 8, "type": "Examen" },
+    { "name": "Computer programming and programming languages 1", "credits": 4, "type": "Examen" },
+    { "name": "Linear Algebra, analytic and differential geometry", "credits": 4, "type": "Examen" },
+    { "name": "Physics", "credits": 4, "type": "Examen" },
+    {
+      "name": "Optional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "English 1",
+        "German 1"
+      ]
+    },
+    {
+      "name": "Optional 2",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Communication",
+        "Ethics and academic integrity"
+      ]
+    },
+    { "name": "Physical education and sport 1", "credits": 1, "type": "Colocviu" }
+  ],
+  "Mecatronică (în limba engleză) - Anul 1, Semestrul 2": [
+    { "name": "Computer-aided graphics 2", "credits": 5, "type": "Examen" },
+    { "name": "Computer programming and programming languages 2", "credits": 5, "type": "Colocviu" },
+    { "name": "Probability theory and mathematical statistics", "credits": 2, "type": "Examen" },
+    { "name": "Mathematical analysis", "credits": 4, "type": "Examen" },
+    { "name": "Materials science and engineering", "credits": 4, "type": "Examen" },
+    { "name": "Numerical methods", "credits": 4, "type": "Examen" },
+    {
+      "name": "Optional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "English 2",
+        "German 2"
+      ]
+    },
+    {
+      "name": "Optional 4",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "History of technics",
+        "Culture and civilization"
+      ]
+    },
+    { "name": "Physical education and sport 2", "credits": 1, "type": "Colocviu" }
+  ],
+  "Mecatronică (în limba engleză) - Anul 2, Semestrul 1": [
+    { "name": "Fundamentals of mechatronic systems", "credits": 3, "type": "Colocviu" },
+    { "name": "Electronics", "credits": 3, "type": "Colocviu" },
+    { "name": "Strength of materials", "credits": 7, "type": "Examen" },
+    { "name": "Mechanics", "credits": 7, "type": "Examen" },
+    { "name": "Architecture of numerical computers", "credits": 4, "type": "Examen" },
+    { "name": "Electrotechnics", "credits": 4, "type": "Examen" },
+    {
+      "name": "Optional 5",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "English 3",
+        "German 3"
+      ]
+    }
+  ],
+  "Mecatronică (în limba engleză) - Anul 2, Semestrul 2": [
+    { "name": "Engineering thermodynamics", "credits": 3, "type": "Colocviu" },
+    { "name": "Digital electronics", "credits": 3, "type": "Colocviu" },
+    { "name": "Power electronics", "credits": 3, "type": "Colocviu" },
+    { "name": "Tolerances and dimensional inspection", "credits": 4, "type": "Examen" },
+    { "name": "Fundamentals of automated systems", "credits": 5, "type": "Examen" },
+    { "name": "Fluid mechanics", "credits": 3, "type": "Examen" },
+    { "name": "Mechanisms and machine elements 1", "credits": 5, "type": "Examen" },
+    { "name": "Field-specific internship", "credits": 4, "type": "Colocviu" }
+  ],
+  "Mecatronică (în limba engleză) - Anul 3, Semestrul 1": [
+    { "name": "Mechanisms and machine elements 2", "credits": 3, "type": "Examen" },
+    { "name": "Computer aided design", "credits": 5, "type": "Examen" },
+    { "name": "Fundamentals of robotics", "credits": 5, "type": "Examen" },
+    { "name": "Hydronics and pneutronics 1", "credits": 5, "type": "Examen" },
+    {
+      "name": "Optional 7",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Constructive elements of mechatronics",
+        "Mechanical structure for mechatronics"
+      ]
+    },
+    {
+      "name": "Optional 8",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Programming of microcontrollers",
+        "Embedded systems"
+      ]
+    },
+    {
+      "name": "Optional 9",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Artificial intelligence",
+        "Microcontrollers, microprocessors"
+      ]
+    }
+  ],
+  "Mecatronică (în limba engleză) - Anul 3, Semestrul 2": [
+    { "name": "Systems and technics of measurement", "credits": 3, "type": "Colocviu" },
+    { "name": "Machine tools and manufacturing", "credits": 4, "type": "Examen" },
+    { "name": "Data acquisition systems", "credits": 2, "type": "Colocviu" },
+    { "name": "Hydronics and pneutronics 2", "credits": 3, "type": "Colocviu" },
+    { "name": "Electrical actuator", "credits": 4, "type": "Examen" },
+    { "name": "Equipment and manufacturing technologies in mechatronics", "credits": 4, "type": "Examen" },
+    { "name": "Software for virtual instrumentation", "credits": 3, "type": "Examen" },
+    { "name": "Sensors and sensorial systems", "credits": 3, "type": "Examen" },
+    { "name": "Industrial internship in the field of specialization", "credits": 4, "type": "Colocviu" }
+  ],
+  "Mecatronică (în limba engleză) - Anul 4, Semestrul 1": [
+    { "name": "Control systems in robotics", "credits": 4, "type": "Colocviu" },
+    { "name": "Flexible manufacturing systems 1", "credits": 4, "type": "Colocviu" },
+    { "name": "Manufacturing technologies and micro/nanotechnologies", "credits": 5, "type": "Examen" },
+    { "name": "Computer-aided engineering of mechatronic systems", "credits": 5, "type": "Examen" },
+    {
+      "name": "Optional 11",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Maintenance of mechatronic systems",
+        "Reliability and mentenance"
+      ]
+    },
+    {
+      "name": "Optional 12",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Programmable controllers",
+        "Dynamics of mechatronic systems"
+      ]
+    },
+    {
+      "name": "Optional 13",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Numerically controlled systems and equipment",
+        "CNC systems"
+      ]
+    }
+  ],
+  "Mecatronică (în limba engleză) - Anul 4, Semestrul 2": [
+    { "name": "Flexible manufacturing systems 2", "credits": 2, "type": "Examen" },
+    { "name": "Industrial logistics", "credits": 3, "type": "Colocviu" },
+    { "name": "Mechatronic systems", "credits": 3, "type": "Examen" },
+    { "name": "Virtual manufacturing", "credits": 3, "type": "Examen" },
+    { "name": "Finite elements analysis", "credits": 3, "type": "Examen" },
+    {
+      "name": "Optional 14",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Production systems engineering",
+        "Quality engineering"
+      ]
+    },
+    { "name": "Bachelor's degree project", "credits": 4, "type": "Colocviu" },
+    { "name": "Bachelor's degree project internship", "credits": 10, "type": "Colocviu" }
+  ]
+}

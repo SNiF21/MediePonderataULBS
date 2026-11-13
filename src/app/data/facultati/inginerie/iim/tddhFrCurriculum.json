@@ -1,0 +1,383 @@
+{
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 1, Semestrul 1": [
+    {
+      "name": "Algebră liniară, geometrie analitică și diferențială",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Teoria probabilităților și statistică matematică",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Chimie",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Geometrie descriptivă",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Fizică",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Programarea calculatoarelor și limbaje de programare 1",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Economie generală",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Opțional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba modernă I 1",
+        "Limba modernă II 1"
+      ]
+    },
+    {
+      "name": "Educație fizică și sport 1",
+      "credits": 1,
+      "type": "Colocviu"
+    }
+  ],
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 1, Semestrul 2": [
+    {
+      "name": "Mecanică 1",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Programarea calculatoarelor și limbaje de programare 2",
+      "credits": 4,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Analiză matematică",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Desen Tehnic și Infografică 1",
+      "credits": 4,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Studiul materialelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Chimie fizică",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba modernă I 2",
+        "Limba modernă II 2"
+      ]
+    },
+    {
+      "name": "Educație fizică și sport 2",
+      "credits": 1,
+      "type": "Colocviu"
+    }
+  ],
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 2, Semestrul 1": [
+    {
+      "name": "Mecanică 2",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Desen tehnic și infografică 2",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Tehnici de asamblare în transportul depozitarea și distribuția hidrocarburilor 1",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Electrotehnică și mașini electrice",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Coroziune și protecție anticorozivă",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Rezistența materialelor 1",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Tehnologia materialelor 1",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 4",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba modernă I 3",
+        "Limba modernă II 3"
+      ]
+    }
+  ],
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 2, Semestrul 2": [
+    {
+      "name": "Rezistența materialelor 2",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Tehnologia materialelor 2",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Organe de mașini",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Management și marketing",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Mașini și utilaje de transport",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Opțional 5",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Tehnici de asamblare în transportul depozitarea și distribuția hidrocarburilor 2",
+        "Surse neconvenționale de energie"
+      ]
+    },
+    {
+      "name": "Opțional 6",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Instalații sanitare și de gaze",
+        "Instalații de încălzire și ventilare"
+      ]
+    },
+    {
+      "name": "Practică de domeniu",
+      "credits": 4,
+      "type": "Colocviu"
+    }
+  ],
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 3, Semestrul 1": [
+    {
+      "name": "Forajul sondelor",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Mecanica fluidelor",
+      "credits": 5,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Metode numerice de modelare, simulare și optimizare 1",
+      "credits": 4,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Comprimarea și lichefierea gazelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Geologie generală și stratigrafică",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Termotehnica și mașini termice 1",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Tratarea apei și evaluarea receptivității straturilor",
+        "Dispecerizarea sistemelor de transport"
+      ]
+    }
+  ],
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 3, Semestrul 2": [
+    {
+      "name": "Termotehnica și mașini termice 2",
+      "credits": 4,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Mineralogie și petrologie",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Hidraulica subterană",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Aparate de măsură și control",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Extracția și prelucrarea hidrocarburilor",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Transportul hidrocarburilor",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Transportul hidrocarburilor - Proiect",
+      "credits": 2,
+      "type": "Verificare (Proiect)"
+    },
+    {
+      "name": "Cercetare în domeniul calității",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică de specialitate",
+      "credits": 4,
+      "type": "Colocviu"
+    }
+  ],
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 4, Semestrul 1": [
+    {
+      "name": "Ingineria zăcămintelor de gaze",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Transportul gazelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Depozitarea fluidelor",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Depozitarea fluidelor - Proiect",
+      "credits": 2,
+      "type": "Verificare (Proiect)"
+    },
+    {
+      "name": "Distribuția fluidelor în rețele de conducte",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Distribuția fluidelor în rețele de conducte - Proiect",
+      "credits": 2,
+      "type": "Verificare (Proiect)"
+    },
+    {
+      "name": "Echipamente pentru foraj extracție",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 8",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Proiectarea asistată de calculator a sistemelor de transport și distribuție",
+        "Transportul fluidelor multifazice"
+      ]
+    }
+  ],
+  "Transportul, Depozitarea și Distribuția Hidrocarburilor (FR) - Anul 4, Semestrul 2": [
+    {
+      "name": "Metode numerice de modelare, simulare și optimizare 2",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Protecția mediului",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Economisirea hidrocarburilor",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Fizico-chimia zăcămintelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 9",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Reabilitarea structurilor gazeifere",
+        "Mentenanța sistemelor de conducte"
+      ]
+    },
+    {
+      "name": "Elaborarea proiectului de diplomă",
+      "credits": 4,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru proiectul de diplomă",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ]
+}

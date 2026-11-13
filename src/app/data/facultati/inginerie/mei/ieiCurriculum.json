@@ -1,0 +1,275 @@
+{
+  "Inginerie Economică Industrială - Anul 1, Semestrul 1": [
+    { "name": "Algebră liniară, geometrie analitică și diferențială", "credits": 4, "type": "Examen" },
+    { "name": "Geometrie descriptivă", "credits": 3, "type": "Colocviu" },
+    { "name": "Chimie", "credits": 4, "type": "Colocviu" },
+    { "name": "Fizică (1)", "credits": 3, "type": "Colocviu" },
+    { "name": "Bazele managementului", "credits": 4, "type": "Examen" },
+    { "name": "Informatică aplicată (1)", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 1",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Comunicare",
+        "Etică și integritate academică"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză (1)",
+        "Limba germană (1)"
+      ]
+    },
+    { "name": "Educație fizică și sport (1)", "credits": 1, "type": "Colocviu" }
+  ],
+  "Inginerie Economică Industrială - Anul 1, Semestrul 2": [
+    { "name": "Informatică aplicată (2)", "credits": 2, "type": "Colocviu" },
+    { "name": "Analiză matematică", "credits": 4, "type": "Examen" },
+    { "name": "Bazele economiei (1)", "credits": 4, "type": "Examen" },
+    { "name": "Mecanică", "credits": 3, "type": "Examen" },
+    { "name": "Marketing", "credits": 5, "type": "Examen" },
+    { "name": "Desen tehnic și infografică (1)", "credits": 5, "type": "Colocviu" },
+    {
+      "name": "Opțional 3",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Mecanica fluidelor și echipamente hidraulice",
+        "Inginerie generală în textile - pielărie"
+      ]
+    },
+    {
+      "name": "Opțional 4",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză (2)",
+        "Limba germană (2)"
+      ]
+    },
+    { "name": "Educație fizică și sport (2)", "credits": 1, "type": "Colocviu" }
+  ],
+  "Inginerie Economică Industrială - Anul 2, Semestrul 1": [
+    { "name": "Desen tehnic și infografică (2)", "credits": 4, "type": "Colocviu" },
+    { "name": "Electrotehnică", "credits": 3, "type": "Colocviu" },
+    { "name": "Bazele economiei (2)", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 5",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Teoria probabilităților și statistică matematică",
+        "Metode numerice"
+      ]
+    },
+    {
+      "name": "Opțional 6",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Știința și ingineria materialelor (1)",
+        "Materii prime pentru textile-pielărie (1)"
+      ]
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Prelucrări prin așchiere",
+        "Structuri textile - fire"
+      ]
+    },
+    {
+      "name": "Opțional 8",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Toleranțe și control dimensional",
+        "Metrologie în textile - pielărie"
+      ]
+    },
+    {
+      "name": "Opțional 9",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză (3)",
+        "Limba germană (3)"
+      ]
+    }
+  ],
+  "Inginerie Economică Industrială - Anul 2, Semestrul 2": [
+    { "name": "Rezistența materialelor (1)", "credits": 5, "type": "Examen" },
+    { "name": "Contabilitate", "credits": 4, "type": "Examen" },
+    { "name": "Cercetări operaționale", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 10",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Știința și ingineria materialelor (2)",
+        "Materii prime pentru textile-pielărie (2)"
+      ]
+    },
+    {
+      "name": "Opțional 11",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Termotehnică și echipamente termice",
+        "Structuri textile - țesături"
+      ]
+    },
+    {
+      "name": "Opțional 12",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Rezistența materialelor",
+        "Confortul și funcțiile produselor textile și din piele"
+      ]
+    },
+    { "name": "Practică de domeniu", "credits": 4, "type": "Colocviu" }
+  ],
+  "Inginerie Economică Industrială - Anul 3, Semestrul 1": [
+    { "name": "Managementul calității", "credits": 3, "type": "Examen" },
+    { "name": "Finanțe și creditare", "credits": 3, "type": "Examen" },
+    { "name": "Managementul producției", "credits": 5, "type": "Examen" },
+    { "name": "Structura și proiectarea confecțiilor textile", "credits": 3, "type": "Colocviu" },
+    { "name": "Structura și proiectarea confecțiilor textile - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    {
+      "name": "Opțional 14",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Tehnologia tricoturilor (1)",
+        "Comanda și acționarea mașinilor"
+      ]
+    },
+    { "name": "Tehnologia confecțiilor textile (1)", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 15",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Tehnologia confecțiilor textile (1)",
+        "Management internațional",
+        "Structuri textile - tricoturi"
+      ]
+    },
+    {
+      "name": "Opțional 16",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Legislația muncii",
+        "Legislația proprietății intelectuale și industriale"
+      ]
+    }
+  ],
+  "Inginerie Economică Industrială - Anul 3, Semestrul 2": [
+    { "name": "Design în textile și pielărie", "credits": 3, "type": "Colocviu" },
+    { "name": "Managementul logisticii", "credits": 2, "type": "Examen" },
+    { "name": "Managementul logisticii - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Managementul proiectelor", "credits": 4, "type": "Examen" },
+    { "name": "Managementul resurselor umane", "credits": 4, "type": "Examen" },
+    { "name": "Analiză economică", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 17",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Tehnologii și utilaje de presare",
+        "Tehnologia confecțiilor textile (2)"
+      ]
+    },
+    {
+      "name": "Opțional 18",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Tehnologii de prelucrare",
+        "Tehnologia tricoturilor (2)"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Inginerie Economică Industrială - Anul 4, Semestrul 1": [
+    { "name": "Cercetări de marketing", "credits": 5, "type": "Colocviu" },
+    { "name": "Comportamentul consumatorului", "credits": 4, "type": "Colocviu" },
+    { "name": "Analiza proiectelor de investiții", "credits": 4, "type": "Examen" },
+    { "name": "Afaceri mici și mijlocii", "credits": 3, "type": "Examen" },
+    { "name": "Ingineria sistemelor de producție", "credits": 3, "type": "Examen" },
+    { "name": "Proiectare asistată de calculator în confecții", "credits": 3, "type": "Colocviu" },
+    { "name": "Proiectare asistată de calculator în tricotaje", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 19",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Modelarea și simularea activităților de producție",
+        "Finisarea produselor textile"
+      ]
+    }
+  ],
+  "Inginerie Economică Industrială - Anul 4, Semestrul 2": [
+    { "name": "Sisteme informatice în management", "credits": 3, "type": "Examen" },
+    { "name": "Legislație comercială", "credits": 2, "type": "Colocviu" },
+    { "name": "Management strategic", "credits": 3, "type": "Examen" },
+    {
+      "name": "Opțional 20",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Mașini, roboți și echipamente SFF",
+        "Creație artistică în textile și pielărie"
+      ]
+    },
+    {
+      "name": "Opțional 21",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Tehnologii de prelucrare (2)",
+        "Tehnologii și utilaje în tricotaje"
+      ]
+    },
+    {
+      "name": "Opțional 22",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Echipamente de fabricare",
+        "Tehnologii și utilaje în confecții"
+      ]
+    },
+    { "name": "Elaborarea proiectului de diplomă", "credits": 3, "type": "Colocviu" },
+    { "name": "Practică pentru elaborarea proiectului de diplomă", "credits": 10, "type": "Colocviu" }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "Robotică (Dual) - Anul 1, Semestrul 1": [
+    { "name": "Chimie", "credits": 3, "type": "Colocviu" },
+    { "name": "Grafică asistată de calculator 1", "credits": 8, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare 1", "credits": 4, "type": "Examen" },
+    { "name": "Algebră liniară, geometrie analitică și diferențială", "credits": 4, "type": "Examen" },
+    { "name": "Fizică", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 1",
+        "Limba germană 1"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Comunicare",
+        "Etică și integritate academică"
+      ]
+    },
+    { "name": "Educație fizică și sport 1", "credits": 1, "type": "Colocviu" }
+  ],
+  "Robotică (Dual) - Anul 1, Semestrul 2": [
+    { "name": "Grafică asistată de calculator 2", "credits": 5, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare 2", "credits": 5, "type": "Colocviu" },
+    { "name": "Teoria probabilităților și statistică matematică", "credits": 2, "type": "Examen" },
+    { "name": "Analiză matematică", "credits": 4, "type": "Examen" },
+    { "name": "Știința și ingineria materialelor", "credits": 4, "type": "Examen" },
+    { "name": "Metode numerice", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 2",
+        "Limba germană 2"
+      ]
+    },
+    {
+      "name": "Opțional 4",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Istoria tehnicii",
+        "Cultură și civilizație"
+      ]
+    },
+    { "name": "Educație fizică și sport 2", "credits": 1, "type": "Colocviu" }
+  ],
+  "Robotică (Dual) - Anul 2, Semestrul 1": [
+    { "name": "Bazele sistemelor mecatronice", "credits": 3, "type": "Colocviu" },
+    { "name": "Electronică", "credits": 3, "type": "Colocviu" },
+    { "name": "Rezistența materialelor", "credits": 7, "type": "Examen" },
+    { "name": "Mecanică", "credits": 7, "type": "Examen" },
+    { "name": "Arhitectura calculatoarelor numerice", "credits": 4, "type": "Examen" },
+    { "name": "Electrotehnică", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 5",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 3",
+        "Limba germană 3"
+      ]
+    }
+  ],
+  "Robotică (Dual) - Anul 2, Semestrul 2": [
+    { "name": "Termotehnică", "credits": 3, "type": "Colocviu" },
+    { "name": "Electronică digitală", "credits": 3, "type": "Colocviu" },
+    { "name": "Electronică de putere", "credits": 3, "type": "Colocviu" },
+    { "name": "Toleranțe și control dimensional", "credits": 4, "type": "Examen" },
+    { "name": "Bazele sistemelor automate", "credits": 5, "type": "Examen" },
+    { "name": "Mecanica fluidelor", "credits": 3, "type": "Examen" },
+    { "name": "Mecanisme și organe de mașini 1", "credits": 5, "type": "Examen" },
+    { "name": "Practică de domeniu", "credits": 4, "type": "Colocviu" }
+  ],
+  "Robotică (Dual) - Anul 3, Semestrul 1": [
+    { "name": "Mecanisme și organe de mașini 2", "credits": 3, "type": "Examen" },
+    { "name": "Proiectarea asistată de calculator", "credits": 5, "type": "Examen" },
+    { "name": "Bazele roboticii", "credits": 5, "type": "Examen" },
+    { "name": "Acționarea hidraulică a roboților industriali 1", "credits": 5, "type": "Examen" },
+    { "name": "Programarea roboților industriali", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 6",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Proiectarea roboților 1",
+        "Proiectarea și exploatarea sistemului mecanic al robotului"
+      ]
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Programarea microcontrolerelor",
+        "Sisteme încorporate"
+      ]
+    }
+  ],
+  "Robotică (Dual) - Anul 3, Semestrul 2": [
+    { "name": "Controlul produselor prin măsurare asistată", "credits": 3, "type": "Colocviu" },
+    { "name": "Mașini și sisteme de producție 2", "credits": 4, "type": "Examen" },
+    { "name": "Sisteme de achiziție de date", "credits": 2, "type": "Colocviu" },
+    { "name": "Acționarea hidraulică a roboților industriali 2", "credits": 3, "type": "Colocviu" },
+    { "name": "Acționarea roboților", "credits": 4, "type": "Examen" },
+    { "name": "Proiectarea roboților 2", "credits": 4, "type": "Examen" },
+    { "name": "Dinamica roboților", "credits": 3, "type": "Examen" },
+    { "name": "Senzori și sisteme senzoriale", "credits": 3, "type": "Examen" },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Robotică (Dual) - Anul 4, Semestrul 1": [
+    { "name": "Sisteme de conducere în robotică", "credits": 4, "type": "Colocviu" },
+    { "name": "Sisteme flexibile de fabricație 1", "credits": 4, "type": "Colocviu" },
+    { "name": "Fiabilitate și diagnoză", "credits": 4, "type": "Examen" },
+    { "name": "Tehnologii de fabricație", "credits": 5, "type": "Examen" },
+    { "name": "Proiectarea asistată de calculator pentru sisteme de fabricație flexibilă", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 9",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Automate programabile",
+        "Dinamica sistemelor mecatronice"
+      ]
+    },
+    {
+      "name": "Opțional 10",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Mașini unelte cu comandă numerică",
+        "Comanda și programarea mașinilor unelte cu comandă numerică"
+      ]
+    }
+  ],
+  "Robotică (Dual) - Anul 4, Semestrul 2": [
+    { "name": "Sisteme auxiliare în robotică", "credits": 2, "type": "Examen" },
+    { "name": "Logistică industrială", "credits": 3, "type": "Colocviu" },
+    { "name": "Sisteme mecatronice", "credits": 3, "type": "Examen" },
+    { "name": "Fabricație virtuală", "credits": 3, "type": "Examen" },
+    { "name": "Analiza cu elemente finite în robotică", "credits": 3, "type": "Examen" },
+    {
+      "name": "Opțional 11",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Ingineria sistemelor de producție",
+        "Ingineria și managementul calității"
+      ]
+    },
+    { "name": "Elaborarea proiectului de diplomă", "credits": 4, "type": "Colocviu" },
+    { "name": "Practică pentru elaborarea proiectului de diplomă", "credits": 10, "type": "Colocviu" }
+  ]
+}

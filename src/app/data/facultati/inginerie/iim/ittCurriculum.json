@@ -1,0 +1,163 @@
+{
+  "Ingineria Transporturilor și a Traficului - Anul 1, Semestrul 1": [
+    { "name": "Algebră Liniară, Geometrie Analitică și Diferențială", "credits": 5, "type": "Examen" },
+    { "name": "Programarea Calculatoarelor și Limbaje de Programare 1", "credits": 5, "type": "Examen" },
+    { "name": "Geometrie Descriptivă", "credits": 5, "type": "Examen" },
+    { "name": "Comunicare", "credits": 4, "type": "Examen" },
+    { "name": "Fizică", "credits": 4, "type": "Colocviu" },
+    { "name": "Chimie", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba Engleză 1",
+        "Limba Germană 1"
+      ]
+    },
+    { "name": "Educație Fizică și Sport", "credits": 1, "type": "Colocviu" }
+  ],
+  "Ingineria Transporturilor și a Traficului - Anul 1, Semestrul 2": [
+    { "name": "Analiză Matematică", "credits": 4, "type": "Examen" },
+    { "name": "Programarea Calculatoarelor și Limbaje de Programare 2", "credits": 4, "type": "Colocviu" },
+    { "name": "Desen Tehnic și Infografică 1", "credits": 5, "type": "Colocviu" },
+    { "name": "Mecanică", "credits": 5, "type": "Examen" },
+    { "name": "Teoria probabilităților și statistică matematică", "credits": 4, "type": "Examen" },
+    { "name": "Știința și Ingineria Materialelor", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 2",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba Engleză 2",
+        "Limba Germană 2"
+      ]
+    },
+    { "name": "Educație Fizică și Sport", "credits": 1, "type": "Colocviu" }
+  ],
+  "Ingineria Transporturilor și a Traficului - Anul 2, Semestrul 1": [
+    { "name": "Electrotehnică și acționări electrice", "credits": 4, "type": "Colocviu" },
+    { "name": "Desen Tehnic și Infografică 2", "credits": 5, "type": "Examen" },
+    { "name": "Mecanisme", "credits": 5, "type": "Examen" },
+    { "name": "Rezistența materialelor", "credits": 5, "type": "Examen" },
+    { "name": "Matematici speciale", "credits": 4, "type": "Colocviu" },
+    { "name": "Cunoașterea automobilelor și a circulației rutiere", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba Engleză 3",
+        "Limba Germană 3"
+      ]
+    }
+  ],
+  "Ingineria Transporturilor și a Traficului - Anul 2, Semestrul 2": [
+    { "name": "Protecția mediului", "credits": 3, "type": "Colocviu" },
+    { "name": "Marketing în transporturi", "credits": 4, "type": "Colocviu" },
+    { "name": "Organe de mașini", "credits": 5, "type": "Examen" },
+    { "name": "Termotehnică", "credits": 3, "type": "Examen" },
+    { "name": "Instalații de control și comanda circulației", "credits": 4, "type": "Examen" },
+    { "name": "Mijloace de transport", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 4",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Siguranța pasivă a autovehiculelor",
+        "Bazele sistemelor automate în transporturi"
+      ]
+    },
+    { "name": "Practică de domeniu", "credits": 4, "type": "Colocviu" }
+  ],
+  "Ingineria Transporturilor și a Traficului - Anul 3, Semestrul 1": [
+    { "name": "Infrastructură rutieră", "credits": 4, "type": "Examen" },
+    { "name": "Telematica rutieră", "credits": 4, "type": "Colocviu" },
+    { "name": "Politici investiționale în transporturi", "credits": 4, "type": "Colocviu" },
+    { "name": "Mecanica fluidelor", "credits": 5, "type": "Examen" },
+    { "name": "Motoare cu ardere internă", "credits": 4, "type": "Examen" },
+    { "name": "Motoare cu ardere internă - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    {
+      "name": "Opțional 5",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Trafic rutier",
+        "Proiectarea și modernizarea fluxurilor de circulație"
+      ]
+    },
+    {
+      "name": "Opțional 6",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Economia transporturilor",
+        "Geografia economică a sistemelor de transport"
+      ]
+    }
+  ],
+  "Ingineria Transporturilor și a Traficului - Anul 3, Semestrul 2": [
+    { "name": "Mașini și instalații pentru manipularea mărfurilor", "credits": 3, "type": "Examen" },
+    { "name": "Sisteme de transport", "credits": 5, "type": "Examen" },
+    { "name": "Terminale de transport", "credits": 3, "type": "Examen" },
+    { "name": "Terminale de transport - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Calitate în transporturi", "credits": 3, "type": "Examen" },
+    { "name": "Evaluarea riscurilor, asigurări și tehnici de comercializare a autovehiculelor", "credits": 3, "type": "Examen" },
+    { "name": "Confortabilitate și ergonomie", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 7",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Transport public de persoane",
+        "Transport public urban și periurban"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Ingineria Transporturilor și a Traficului - Anul 4, Semestrul 1": [
+    { "name": "Sisteme neconvenționale de propulsie și transport", "credits": 4, "type": "Examen" },
+    { "name": "Analize economice în transporturi", "credits": 5, "type": "Examen" },
+    { "name": "Securitatea și siguranța transporturilor", "credits": 3, "type": "Examen" },
+    { "name": "Management", "credits": 3, "type": "Colocviu" },
+    { "name": "Dezvoltarea durabilă în transporturi", "credits": 3, "type": "Colocviu" },
+    { "name": "Fiabilitatea și mentenanța autovehiculelor", "credits": 4, "type": "Colocviu" },
+    { "name": "Fabricarea și repararea autovehiculelor de transport", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 8",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Dinamica și expertiza accidentelor rutiere",
+        "Sisteme auxiliare ale mijloacelor de transport"
+      ]
+    }
+  ],
+  "Ingineria Transporturilor și a Traficului - Anul 4, Semestrul 2": [
+    { "name": "Transporturi multimodale", "credits": 4, "type": "Examen" },
+    { "name": "Echipamente de comandă, control și diagnoză pentru autovehicule", "credits": 3, "type": "Examen" },
+    { "name": "Transporturi speciale", "credits": 3, "type": "Examen" },
+    { "name": "Siguranța circulației", "credits": 3, "type": "Colocviu" },
+    { "name": "Logistica transporturilor", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 9",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Sisteme integrate GIS/GPS",
+        "Geografia transporturilor"
+      ]
+    },
+    { "name": "Elaborarea proiectului de diplomă", "credits": 4, "type": "Colocviu" },
+    { "name": "Practică pentru elaborarea proiectului de diplomă", "credits": 6, "type": "Colocviu" }
+  ]
+}

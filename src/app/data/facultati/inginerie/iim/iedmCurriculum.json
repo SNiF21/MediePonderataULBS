@@ -1,0 +1,196 @@
+{
+  "Inginerie Economică în Domeniul Mecanic - Anul 1, Semestrul 1": [
+    { "name": "Algebră liniară, geometrie analitică și diferențială", "credits": 4, "type": "Examen" },
+    { "name": "Geometrie descriptivă", "credits": 3, "type": "Colocviu" },
+    { "name": "Chimie", "credits": 3, "type": "Colocviu" },
+    { "name": "Fizică", "credits": 3, "type": "Colocviu" },
+    { "name": "Bazele managementului", "credits": 5, "type": "Examen" },
+    { "name": "Educație fizică și sport (1)", "credits": 1, "type": "Colocviu" },
+    {
+      "name": "Opțional 1",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Comunicare",
+        "Etică și integritate academică"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Informatică aplicată (1)",
+        "Programarea calculatoarelor și limbaje de programare (1)"
+      ]
+    },
+    {
+      "name": "Opțional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză (1)",
+        "Limba germană (1)"
+      ]
+    }
+  ],
+  "Inginerie Economică în Domeniul Mecanic - Anul 1, Semestrul 2": [
+    { "name": "Analiză matematică", "credits": 3, "type": "Examen" },
+    { "name": "Știința și ingineria materialelor", "credits": 4, "type": "Examen" },
+    { "name": "Bazele economiei (1)", "credits": 3, "type": "Examen" },
+    { "name": "Mecanică", "credits": 5, "type": "Examen" },
+    { "name": "Marketing", "credits": 5, "type": "Examen" },
+    { "name": "Desen tehnic și infografică (1)", "credits": 4, "type": "Colocviu" },
+    { "name": "Educație fizică și sport (2)", "credits": 1, "type": "Colocviu" },
+    {
+      "name": "Opțional 4",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Informatică aplicată (2)",
+        "Programarea calculatoarelor și limbaje de programare (2)"
+      ]
+    },
+    {
+      "name": "Opțional 5",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză (2)",
+        "Limba germană (2)"
+      ]
+    }
+  ],
+  "Inginerie Economică în Domeniul Mecanic - Anul 2, Semestrul 1": [
+    { "name": "Desen tehnic și infografică (2)", "credits": 4, "type": "Colocviu" },
+    { "name": "Toleranțe și control dimensional", "credits": 4, "type": "Examen" },
+    { "name": "Rezistența materialelor", "credits": 4, "type": "Examen" },
+    { "name": "Mecanica fluidelor și echipamente hidraulice", "credits": 4, "type": "Colocviu" },
+    { "name": "Electrotehnică și mașini electrice", "credits": 4, "type": "Colocviu" },
+    { "name": "Bazele economiei (2)", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 6",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Teoria probabilităților și statistică matematică",
+        "Metode numerice"
+      ]
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză (3)",
+        "Limba germană (3)"
+      ]
+    }
+  ],
+  "Inginerie Economică în Domeniul Mecanic - Anul 2, Semestrul 2": [
+    { "name": "Termotehnică și echipamente termice", "credits": 3, "type": "Colocviu" },
+    { "name": "Mecanisme și organe de mașini", "credits": 3, "type": "Examen" },
+    { "name": "Mecanisme și organe de mașini - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Tehnologia materialelor", "credits": 4, "type": "Examen" },
+    { "name": "Prelucrări prin așchiere", "credits": 5, "type": "Examen" },
+    { "name": "Contabilitate", "credits": 4, "type": "Examen" },
+    { "name": "Cercetări operaționale", "credits": 5, "type": "Examen" },
+    { "name": "Practică", "credits": 4, "type": "Colocviu" }
+  ],
+  "Inginerie Economică în Domeniul Mecanic - Anul 3, Semestrul 1": [
+    { "name": "Ingineria calității", "credits": 4, "type": "Examen" },
+    { "name": "Finanțe și creditare", "credits": 4, "type": "Examen" },
+    { "name": "Managementul mentenanței", "credits": 3, "type": "Examen" },
+    { "name": "Managementul producției și serviciilor", "credits": 5, "type": "Examen" },
+    { "name": "Tranzacții comerciale", "credits": 3, "type": "Colocviu" },
+    { "name": "Dezvoltare durabilă a mediului", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 8",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Acționări și automatizări",
+        "Mașini unelte și roboți industriali"
+      ]
+    },
+    {
+      "name": "Opțional 9",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Bazele prelucrării prin deformare plastică",
+        "Tehnologia construcțiilor sudate"
+      ]
+    },
+    {
+      "name": "Opțional 9 - Proiect",
+      "credits": 2,
+      "type": "Verificare (Proiect)",
+      "isOptional": true,
+      "options": [
+        "Bazele prelucrării prin deformare plastică - Proiect",
+        "Tehnologia construcțiilor sudate - Proiect"
+      ]
+    }
+  ],
+  "Inginerie Economică în Domeniul Mecanic - Anul 3, Semestrul 2": [
+    { "name": "Managementul inovării", "credits": 3, "type": "Colocviu" },
+    { "name": "Managementul proiectelor", "credits": 4, "type": "Examen" },
+    { "name": "Managementul resurselor umane", "credits": 4, "type": "Examen" },
+    { "name": "Managementul logisticii", "credits": 2, "type": "Examen" },
+    { "name": "Managementul logisticii - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Tehnologii de fabricație (1)", "credits": 4, "type": "Examen" },
+    { "name": "Analiză economică și financiară", "credits": 3, "type": "Colocviu" },
+    { "name": "Practică", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 10",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Modelarea și simularea proceselor de producție",
+        "Inginerie concurentă"
+      ]
+    }
+  ],
+  "Inginerie Economică în Domeniul Mecanic - Anul 4, Semestrul 1": [
+    { "name": "Cercetări de marketing", "credits": 4, "type": "Colocviu" },
+    { "name": "Managementul investițiilor", "credits": 5, "type": "Examen" },
+    { "name": "Managementul I.M.M.-urilor", "credits": 5, "type": "Examen" },
+    { "name": "Organizarea întreprinderii", "credits": 4, "type": "Examen" },
+    { "name": "Cultură organizațională", "credits": 3, "type": "Colocviu" },
+    { "name": "Sisteme flexibile de prelucrare", "credits": 4, "type": "Colocviu" },
+    { "name": "Tehnologii de fabricație (2)", "credits": 3, "type": "Examen" },
+    { "name": "Tehnologii de fabricație (2) - Proiect", "credits": 2, "type": "Verificare (Proiect)" }
+  ],
+  "Inginerie Economică în Domeniul Mecanic - Anul 4, Semestrul 2": [
+    { "name": "Economie mondială și relații economice internaționale", "credits": 3, "type": "Colocviu" },
+    { "name": "Dispozitive tehnologice", "credits": 2, "type": "Examen" },
+    { "name": "Dispozitive tehnologice - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Management strategic", "credits": 2, "type": "Examen" },
+    { "name": "Management strategic - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Drept comercial", "credits": 2, "type": "Colocviu" },
+    { "name": "Proiectarea cu ajutorul elementului finit", "credits": 3, "type": "Colocviu" },
+    { "name": "Elaborarea proiectului de diplomă", "credits": 4, "type": "Colocviu" },
+    { "name": "Practică pentru elaborarea proiectului de diplomă", "credits": 6, "type": "Colocviu" },
+    {
+      "name": "Opțional 11",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Sisteme informatice de gestiune",
+        "Metodele cercetării operaționale în managementul industrial"
+      ]
+    }
+  ]
+}

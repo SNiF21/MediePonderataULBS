@@ -32,6 +32,22 @@ export type StudyMajor =
   | 'Calculatoare'
   | 'Tehnologia Informației'
   | 'Ingineria Sistemelor Multimedia'
+  | 'Electronică Aplicată'
+  | 'Electronică Aplicată (Dual)'
+  | 'Electromecanică'
+  | 'Ingineria Transporturilor și a Traficului'
+  | 'Transportul, Depozitarea și Distribuția Hidrocarburilor'
+  | 'Transportul, Depozitarea și Distribuția Hidrocarburilor (FR)'
+  | 'Tehnologia Construcțiilor de Mașini'
+  | 'Inginerie Economică în Domeniul Mecanic'
+  | 'Inginerie Economică în Domeniul Mecanic (ID)'
+  | 'Inginerie Economică Industrială'
+  | 'Mecatronică'
+  | 'Mecatronică (în limba engleză)'
+  | 'Mecatronică (Dual)'
+  | 'Robotică'
+  | 'Robotică (Dual)'
+  | 'Sisteme de Producție Digitale'
   | 'Management'
   | 'Informatică'
   | 'Matematică Informatică'
@@ -41,6 +57,22 @@ export const STUDY_MAJORS: StudyMajor[] = [
   'Calculatoare',
   'Tehnologia Informației',
   'Ingineria Sistemelor Multimedia',
+  'Electronică Aplicată',
+  'Electronică Aplicată (Dual)',
+  'Electromecanică',
+  'Ingineria Transporturilor și a Traficului',
+  'Transportul, Depozitarea și Distribuția Hidrocarburilor',
+  'Transportul, Depozitarea și Distribuția Hidrocarburilor (FR)',
+  'Tehnologia Construcțiilor de Mașini',
+  'Inginerie Economică în Domeniul Mecanic',
+  'Inginerie Economică în Domeniul Mecanic (ID)',
+  'Inginerie Economică Industrială',
+  'Mecatronică',
+  'Mecatronică (în limba engleză)',
+  'Mecatronică (Dual)',
+  'Robotică',
+  'Robotică (Dual)',
+  'Sisteme de Producție Digitale',
   'Management',
   'Informatică',
   'Matematică Informatică',
@@ -76,6 +108,36 @@ export const FACULTIES: FacultyOption[] = [
           'Calculatoare',
           'Tehnologia Informației',
           'Ingineria Sistemelor Multimedia',
+          'Electronică Aplicată',
+          'Electronică Aplicată (Dual)',
+          'Electromecanică',
+        ],
+      },
+      {
+        id: 'iim',
+        name: 'Inginerie Industrială și Management (IIM)',
+        shortName: 'IIM',
+        majors: [
+          'Ingineria Transporturilor și a Traficului',
+          'Transportul, Depozitarea și Distribuția Hidrocarburilor',
+          'Transportul, Depozitarea și Distribuția Hidrocarburilor (FR)',
+          'Tehnologia Construcțiilor de Mașini',
+          'Inginerie Economică în Domeniul Mecanic',
+          'Inginerie Economică în Domeniul Mecanic (ID)',
+        ],
+      },
+      {
+        id: 'mei',
+        name: 'Mașini și Echipamente Industriale (MEI)',
+        shortName: 'MEI',
+        majors: [
+          'Inginerie Economică Industrială',
+          'Mecatronică',
+          'Mecatronică (în limba engleză)',
+          'Mecatronică (Dual)',
+          'Robotică',
+          'Robotică (Dual)',
+          'Sisteme de Producție Digitale',
         ],
       },
     ],
@@ -247,6 +309,22 @@ export const MAJOR_TOTAL_YEARS: Record<string, number> = {
   Calculatoare: 4,
   'Tehnologia Informației': 4,
   'Ingineria Sistemelor Multimedia': 4,
+  'Electronică Aplicată': 4,
+  'Electronică Aplicată (Dual)': 4,
+  Electromecanică: 4,
+  'Ingineria Transporturilor și a Traficului': 4,
+  'Transportul, Depozitarea și Distribuția Hidrocarburilor': 4,
+  'Transportul, Depozitarea și Distribuția Hidrocarburilor (FR)': 4,
+  'Tehnologia Construcțiilor de Mașini': 4,
+  'Inginerie Economică în Domeniul Mecanic': 4,
+  'Inginerie Economică în Domeniul Mecanic (ID)': 4,
+  'Inginerie Economică Industrială': 4,
+  Mecatronică: 4,
+  'Mecatronică (în limba engleză)': 4,
+  'Mecatronică (Dual)': 4,
+  Robotică: 4,
+  'Robotică (Dual)': 4,
+  'Sisteme de Producție Digitale': 4,
   Management: 3,
   Informatică: 3,
   'Matematică Informatică': 3,

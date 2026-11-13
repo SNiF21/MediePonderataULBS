@@ -1,0 +1,159 @@
+{
+  "Electromecanică - Anul 1, Semestrul 1": [
+    { "name": "Analiză matematică", "credits": 6, "type": "Examen" },
+    { "name": "Algebră liniară, geometrie analitică și diferențială", "credits": 5, "type": "Examen" },
+    { "name": "Fizică", "credits": 5, "type": "Examen" },
+    { "name": "Introducere în ingineria electrică", "credits": 4, "type": "Examen" },
+    { "name": "Informatică aplicată", "credits": 4, "type": "Colocviu" },
+    { "name": "Chimie", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 1",
+        "Limba germană 1"
+      ]
+    },
+    { "name": "Educație fizică și sport 1", "credits": 1, "type": "Colocviu" }
+  ],
+  "Electromecanică - Anul 1, Semestrul 2": [
+    { "name": "Matematici speciale", "credits": 5, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare I", "credits": 6, "type": "Examen" },
+    { "name": "Teoria circuitelor electrice", "credits": 6, "type": "Examen" },
+    { "name": "Mecanică", "credits": 4, "type": "Examen" },
+    { "name": "Grafică asistată de calculator", "credits": 4, "type": "Colocviu" },
+    { "name": "Tehnici de comunicare", "credits": 2, "type": "Colocviu" },
+    {
+      "name": "Opțional 2",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 2",
+        "Limba germană 2"
+      ]
+    },
+    { "name": "Educație fizică și sport 2", "credits": 1, "type": "Colocviu" }
+  ],
+  "Electromecanică - Anul 2, Semestrul 1": [
+    { "name": "Teoria câmpului electromagnetic", "credits": 5, "type": "Examen" },
+    { "name": "Electronică", "credits": 5, "type": "Examen" },
+    { "name": "Măsurări electrice și electronice", "credits": 4, "type": "Examen" },
+    { "name": "Rezistența materialelor", "credits": 4, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare II", "credits": 6, "type": "Colocviu" },
+    { "name": "Materiale electrotehnice", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 3",
+        "Limba germană 3"
+      ]
+    }
+  ],
+  "Electromecanică - Anul 2, Semestrul 2": [
+    { "name": "Mașini electrice I", "credits": 5, "type": "Examen" },
+    { "name": "Sisteme digitale", "credits": 4, "type": "Examen" },
+    { "name": "Senzori și traductoare", "credits": 4, "type": "Examen" },
+    { "name": "Traductoare, interfețe și achiziții de date", "credits": 4, "type": "Examen" },
+    { "name": "Inginerie software pentru conducerea proceselor industriale", "credits": 4, "type": "Colocviu" },
+    { "name": "Mecanisme și organe de mașini", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 4",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 4",
+        "Limba germană 4"
+      ]
+    },
+    { "name": "Practică de domeniu", "credits": 4, "type": "Colocviu" }
+  ],
+  "Electromecanică - Anul 3, Semestrul 1": [
+    { "name": "Mașini electrice II", "credits": 5, "type": "Examen" },
+    { "name": "Sisteme cu microprocesoare", "credits": 4, "type": "Examen" },
+    { "name": "Echipamente electrice I", "credits": 4, "type": "Examen" },
+    { "name": "Electronică de putere", "credits": 5, "type": "Examen" },
+    { "name": "Acționări electrice I", "credits": 3, "type": "Colocviu" },
+    { "name": "Teoria sistemelor și reglaj automat", "credits": 4, "type": "Colocviu" },
+    { "name": "Metode numerice", "credits": 5, "type": "Colocviu" }
+  ],
+  "Electromecanică - Anul 3, Semestrul 2": [
+    { "name": "Microcontrolere și automate programabile", "credits": 4, "type": "Examen" },
+    { "name": "Acționări electrice II", "credits": 4, "type": "Examen" },
+    { "name": "Instrumentație industrială", "credits": 4, "type": "Examen" },
+    { "name": "Echipamente electrice II", "credits": 4, "type": "Examen" },
+    { "name": "Echipamente electrice III", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Acționări hidraulice și pneumatice", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 5",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Bazele proiectării asistate",
+        "Proiectarea asistată de calculator a sistemelor electromecanice"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Electromecanică - Anul 4, Semestrul 1": [
+    { "name": "Producerea, transportul și distribuția energiei electrice", "credits": 4, "type": "Examen" },
+    { "name": "Mașini electrice speciale", "credits": 4, "type": "Examen" },
+    { "name": "Arhitecturi de calculatoare și sisteme de operare", "credits": 4, "type": "Examen" },
+    { "name": "Surse regenerabile I", "credits": 4, "type": "Examen" },
+    { "name": "Surse regenerabile II", "credits": 2, "type": "Verificare (Proiect)" },
+    {
+      "name": "Opțional 6",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Tehnologii electrice",
+        "Tehnologia fabricației echipamentelor electromecanice"
+      ]
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Tracțiune electrică",
+        "Echipamente electrice și electronice pentru autovehicule"
+      ]
+    },
+    { "name": "Automatizări industriale", "credits": 4, "type": "Colocviu" }
+  ],
+  "Electromecanică - Anul 4, Semestrul 2": [
+    { "name": "Fiabilitate și diagnoză", "credits": 5, "type": "Examen" },
+    { "name": "Sisteme flexibile de fabricație", "credits": 5, "type": "Colocviu" },
+    {
+      "name": "Opțional 8",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Comunicare",
+        "Marketing"
+      ]
+    },
+    {
+      "name": "Opțional 9",
+      "credits": 2,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Management",
+        "Calitate și fiabilitate"
+      ]
+    },
+    { "name": "Elaborarea Proiectului de diplomă", "credits": 4, "type": "Colocviu" },
+    { "name": "Practică pentru Proiectul de Diplomă", "credits": 10, "type": "Colocviu" }
+  ]
+}

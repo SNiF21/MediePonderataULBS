@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { StudyContextService } from './study-context.service';
 import { AuthService } from './auth.service';
 import { FirebaseService } from './firebase.service';
+import { StudyMajor } from '../models/studyProfile';
 
 describe('StudyContextService', () => {
   let service: StudyContextService;
@@ -101,6 +102,88 @@ describe('StudyContextService', () => {
     expect(totalCredits).toBe(30);
   });
 
+  it('should load curriculum subjects for new Engineering majors (CIE, IIM, MEI)', () => {
+    // CIE - Electronică Aplicată
+    service.setProfile('Electronică Aplicată', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'CIE');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // CIE - Electromecanică
+    service.setProfile('Electromecanică', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'CIE');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // MEI - Inginerie Economică Industrială
+    service.setProfile('Inginerie Economică Industrială', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'MEI');
+    expect(service.subjects().length).toBe(9);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // MEI - Mecatronică
+    service.setProfile('Mecatronică', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'MEI');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // MEI - Mecatronică (în limba engleză)
+    service.setProfile('Mecatronică (în limba engleză)', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'MEI');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // MEI - Robotică
+    service.setProfile('Robotică', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'MEI');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // MEI - Robotică (Dual)
+    service.setProfile('Robotică (Dual)', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'MEI');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // MEI - Sisteme de Producție Digitale
+    service.setProfile('Sisteme de Producție Digitale', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'MEI');
+    expect(service.subjects().length).toBe(9);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // IIM - Ingineria Transporturilor și a Traficului
+    service.setProfile('Ingineria Transporturilor și a Traficului', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'IIM');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // IIM - Transportul, Depozitarea și Distribuția Hidrocarburilor
+    service.setProfile('Transportul, Depozitarea și Distribuția Hidrocarburilor', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'IIM');
+    expect(service.subjects().length).toBe(10);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // CIE - Electronică Aplicată (Dual)
+    service.setProfile('Electronică Aplicată (Dual)', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'CIE');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // IIM - Inginerie Economică în Domeniul Mecanic (ID)
+    service.setProfile('Inginerie Economică în Domeniul Mecanic (ID)', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'IIM');
+    expect(service.subjects().length).toBe(9);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // IIM - Transportul, Depozitarea și Distribuția Hidrocarburilor (FR)
+    service.setProfile('Transportul, Depozitarea și Distribuția Hidrocarburilor (FR)', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'IIM');
+    expect(service.subjects().length).toBe(10);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // MEI - Mecatronică (Dual)
+    service.setProfile('Mecatronică (Dual)', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'MEI');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // IIM - Inginerie Economică în Domeniul Mecanic
+    service.setProfile('Inginerie Economică în Domeniul Mecanic', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'IIM');
+    expect(service.subjects().length).toBe(9);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+
+    // IIM - Tehnologia Construcțiilor de Mașini
+    service.setProfile('Tehnologia Construcțiilor de Mașini', 'I', 'Semestrul I', 'Facultatea de Inginerie', 'IIM');
+    expect(service.subjects().length).toBe(8);
+    expect(service.subjects().reduce((sum, s) => sum + s.credits, 0)).toBe(30);
+  });
+
   it('should return 3 years for 3-year majors and 4 years for 4-year majors', () => {
     service.setMajor('Calculatoare');
     expect(service.years().length).toBe(4);
@@ -145,5 +228,64 @@ describe('StudyContextService', () => {
     );
     expect(service.major()).toBe('Management');
     expect(service.year()).toBe('III');
+  });
+
+  it('should have exactly 30 credits for every semester in Mecatronică, Robotică, IEDM, TCM and their variants', () => {
+    const years: ('I' | 'II' | 'III' | 'IV')[] = ['I', 'II', 'III', 'IV'];
+    const semesters: ('Semestrul I' | 'Semestrul II')[] = ['Semestrul I', 'Semestrul II'];
+    const meiMajors: StudyMajor[] = [
+      'Mecatronică',
+      'Mecatronică (în limba engleză)',
+      'Mecatronică (Dual)',
+      'Robotică',
+      'Robotică (Dual)',
+      'Sisteme de Producție Digitale',
+    ];
+    const iimMajors: StudyMajor[] = [
+      'Inginerie Economică în Domeniul Mecanic',
+      'Inginerie Economică în Domeniul Mecanic (ID)',
+      'Tehnologia Construcțiilor de Mașini',
+      'Transportul, Depozitarea și Distribuția Hidrocarburilor',
+      'Transportul, Depozitarea și Distribuția Hidrocarburilor (FR)',
+    ];
+    const cieMajors: StudyMajor[] = [
+      'Electronică Aplicată (Dual)',
+    ];
+
+    for (const major of meiMajors) {
+      for (const y of years) {
+        for (const s of semesters) {
+          service.setProfile(major, y, s, 'Facultatea de Inginerie', 'MEI');
+          const subs = service.subjects();
+          expect(subs.length).toBeGreaterThan(0);
+          const totalCredits = subs.reduce((sum, item) => sum + item.credits, 0);
+          expect(totalCredits).toBe(30);
+        }
+      }
+    }
+
+    for (const major of iimMajors) {
+      for (const y of years) {
+        for (const s of semesters) {
+          service.setProfile(major, y, s, 'Facultatea de Inginerie', 'IIM');
+          const subs = service.subjects();
+          expect(subs.length).toBeGreaterThan(0);
+          const totalCredits = subs.reduce((sum, item) => sum + item.credits, 0);
+          expect(totalCredits).toBe(30);
+        }
+      }
+    }
+
+    for (const major of cieMajors) {
+      for (const y of years) {
+        for (const s of semesters) {
+          service.setProfile(major, y, s, 'Facultatea de Inginerie', 'CIE');
+          const subs = service.subjects();
+          expect(subs.length).toBeGreaterThan(0);
+          const totalCredits = subs.reduce((sum, item) => sum + item.credits, 0);
+          expect(totalCredits).toBe(30);
+        }
+      }
+    }
   });
 });

@@ -1,0 +1,174 @@
+{
+  "Sisteme de Producție Digitale - Anul 1, Semestrul 1": [
+    { "name": "Algebră liniară, geometrie analitică și diferențială", "credits": 5, "type": "Examen" },
+    { "name": "Geometrie descriptivă", "credits": 5, "type": "Colocviu" },
+    { "name": "Știința materialelor", "credits": 5, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare 1", "credits": 5, "type": "Examen" },
+    { "name": "Fizică 1", "credits": 3, "type": "Examen" },
+    { "name": "Chimie", "credits": 2, "type": "Colocviu" },
+    {
+      "name": "Opțional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Bazele ingineriei industriale",
+        "Etică și integritate academică"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 1",
+        "Limba germană 1"
+      ]
+    },
+    { "name": "Educație fizică și sport 1", "credits": 1, "type": "Colocviu" }
+  ],
+  "Sisteme de Producție Digitale - Anul 1, Semestrul 2": [
+    { "name": "Mecanică 1", "credits": 5, "type": "Examen" },
+    { "name": "Analiză matematică", "credits": 5, "type": "Examen" },
+    { "name": "Teoria probabilităților și statistică matematică", "credits": 5, "type": "Examen" },
+    { "name": "Desen tehnic și infografică", "credits": 5, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare 2", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Istoria tehnicii",
+        "Cultură și civilizație"
+      ]
+    },
+    {
+      "name": "Opțional 4",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 2",
+        "Limba germană 2"
+      ]
+    },
+    { "name": "Educație fizică și sport 2", "credits": 1, "type": "Colocviu" }
+  ],
+  "Sisteme de Producție Digitale - Anul 2, Semestrul 1": [
+    { "name": "Rezistența materialelor 1", "credits": 5, "type": "Examen" },
+    { "name": "Mecanică 2", "credits": 5, "type": "Examen" },
+    { "name": "Tehnologia materialelor", "credits": 4, "type": "Examen" },
+    { "name": "Electrotehnică", "credits": 2, "type": "Colocviu" },
+    { "name": "Ingineria calității", "credits": 3, "type": "Colocviu" },
+    { "name": "Proiectarea asistată de calculator a produselor - sisteme CAD", "credits": 5, "type": "Colocviu" },
+    { "name": "Toleranțe și control dimensional 1", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 5",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 3",
+        "Limba germană 3"
+      ]
+    }
+  ],
+  "Sisteme de Producție Digitale - Anul 2, Semestrul 2": [
+    { "name": "Rezistența materialelor 2", "credits": 5, "type": "Examen" },
+    { "name": "Organe de mașini 1", "credits": 4, "type": "Examen" },
+    { "name": "Termotehnică", "credits": 3, "type": "Colocviu" },
+    { "name": "Mecanisme", "credits": 3, "type": "Examen" },
+    { "name": "Bazele așchierii și generării suprafețelor 1", "credits": 3, "type": "Examen" },
+    { "name": "Mecanica fluidelor", "credits": 3, "type": "Colocviu" },
+    { "name": "Toleranțe și control dimensional 2", "credits": 3, "type": "Examen" },
+    {
+      "name": "Opțional 6",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Marketing",
+        "Comunicare"
+      ]
+    },
+    { "name": "Practică de domeniu", "credits": 4, "type": "Colocviu" }
+  ],
+  "Sisteme de Producție Digitale - Anul 3, Semestrul 1": [
+    { "name": "Economie generală", "credits": 2, "type": "Colocviu" },
+    { "name": "Organe de mașini 2", "credits": 5, "type": "Examen" },
+    { "name": "Bazele așchierii și generării suprafețelor 2", "credits": 3, "type": "Colocviu" },
+    { "name": "Mașini unelte", "credits": 4, "type": "Examen" },
+    { "name": "Acționări electrice pentru mașini unelte", "credits": 4, "type": "Examen" },
+    { "name": "Scule așchietoare", "credits": 4, "type": "Examen" },
+    { "name": "Acționări hidraulice și pneumatice 1", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 7",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Teoria sistemelor automate",
+        "Dinamica mașinilor și utilajelor"
+      ]
+    }
+  ],
+  "Sisteme de Producție Digitale - Anul 3, Semestrul 2": [
+    { "name": "Automatizarea sistemelor de fabricație 1", "credits": 3, "type": "Colocviu" },
+    { "name": "Roboți industriali", "credits": 4, "type": "Examen" },
+    { "name": "Acționări hidraulice și pneumatice 2", "credits": 4, "type": "Examen" },
+    { "name": "Proiectarea mașinilor unelte și sistemelor de producție 1", "credits": 4, "type": "Examen" },
+    { "name": "Mașini-unelte pentru prelucrări prin deformare plastică 1", "credits": 4, "type": "Examen" },
+    { "name": "Tratamente termice", "credits": 2, "type": "Colocviu" },
+    {
+      "name": "Opțional 8",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Sisteme de producție inteligente",
+        "Comanda și programarea mașinilor-unelte cu comandă numerică"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Sisteme de Producție Digitale - Anul 4, Semestrul 1": [
+    { "name": "Sisteme flexibile de fabricație", "credits": 5, "type": "Colocviu" },
+    { "name": "Proiectarea mașinilor unelte și sistemelor de producție 2", "credits": 4, "type": "Examen" },
+    { "name": "Proiectarea mașinilor unelte și sistemelor de producție 2 - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Mașini-unelte pentru prelucrări prin deformare plastică 2", "credits": 5, "type": "Examen" },
+    { "name": "Automatizarea sistemelor de fabricație 2", "credits": 5, "type": "Examen" },
+    { "name": "Proiectarea asistată a mașinilor și utilajelor", "credits": 3, "type": "Examen" },
+    { "name": "Proiectarea asistată a mașinilor și utilajelor - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Management industrial", "credits": 4, "type": "Colocviu" }
+  ],
+  "Sisteme de Producție Digitale - Anul 4, Semestrul 2": [
+    { "name": "Sisteme pentru prelucrarea materialelor nemetalice", "credits": 3, "type": "Colocviu" },
+    { "name": "Dispozitive pentru mașini unelte", "credits": 3, "type": "Colocviu" },
+    { "name": "Tehnologia fabricării mașinilor și utilajelor", "credits": 3, "type": "Examen" },
+    { "name": "Modelarea și simularea sistemelor de producție", "credits": 3, "type": "Examen" },
+    {
+      "name": "Opțional 9",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Bazele ingineriei industriale",
+        "Etică și integritate academică"
+      ]
+    },
+    {
+      "name": "Opțional 10",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Fiabilitate și mentenanță",
+        "Întreținerea și exploatarea mașinilor unelte"
+      ]
+    },
+    { "name": "Elaborarea proiectului de diplomă", "credits": 4, "type": "Colocviu" },
+    { "name": "Practică pentru elaborarea proiectului de diplomă", "credits": 10, "type": "Colocviu" }
+  ]
+}

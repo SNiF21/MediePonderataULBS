@@ -1,0 +1,183 @@
+{
+  "Tehnologia Construcțiilor de Mașini - Anul 1, Semestrul 1": [
+    { "name": "Algebră liniară, geometrie analitică și diferențială", "credits": 5, "type": "Examen" },
+    { "name": "Geometrie descriptivă", "credits": 5, "type": "Colocviu" },
+    { "name": "Știința materialelor", "credits": 5, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare 1", "credits": 6, "type": "Examen" },
+    { "name": "Fizică 1", "credits": 4, "type": "Examen" },
+    { "name": "Chimie", "credits": 2, "type": "Colocviu" },
+    {
+      "name": "Opțional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 1",
+        "Limba germană 1"
+      ]
+    },
+    { "name": "Educație fizică și sport 1", "credits": 1, "type": "Colocviu" }
+  ],
+  "Tehnologia Construcțiilor de Mașini - Anul 1, Semestrul 2": [
+    { "name": "Mecanică 1", "credits": 6, "type": "Examen" },
+    { "name": "Analiză matematică", "credits": 4, "type": "Examen" },
+    { "name": "Teoria probabilităților și statistică matematică", "credits": 4, "type": "Examen" },
+    { "name": "Desen tehnic și infografică", "credits": 6, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare 2", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 2",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Istoria tehnicii",
+        "Cultură și civilizație"
+      ]
+    },
+    {
+      "name": "Opțional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 2",
+        "Limba germană 2"
+      ]
+    },
+    { "name": "Educație fizică și sport 2", "credits": 1, "type": "Colocviu" }
+  ],
+  "Tehnologia Construcțiilor de Mașini - Anul 2, Semestrul 1": [
+    { "name": "Rezistența materialelor 1", "credits": 5, "type": "Examen" },
+    { "name": "Mecanică 2", "credits": 5, "type": "Examen" },
+    { "name": "Tehnologia materialelor", "credits": 4, "type": "Examen" },
+    { "name": "Electrotehnică", "credits": 2, "type": "Colocviu" },
+    { "name": "Management industrial", "credits": 3, "type": "Colocviu" },
+    { "name": "Proiectarea asistată de calculator a produselor - sisteme CAD", "credits": 5, "type": "Colocviu" },
+    { "name": "Toleranțe și control dimensional 1", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 4",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 3",
+        "Limba germană 3"
+      ]
+    }
+  ],
+  "Tehnologia Construcțiilor de Mașini - Anul 2, Semestrul 2": [
+    { "name": "Rezistența materialelor 2", "credits": 5, "type": "Examen" },
+    { "name": "Organe de mașini 1", "credits": 3, "type": "Examen" },
+    { "name": "Termotehnică", "credits": 4, "type": "Colocviu" },
+    { "name": "Mecanisme", "credits": 3, "type": "Examen" },
+    { "name": "Bazele așchierii și generării suprafețelor 1", "credits": 3, "type": "Examen" },
+    { "name": "Mecanica fluidelor", "credits": 3, "type": "Colocviu" },
+    { "name": "Toleranțe și control dimensional 2", "credits": 3, "type": "Examen" },
+    {
+      "name": "Opțional 5",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Marketing",
+        "Conceptul de produs și promovarea produsului"
+      ]
+    },
+    { "name": "Practică de domeniu", "credits": 4, "type": "Colocviu" }
+  ],
+  "Tehnologia Construcțiilor de Mașini - Anul 3, Semestrul 1": [
+    { "name": "Organe de mașini 2", "credits": 5, "type": "Examen" },
+    { "name": "Bazele așchierii și generării suprafețelor 2", "credits": 3, "type": "Examen" },
+    { "name": "Tehnologii de prelucrare prin deformare plastică la rece 1", "credits": 4, "type": "Examen" },
+    { "name": "Bazele proiectării tehnologice asistate de calculator", "credits": 3, "type": "Colocviu" },
+    { "name": "Economie generală", "credits": 2, "type": "Colocviu" },
+    { "name": "Mașini unelte 1", "credits": 4, "type": "Colocviu" },
+    { "name": "Scule așchietoare 1", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 6",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Bazele creației tehnice",
+        "Managementul riscului"
+      ]
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 3,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Tratamente termice",
+        "Ecologie și protecția mediului"
+      ]
+    }
+  ],
+  "Tehnologia Construcțiilor de Mașini - Anul 3, Semestrul 2": [
+    { "name": "Mașini unelte 2", "credits": 3, "type": "Examen" },
+    { "name": "Scule așchietoare 2", "credits": 4, "type": "Examen" },
+    { "name": "Tehnologii de prelucrare prin deformare plastică la rece 2", "credits": 5, "type": "Examen" },
+    { "name": "Automatizarea proceselor tehnologice", "credits": 3, "type": "Colocviu" },
+    { "name": "Tehnologia construcțiilor de mașini 1", "credits": 5, "type": "Examen" },
+    { "name": "Dispozitive tehnologice 1", "credits": 3, "type": "Colocviu" },
+    { "name": "Tehnologii de procesare a materialelor polimerice", "credits": 3, "type": "Colocviu" },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Tehnologia Construcțiilor de Mașini - Anul 4, Semestrul 1": [
+    { "name": "Tehnologia construcțiilor de mașini 2", "credits": 4, "type": "Examen" },
+    { "name": "Tehnologia construcțiilor de mașini 2 - Proiect", "credits": 2, "type": "Verificare (Proiect)" },
+    { "name": "Proiectarea tehnologiilor pe sisteme flexibile de fabricație", "credits": 4, "type": "Examen" },
+    { "name": "Fabricația asistată de calculator - sisteme CAM", "credits": 4, "type": "Examen" },
+    { "name": "Tehnologii de prelucrare pe MUCN", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 8",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Dispozitive tehnologice 2",
+        "Proiectarea asistată a dispozitivelor tehnologice"
+      ]
+    },
+    {
+      "name": "Opțional 8 - Proiect",
+      "credits": 2,
+      "type": "Verificare (Proiect)",
+      "isOptional": true,
+      "options": [
+        "Dispozitive tehnologice - Proiect",
+        "Proiectarea asistată a dispozitivelor tehnologice - Proiect"
+      ]
+    },
+    {
+      "name": "Opțional 9",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Tehnici de prezentare",
+        "Etică și integritate academică"
+      ]
+    },
+    {
+      "name": "Opțional 10",
+      "credits": 5,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Logistică",
+        "Managementul producției și al operațiilor"
+      ]
+    }
+  ],
+  "Tehnologia Construcțiilor de Mașini - Anul 4, Semestrul 2": [
+    { "name": "Tehnologia construcțiilor de mașini 3", "credits": 4, "type": "Examen" },
+    { "name": "Proiectarea parametrizată asistată de calculator a ștanțelor și matrițelor", "credits": 3, "type": "Colocviu" },
+    { "name": "Ingineria calității", "credits": 3, "type": "Examen" },
+    { "name": "Inginerie concurentă", "credits": 4, "type": "Examen" },
+    { "name": "Tehnologii de asamblare", "credits": 2, "type": "Examen" },
+    { "name": "Elaborarea proiectului de diplomă", "credits": 4, "type": "Colocviu" },
+    { "name": "Practică pentru proiectul de diplomă", "credits": 10, "type": "Colocviu" }
+  ]
+}

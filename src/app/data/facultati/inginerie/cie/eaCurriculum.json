@@ -1,0 +1,167 @@
+{
+  "Electronică Aplicată - Anul 1, Semestrul 1": [
+    { "name": "Analiză matematică", "credits": 5, "type": "Examen" },
+    { "name": "Algebră liniară, geometrie analitică și diferențială", "credits": 5, "type": "Examen" },
+    { "name": "Fizică", "credits": 5, "type": "Examen" },
+    { "name": "Introducere în ingineria electrică", "credits": 5, "type": "Examen" },
+    { "name": "Informatică aplicată", "credits": 4, "type": "Colocviu" },
+    { "name": "Chimie", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 1",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 1",
+        "Limba germană 1"
+      ]
+    },
+    { "name": "Educație fizică și sport 1", "credits": 1, "type": "Colocviu" }
+  ],
+  "Electronică Aplicată - Anul 1, Semestrul 2": [
+    { "name": "Matematici speciale", "credits": 5, "type": "Examen" },
+    { "name": "Programarea calculatoarelor și limbaje de programare", "credits": 6, "type": "Examen" },
+    { "name": "Bazele electrotehnicii I", "credits": 5, "type": "Examen" },
+    { "name": "Dispozitive electronice", "credits": 5, "type": "Examen" },
+    { "name": "Grafică asistată de calculator", "credits": 4, "type": "Colocviu" },
+    { "name": "Tehnici de comunicare", "credits": 2, "type": "Colocviu" },
+    {
+      "name": "Opțional 2",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 2",
+        "Limba germană 2"
+      ]
+    },
+    { "name": "Educație fizică și sport 2", "credits": 1, "type": "Colocviu" }
+  ],
+  "Electronică Aplicată - Anul 2, Semestrul 1": [
+    { "name": "Teoria probabilităților și statistică matematică", "credits": 5, "type": "Examen" },
+    { "name": "Circuite electronice fundamentale", "credits": 5, "type": "Examen" },
+    { "name": "Bazele electrotehnicii II", "credits": 5, "type": "Examen" },
+    { "name": "Instrumentație electronică de măsură", "credits": 4, "type": "Examen" },
+    { "name": "Semnale și sisteme", "credits": 4, "type": "Colocviu" },
+    { "name": "Programare obiect-orientată", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 3",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 3",
+        "Limba germană 3"
+      ]
+    }
+  ],
+  "Electronică Aplicată - Anul 2, Semestrul 2": [
+    { "name": "Circuite integrate analogice", "credits": 4, "type": "Examen" },
+    { "name": "Circuite integrate digitale", "credits": 4, "type": "Examen" },
+    { "name": "Teoria transmisiunii informației", "credits": 4, "type": "Examen" },
+    { "name": "Bazele sistemelor de achiziții de date", "credits": 4, "type": "Examen" },
+    { "name": "Programare în Matlab", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 4",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Programare Web",
+        "Limbaje de descriere hardware"
+      ]
+    },
+    {
+      "name": "Opțional 5",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Limba engleză 4",
+        "Limba germană 4"
+      ]
+    },
+    { "name": "Practică de domeniu", "credits": 4, "type": "Colocviu" }
+  ],
+  "Electronică Aplicată - Anul 3, Semestrul 1": [
+    { "name": "Electronica de putere", "credits": 5, "type": "Examen" },
+    { "name": "Elemente de reglare și control", "credits": 5, "type": "Examen" },
+    { "name": "Arhitectura microprocesoarelor", "credits": 5, "type": "Examen" },
+    { "name": "Tehnici CAD în realizarea modulelor electronice", "credits": 5, "type": "Examen" },
+    { "name": "Metode numerice", "credits": 5, "type": "Colocviu" },
+    { "name": "Interfețe și comunicații de date I", "credits": 5, "type": "Colocviu" }
+  ],
+  "Electronică Aplicată - Anul 3, Semestrul 2": [
+    { "name": "Mașini și acționări electrice", "credits": 4, "type": "Examen" },
+    { "name": "Microcontrollere", "credits": 4, "type": "Examen" },
+    { "name": "Instrumentație virtuală", "credits": 4, "type": "Examen" },
+    { "name": "Prelucrarea digitală a semnalelor I", "credits": 4, "type": "Examen" },
+    { "name": "Rețele de calculatoare", "credits": 4, "type": "Colocviu" },
+    { "name": "Interfețe și comunicații de date II", "credits": 2, "type": "Verificare (Proiect)" },
+    {
+      "name": "Opțional 6",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Electronică medicală",
+        "Inteligență Artificială"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Electronică Aplicată - Anul 4, Semestrul 1": [
+    { "name": "Compatibilitate Electromagnetică", "credits": 5, "type": "Examen" },
+    { "name": "Comunicații mobile prin satelit", "credits": 5, "type": "Examen" },
+    { "name": "Automatizări în electronica industrială", "credits": 5, "type": "Examen" },
+    { "name": "Surse de energie alternative", "credits": 4, "type": "Colocviu" },
+    { "name": "Prelucrarea digitală a semnalelor II", "credits": 2, "type": "Verificare (Proiect)" },
+    {
+      "name": "Opțional 7",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Arhitectura sistemelor de calcul",
+        "Procesarea numerică a imaginilor"
+      ]
+    },
+    {
+      "name": "Opțional 8",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Testarea echipamentelor electronice",
+        "Transmisia optică a informației"
+      ]
+    }
+  ],
+  "Electronică Aplicată - Anul 4, Semestrul 2": [
+    { "name": "Televiziune", "credits": 4, "type": "Examen" },
+    { "name": "Modelarea și simularea sistemelor", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 9",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Rețele neurale și sisteme fuzzy",
+        "Fiabilitatea sistemelor electronice"
+      ]
+    },
+    { "name": "Comunicare și relații publice", "credits": 2, "type": "Colocviu" },
+    {
+      "name": "Opțional 10",
+      "credits": 2,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Management",
+        "Marketing"
+      ]
+    },
+    { "name": "Elaborarea Proiectului de diplomă", "credits": 4, "type": "Colocviu" },
+    { "name": "Practică pentru Proiectul de Diplomă", "credits": 10, "type": "Colocviu" }
+  ]
+}
