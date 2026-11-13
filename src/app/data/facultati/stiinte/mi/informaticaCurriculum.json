@@ -1,0 +1,110 @@
+{
+  "Informatică - Anul 1, Semestrul 1": [
+    { "name": "Algoritmi fundamentali", "credits": 5, "type": "Examen" },
+    { "name": "Arhitectura sistemelor de calcul", "credits": 5, "type": "Examen" },
+    { "name": "Fundamentele programării", "credits": 5, "type": "Examen" },
+    { "name": "Redactare și comunicare științifică și profesională", "credits": 4, "type": "Examen" },
+    { "name": "Analiză matematică", "credits": 4, "type": "Examen" },
+    { "name": "Software computațional și de simulare", "credits": 4, "type": "Examen" },
+    { "name": "Limbă străină 1", "credits": 2, "type": "Colocviu" },
+    { "name": "Educație fizică", "credits": 1, "type": "Verificare" }
+  ],
+  "Informatică - Anul 1, Semestrul 2": [
+    { "name": "Programare orientată obiect", "credits": 5, "type": "Examen" },
+    { "name": "Logică computațională", "credits": 4, "type": "Examen" },
+    { "name": "Tehnici avansate de programare", "credits": 5, "type": "Examen" },
+    { "name": "Tehnici computaționale pentru forme și suprafețe", "credits": 5, "type": "Examen" },
+    { "name": "Fundamentele algebrice ale informaticii", "credits": 4, "type": "Colocviu" },
+    { "name": "Complemente de analiză matematică", "credits": 4, "type": "Examen" },
+    { "name": "Limbă străină 2", "credits": 2, "type": "Colocviu" },
+    { "name": "Educație fizică", "credits": 1, "type": "Verificare" }
+  ],
+  "Informatică - Anul 2, Semestrul 1": [
+    { "name": "Sisteme de operare", "credits": 5, "type": "Examen" },
+    { "name": "Structuri de date", "credits": 5, "type": "Examen" },
+    { "name": "Baze de date", "credits": 5, "type": "Examen" },
+    { "name": "Probabilități și statistică", "credits": 5, "type": "Colocviu" },
+    { "name": "Dezvoltarea aplicațiilor WEB", "credits": 5, "type": "Examen" },
+    { "name": "Rețele de calculatoare", "credits": 5, "type": "Examen" }
+  ],
+  "Informatică - Anul 2, Semestrul 2": [
+    { "name": "Metode avansate de programare", "credits": 5, "type": "Examen" },
+    { "name": "Calcul diferențial și integral", "credits": 4, "type": "Examen" },
+    { "name": "Inteligență artificială", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 1",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Analiza datelor",
+        "Modelare și simulare"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Algoritmi numerici și computaționali",
+        "Optimizare computațională și metaheuristici"
+      ]
+    },
+    {
+      "name": "Opțional 3",
+      "credits": 3,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Fundamente de antreprenoriat",
+        "Etică profesională și proprietate intelectuală"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Colocviu" }
+  ],
+  "Informatică - Anul 3, Semestrul 1": [
+    { "name": "Limbaje formale și compilatoare", "credits": 5, "type": "Examen" },
+    { "name": "Programare distribuită", "credits": 5, "type": "Examen" },
+    { "name": "Medii și instrumente de programare", "credits": 5, "type": "Examen" },
+    { "name": "Criptografie", "credits": 5, "type": "Examen" },
+    { "name": "Sisteme de gestiune a bazelor de date", "credits": 5, "type": "Colocviu" },
+    {
+      "name": "Opțional 4",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Prelucrarea imaginilor",
+        "Sisteme încorporate"
+      ]
+    }
+  ],
+  "Informatică - Anul 3, Semestrul 2": [
+    { "name": "Introducere în învățare automată", "credits": 5, "type": "Examen" },
+    { "name": "Dezvoltarea aplicațiilor mobile", "credits": 4, "type": "Examen" },
+    { "name": "Algoritmica grafelor", "credits": 4, "type": "Examen" },
+    { "name": "Criminalitate cibernetică", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 5",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Sisteme de operare distribuite",
+        "Fundamentele sistemelor concurente"
+      ]
+    },
+    {
+      "name": "Opțional 6",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Managementul proiectelor",
+        "Sisteme multimedia interactive"
+      ]
+    },
+    { "name": "Elaborarea lucrării de licență", "credits": 4, "type": "Colocviu" }
+  ]
+}

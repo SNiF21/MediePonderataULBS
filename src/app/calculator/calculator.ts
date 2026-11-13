@@ -8,6 +8,7 @@ import { GradesMap, GradesService, OptionsMap } from '../services/grades.service
 import {
   SemesterRoman,
   Subject,
+  YearRoman,
   buildCurriculumKey,
   isOptionalSubject,
   getSubjectOptions,
@@ -518,5 +519,9 @@ export class Calculator {
 
   protected setSemester(s: SemesterRoman): void {
     this.studyContext.setSemester(s);
+  }
+
+  protected setYear(y: YearRoman): void {
+    this.studyContext.setYear(y);
   }
 }

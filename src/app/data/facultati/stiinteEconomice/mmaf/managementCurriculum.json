@@ -1,0 +1,110 @@
+{
+  "Management - Anul 1, Semestrul 1": [
+    { "name": "Microeconomie", "credits": 5, "type": "Examen" },
+    { "name": "Matematică aplicată în economie", "credits": 4, "type": "Examen" },
+    { "name": "Bazele contabilității", "credits": 5, "type": "Examen" },
+    { "name": "Informatică", "credits": 5, "type": "Examen" },
+    { "name": "Dreptul afacerilor", "credits": 3, "type": "Examen" },
+    { "name": "Marketing", "credits": 5, "type": "Examen" },
+    { "name": "Limba străină pentru afaceri", "credits": 3, "type": "Colocviu" },
+    { "name": "Educație fizică", "credits": 1, "type": "Verificare" }
+  ],
+  "Management - Anul 1, Semestrul 2": [
+    { "name": "Macroeconomie", "credits": 6, "type": "Examen" },
+    { "name": "Management", "credits": 6, "type": "Examen" },
+    { "name": "Antreprenoriat", "credits": 3, "type": "Examen" },
+    { "name": "Comunicare de afaceri", "credits": 3, "type": "Examen" },
+    { "name": "Economie europeană", "credits": 5, "type": "Examen" },
+    { "name": "Istorie economică", "credits": 4, "type": "Examen" },
+    { "name": "Limba străină pentru afaceri", "credits": 3, "type": "Colocviu" },
+    { "name": "Educație fizică", "credits": 1, "type": "Verificare" }
+  ],
+  "Management - Anul 2, Semestrul 1": [
+    { "name": "Statistică", "credits": 6, "type": "Examen" },
+    { "name": "Finanțe", "credits": 6, "type": "Examen" },
+    { "name": "Managementul aprovizionării", "credits": 5, "type": "Examen" },
+    { "name": "Comportament organizațional", "credits": 5, "type": "Examen" },
+    { "name": "Managementul calității", "credits": 5, "type": "Examen" },
+    { "name": "Limba străină pentru afaceri", "credits": 3, "type": "Colocviu" },
+    { "name": "Educație fizică", "credits": 1, "type": "Verificare" }
+  ],
+  "Management - Anul 2, Semestrul 2": [
+    { "name": "Managementul investițiilor", "credits": 5, "type": "Examen" },
+    { "name": "Finanțele firmei", "credits": 5, "type": "Examen" },
+    { "name": "Managementul desfacerii", "credits": 5, "type": "Examen" },
+    { "name": "Managementul IMM-urilor", "credits": 5, "type": "Examen" },
+    { "name": "Limba străină pentru afaceri", "credits": 3, "type": "Colocviu" },
+    { "name": "Educație fizică", "credits": 1, "type": "Verificare" },
+    { "name": "Practică de specialitate", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 1",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Contabilitate aplicată",
+        "Management comparat",
+        "Tehnici de negociere",
+        "Econometrie",
+        "Etică și integritate academică"
+      ]
+    }
+  ],
+  "Management - Anul 3, Semestrul 1": [
+    { "name": "Analiza economico-financiară", "credits": 5, "type": "Examen" },
+    { "name": "Proiecte economice", "credits": 5, "type": "Examen" },
+    { "name": "Management strategic", "credits": 5, "type": "Examen" },
+    { "name": "Management operațional", "credits": 5, "type": "Examen" },
+    {
+      "name": "Opțional 2",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Ecotehnologie",
+        "Managementul producției",
+        "Metode cantitative în management",
+        "Management public"
+      ]
+    },
+    {
+      "name": "Opțional 3",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Management internațional",
+        "Sisteme ERP"
+      ]
+    }
+  ],
+  "Management - Anul 3, Semestrul 2": [
+    { "name": "Managementul resurselor umane", "credits": 4, "type": "Examen" },
+    { "name": "Management financiar", "credits": 5, "type": "Examen" },
+    { "name": "Tranzacții comerciale", "credits": 4, "type": "Examen" },
+    { "name": "Informatică managerială", "credits": 4, "type": "Examen" },
+    { "name": "Elaborarea lucrării de licență", "credits": 3, "type": "Colocviu" },
+    {
+      "name": "Opțional 4",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Cercetări de marketing",
+        "Drept comunitar",
+        "Managementul inovării",
+        "Managementul serviciilor"
+      ]
+    },
+    {
+      "name": "Opțional 5",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Analiza informațiilor în SPSS",
+        "Automatizarea proceselor de afaceri prin RPA"
+      ]
+    }
+  ]
+}

@@ -235,4 +235,21 @@ describe('Calculator', () => {
     const projBadge = component.getEvaluationBadge('Verificare (Proiect)');
     expect(projBadge.label).toBe('Verificare (Proiect)');
   });
+
+  it('should switch year and adapt available years based on major', async () => {
+    // Calculatoare (4 years)
+    expect(studyContext.years().length).toBe(4);
+    component['setYear']('II');
+    expect(studyContext.year()).toBe('II');
+    expect(component.curriculumKey()).toContain('Anul 2');
+
+    // Switch to 3-year major (Informatică)
+    studyContext.setMajor('Informatică');
+    expect(studyContext.years().length).toBe(3);
+    expect(studyContext.years().map((y) => y.roman)).toEqual(['I', 'II', 'III']);
+
+    // Attempting to set year IV should not be allowed
+    component['setYear']('IV');
+    expect(studyContext.year()).not.toBe('IV');
+  });
 });

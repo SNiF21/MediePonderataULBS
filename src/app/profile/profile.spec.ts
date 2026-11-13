@@ -63,4 +63,19 @@ describe('ProfileComponent', () => {
     component['onDepartmentSelect']('CIE');
     expect(component['selectedDepartment']()).toBe('CIE');
   });
+
+  it('should adjust availableYears and clamp selectedYear when selecting a 3-year major', () => {
+    expect(component['availableYears']().length).toBe(4);
+
+    component['onYearSelect']('IV');
+    expect(component['selectedYear']()).toBe('IV');
+
+    component['onMajorSelect']('Informatică');
+    expect(component['availableYears']().length).toBe(3);
+    expect(component['selectedYear']()).toBe('III');
+
+    // Attempting to select Year IV should be rejected
+    component['onYearSelect']('IV');
+    expect(component['selectedYear']()).toBe('III');
+  });
 });

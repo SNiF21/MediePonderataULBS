@@ -31,21 +31,43 @@
         </div>
       </div>
 
-      <!-- Quick Semester Toggle in Calculator -->
-      <div class="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 self-start sm:self-auto shrink-0">
-        <button
-          type="button"
-          *ngFor="let s of studyContext.semesters"
-          (click)="setSemester(s.roman)"
-          [class.bg-blue-600]="studyContext.semester() === s.roman"
-          [class.text-white]="studyContext.semester() === s.roman"
-          [class.shadow-sm]="studyContext.semester() === s.roman"
-          [class.text-slate-600]="studyContext.semester() !== s.roman"
-          [class.dark:text-slate-300]="studyContext.semester() !== s.roman"
-          class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer"
-        >
-          {{ s.roman }}
-        </button>
+      <!-- Quick Toggles in Calculator: Year & Semester -->
+      <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto shrink-0">
+        <!-- Quick Year Toggle (displays 3 or 4 depending on major) -->
+        <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+          <button
+            type="button"
+            *ngFor="let y of studyContext.years()"
+            (click)="setYear(y.roman)"
+            [class.bg-blue-600]="studyContext.year() === y.roman"
+            [class.text-white]="studyContext.year() === y.roman"
+            [class.shadow-sm]="studyContext.year() === y.roman"
+            [class.text-slate-600]="studyContext.year() !== y.roman"
+            [class.dark:text-slate-300]="studyContext.year() !== y.roman"
+            class="px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer hover:text-blue-600 dark:hover:text-blue-400"
+            [title]="'Selectează ' + y.label"
+          >
+            {{ y.label }}
+          </button>
+        </div>
+
+        <!-- Quick Semester Toggle in Calculator -->
+        <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+          <button
+            type="button"
+            *ngFor="let s of studyContext.semesters"
+            (click)="setSemester(s.roman)"
+            [class.bg-blue-600]="studyContext.semester() === s.roman"
+            [class.text-white]="studyContext.semester() === s.roman"
+            [class.shadow-sm]="studyContext.semester() === s.roman"
+            [class.text-slate-600]="studyContext.semester() !== s.roman"
+            [class.dark:text-slate-300]="studyContext.semester() !== s.roman"
+            class="px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer hover:text-blue-600 dark:hover:text-blue-400"
+            [title]="'Selectează ' + s.roman"
+          >
+            {{ s.roman }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

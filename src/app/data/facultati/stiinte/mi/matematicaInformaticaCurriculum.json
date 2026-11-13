@@ -1,0 +1,270 @@
+{
+  "Matematică informatică - Anul 1, Semestrul 1": [
+    { "name": "Fundamentele matematicii", "credits": 2, "type": "Colocviu" },
+    { "name": "Analiză matematică: calcul diferențial pe Rn", "credits": 4, "type": "Examen" },
+    { "name": "Algebră liniară", "credits": 4, "type": "Examen" },
+    { "name": "Arhitectura sistemelor de calcul", "credits": 4, "type": "Examen" },
+    { "name": "Elemente de topologie generală", "credits": 4, "type": "Examen" },
+    { "name": "Algoritmi fundamentali", "credits": 4, "type": "Examen" },
+    { "name": "Fundamentele programării", "credits": 4, "type": "Examen" },
+    { "name": "Limbă străină", "credits": 2, "type": "Colocviu" },
+    { "name": "Educație fizică 1", "credits": 2, "type": "Verificare" }
+  ],
+  "Matematică informatică - Anul 1, Semestrul 2": [
+    { "name": "Analiză matematică: calcul integral pe Rn", "credits": 5, "type": "Examen" },
+    { "name": "Programare orientată pe obiecte", "credits": 5, "type": "Examen" },
+    { "name": "Logică matematică și teoria mulțimilor", "credits": 5, "type": "Examen" },
+    { "name": "Structuri algebrice", "credits": 4, "type": "Colocviu" },
+    { "name": "Geometrie analitică și diferențială", "credits": 4, "type": "Colocviu" },
+    { "name": "Software matematic", "credits": 5, "type": "Examen" },
+    { "name": "Educație fizică 2", "credits": 2, "type": "Verificare" }
+  ],
+  "Matematică informatică - Anul 2, Semestrul 1": [
+    { "name": "Teoria probabilităților", "credits": 5, "type": "Examen" },
+    { "name": "Analiză reală și elemente de teoria măsurii", "credits": 5, "type": "Examen" },
+    { "name": "Teoria numerelor", "credits": 4, "type": "Colocviu" },
+    { "name": "Rețele de calculatoare și servere", "credits": 4, "type": "Examen" },
+    { "name": "Dezvoltarea aplicațiilor WEB", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 1",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Embedded systems",
+        "Algebră 3"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Structuri de date",
+        "Programare distribuită"
+      ]
+    }
+  ],
+  "Matematică informatică - Anul 2, Semestrul 2": [
+    { "name": "Analiză complexă", "credits": 5, "type": "Examen" },
+    { "name": "Analiză numerică", "credits": 5, "type": "Examen" },
+    { "name": "Ecuații diferențiale", "credits": 4, "type": "Examen" },
+    { "name": "Analiză funcțională", "credits": 4, "type": "Examen" },
+    { "name": "Software pentru gestionarea proceselor operaționale", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 3",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Fundamentele inteligenței artificiale",
+        "Baze de date",
+        "Metode avansate de programare"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Verificare (Proiect)" }
+  ],
+  "Matematică informatică - Anul 3, Semestrul 1": [
+    { "name": "Ecuații cu derivate parțiale", "credits": 5, "type": "Examen" },
+    { "name": "Statistică matematică", "credits": 5, "type": "Examen" },
+    { "name": "Teoria aproximării pe spații abstracte", "credits": 4, "type": "Examen" },
+    { "name": "Tehnici de optimizare", "credits": 4, "type": "Colocviu" },
+    { "name": "Criptografie", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 4",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Complemente de matematici elementare 1",
+        "Etică și integritate academică",
+        "Elemente de antreprenoriat"
+      ]
+    },
+    {
+      "name": "Opțional 5",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Introducere în teoria geometrică a funcțiilor analitice",
+        "Tehnologii avansate de dezvoltare software",
+        "Aplicații în data science"
+      ]
+    }
+  ],
+  "Matematică informatică - Anul 3, Semestrul 2": [
+    { "name": "Algoritmica grafurilor", "credits": 4, "type": "Colocviu" },
+    { "name": "Introducere în învățarea automată", "credits": 5, "type": "Examen" },
+    { "name": "Dezvoltarea aplicațiilor mobile", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 6",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Complemente de matematici elementare 2",
+        "Elemente de teoria fractalilor",
+        "Introducere în cybersecurity"
+      ]
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Introducere în prelucrarea digitală a semnalelor",
+        "Clase speciale de funcții univalente",
+        "Dezvoltarea jocurilor pe calculator"
+      ]
+    },
+    {
+      "name": "Opțional 8",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Operatori liniari",
+        "Spații de funcții",
+        "Biostatistică"
+      ]
+    },
+    { "name": "Elaborarea lucrării de licență", "credits": 4, "type": "Colocviu" }
+  ],
+  "Matematică Informatică - Anul 1, Semestrul 1": [
+    { "name": "Fundamentele matematicii", "credits": 2, "type": "Colocviu" },
+    { "name": "Analiză matematică: calcul diferențial pe Rn", "credits": 4, "type": "Examen" },
+    { "name": "Algebră liniară", "credits": 4, "type": "Examen" },
+    { "name": "Arhitectura sistemelor de calcul", "credits": 4, "type": "Examen" },
+    { "name": "Elemente de topologie generală", "credits": 4, "type": "Examen" },
+    { "name": "Algoritmi fundamentali", "credits": 4, "type": "Examen" },
+    { "name": "Fundamentele programării", "credits": 4, "type": "Examen" },
+    { "name": "Limbă străină", "credits": 2, "type": "Colocviu" },
+    { "name": "Educație fizică 1", "credits": 2, "type": "Verificare" }
+  ],
+  "Matematică Informatică - Anul 1, Semestrul 2": [
+    { "name": "Analiză matematică: calcul integral pe Rn", "credits": 5, "type": "Examen" },
+    { "name": "Programare orientată pe obiecte", "credits": 5, "type": "Examen" },
+    { "name": "Logică matematică și teoria mulțimilor", "credits": 5, "type": "Examen" },
+    { "name": "Structuri algebrice", "credits": 4, "type": "Colocviu" },
+    { "name": "Geometrie analitică și diferențială", "credits": 4, "type": "Colocviu" },
+    { "name": "Software matematic", "credits": 5, "type": "Examen" },
+    { "name": "Educație fizică 2", "credits": 2, "type": "Verificare" }
+  ],
+  "Matematică Informatică - Anul 2, Semestrul 1": [
+    { "name": "Teoria probabilităților", "credits": 5, "type": "Examen" },
+    { "name": "Analiză reală și elemente de teoria măsurii", "credits": 5, "type": "Examen" },
+    { "name": "Teoria numerelor", "credits": 4, "type": "Colocviu" },
+    { "name": "Rețele de calculatoare și servere", "credits": 4, "type": "Examen" },
+    { "name": "Dezvoltarea aplicațiilor WEB", "credits": 4, "type": "Examen" },
+    {
+      "name": "Opțional 1",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Embedded systems",
+        "Algebră 3"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Structuri de date",
+        "Programare distribuită"
+      ]
+    }
+  ],
+  "Matematică Informatică - Anul 2, Semestrul 2": [
+    { "name": "Analiză complexă", "credits": 5, "type": "Examen" },
+    { "name": "Analiză numerică", "credits": 5, "type": "Examen" },
+    { "name": "Ecuații diferențiale", "credits": 4, "type": "Examen" },
+    { "name": "Analiză funcțională", "credits": 4, "type": "Examen" },
+    { "name": "Software pentru gestionarea proceselor operaționale", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 3",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Fundamentele inteligenței artificiale",
+        "Baze de date",
+        "Metode avansate de programare"
+      ]
+    },
+    { "name": "Practică de specialitate", "credits": 4, "type": "Verificare (Proiect)" }
+  ],
+  "Matematică Informatică - Anul 3, Semestrul 1": [
+    { "name": "Ecuații cu derivate parțiale", "credits": 5, "type": "Examen" },
+    { "name": "Statistică matematică", "credits": 5, "type": "Examen" },
+    { "name": "Teoria aproximării pe spații abstracte", "credits": 4, "type": "Examen" },
+    { "name": "Tehnici de optimizare", "credits": 4, "type": "Colocviu" },
+    { "name": "Criptografie", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 4",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Complemente de matematici elementare 1",
+        "Etică și integritate academică",
+        "Elemente de antreprenoriat"
+      ]
+    },
+    {
+      "name": "Opțional 5",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Introducere în teoria geometrică a funcțiilor analitice",
+        "Tehnologii avansate de dezvoltare software",
+        "Aplicații în data science"
+      ]
+    }
+  ],
+  "Matematică Informatică - Anul 3, Semestrul 2": [
+    { "name": "Algoritmica grafurilor", "credits": 4, "type": "Colocviu" },
+    { "name": "Introducere în învățarea automată", "credits": 5, "type": "Examen" },
+    { "name": "Dezvoltarea aplicațiilor mobile", "credits": 4, "type": "Colocviu" },
+    {
+      "name": "Opțional 6",
+      "credits": 4,
+      "type": "Colocviu",
+      "isOptional": true,
+      "options": [
+        "Complemente de matematici elementare 2",
+        "Elemente de teoria fractalilor",
+        "Introducere în cybersecurity"
+      ]
+    },
+    {
+      "name": "Opțional 7",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Introducere în prelucrarea digitală a semnalelor",
+        "Clase speciale de funcții univalente",
+        "Dezvoltarea jocurilor pe calculator"
+      ]
+    },
+    {
+      "name": "Opțional 8",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Operatori liniari",
+        "Spații de funcții",
+        "Biostatistică"
+      ]
+    },
+    { "name": "Elaborarea lucrării de licență", "credits": 4, "type": "Colocviu" }
+  ]
+}

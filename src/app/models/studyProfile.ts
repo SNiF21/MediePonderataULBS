@@ -31,12 +31,19 @@ export function getSubjectOptions(subject: Subject): string[] {
 export type StudyMajor =
   | 'Calculatoare'
   | 'Tehnologia Informației'
-  | 'Ingineria Sistemelor Multimedia';
+  | 'Ingineria Sistemelor Multimedia'
+  | 'Management'
+  | 'Informatică'
+  | 'Matematică Informatică'
+  | 'Matematică informatică';
 
 export const STUDY_MAJORS: StudyMajor[] = [
   'Calculatoare',
   'Tehnologia Informației',
   'Ingineria Sistemelor Multimedia',
+  'Management',
+  'Informatică',
+  'Matematică Informatică',
 ];
 
 export interface DepartmentOption {
@@ -125,7 +132,7 @@ export const FACULTIES: FacultyOption[] = [
         id: 'stiinte-dept',
         name: 'Matematică și Informatică (DMI)',
         shortName: 'DMI',
-        majors: [],
+        majors: ['Informatică', 'Matematică Informatică'],
       },
     ],
   },
@@ -153,7 +160,7 @@ export const FACULTIES: FacultyOption[] = [
         id: 'economice-dept',
         name: 'Management, Marketing și Administrarea Afacerilor (DMMA)',
         shortName: 'DMMA',
-        majors: [],
+        majors: ['Management'],
       },
     ],
   },
@@ -209,11 +216,14 @@ export function getMajorsForDepartment(
   departmentNameOrShort: string
 ): StudyMajor[] {
   const depts = getDepartmentsForFaculty(facultyName);
+  const norm = (departmentNameOrShort ?? '').toLowerCase().trim();
   const d = depts.find(
     (item) =>
-      item.name === departmentNameOrShort ||
-      item.shortName === departmentNameOrShort ||
-      item.id === departmentNameOrShort
+      item.name.toLowerCase() === norm ||
+      item.shortName.toLowerCase() === norm ||
+      item.id.toLowerCase() === norm ||
+      (norm === 'mi' && item.shortName === 'DMI') ||
+      (norm === 'mmaf' && item.shortName === 'DMMA')
   );
   return d ? d.majors : STUDY_MAJORS;
 }
@@ -232,6 +242,47 @@ export const STUDY_YEARS: YearOption[] = [
   { roman: 'III', key: 'Anul 3', label: 'Anul III' },
   { roman: 'IV', key: 'Anul 4', label: 'Anul IV' },
 ];
+
+export const MAJOR_TOTAL_YEARS: Record<string, number> = {
+  Calculatoare: 4,
+  'Tehnologia Informației': 4,
+  'Ingineria Sistemelor Multimedia': 4,
+  Management: 3,
+  Informatică: 3,
+  'Matematică Informatică': 3,
+  'Matematică informatică': 3,
+};
+
+export const FACULTY_DEFAULT_YEARS: Record<string, number> = {
+  inginerie: 4,
+  'Facultatea de Inginerie': 4,
+  stiinte: 3,
+  'Facultatea de Științe': 3,
+  'stiinte-economice': 3,
+  'Facultatea de Științe Economice': 3,
+  litere: 3,
+  'Facultatea de Litere și Arte': 3,
+  'socio-umane': 3,
+  'Facultatea de Științe Socio-Umane': 3,
+  drept: 4,
+  'Facultatea de Drept': 4,
+  teologie: 4,
+  'Facultatea de Teologie': 4,
+  saiapm: 4,
+  'Facultatea de ȘAIAPM': 4,
+  medicina: 6,
+  'Facultatea de Medicină': 6,
+};
+
+export function getYearsForMajor(major: string, facultyName?: string): YearOption[] {
+  if (major && MAJOR_TOTAL_YEARS[major]) {
+    return STUDY_YEARS.slice(0, MAJOR_TOTAL_YEARS[major]);
+  }
+  if (facultyName && FACULTY_DEFAULT_YEARS[facultyName]) {
+    return STUDY_YEARS.slice(0, FACULTY_DEFAULT_YEARS[facultyName]);
+  }
+  return STUDY_YEARS;
+}
 
 export type SemesterRoman = 'Semestrul I' | 'Semestrul II';
 

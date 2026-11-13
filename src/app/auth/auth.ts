@@ -15,6 +15,7 @@ import {
   YearRoman,
   getDepartmentsForFaculty,
   getMajorsForDepartment,
+  getYearsForMajor,
 } from '../models/studyProfile';
 import { StudyContextService } from '../services/study-context.service';
 
@@ -55,6 +56,18 @@ export class AuthComponent {
   protected readonly selectedYear = signal<YearRoman>('I');
   protected readonly selectedSemester = signal<SemesterRoman>('Semestrul I');
 
+  public readonly availableYears = computed(() =>
+    this.studyContext.getAvailableYears(this.selectedMajor(), this.selectedFaculty())
+  );
+
+  protected onMajorChange(major: StudyMajor): void {
+    this.selectedMajor.set(major);
+    const valid = this.studyContext.getAvailableYears(major, this.selectedFaculty());
+    if (!valid.some((y) => y.roman === this.selectedYear())) {
+      this.selectedYear.set(valid[valid.length - 1]?.roman ?? 'I');
+    }
+  }
+
   protected onFacultyChange(facultyName: string) {
     this.selectedFaculty.set(facultyName);
     const depts = getDepartmentsForFaculty(facultyName);
@@ -63,7 +76,7 @@ export class AuthComponent {
       this.selectedDepartment.set(firstDept);
       const majors = getMajorsForDepartment(facultyName, firstDept);
       if (majors.length > 0) {
-        this.selectedMajor.set(majors[0]);
+        this.onMajorChange(majors[0]);
       }
     }
   }
@@ -72,7 +85,7 @@ export class AuthComponent {
     this.selectedDepartment.set(departmentShortOrName);
     const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName);
     if (majors.length > 0 && !majors.includes(this.selectedMajor())) {
-      this.selectedMajor.set(majors[0]);
+      this.onMajorChange(majors[0]);
     }
   }
 

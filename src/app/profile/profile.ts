@@ -112,6 +112,9 @@ export class ProfileComponent {
   protected readonly availableMajors = computed(() =>
     getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment())
   );
+  public readonly availableYears = computed(() =>
+    this.studyContext.getAvailableYears(this.selectedMajor(), this.selectedFaculty())
+  );
   protected readonly selectedFacultyIcon = computed(() =>
     getFacultyIcon(this.selectedFaculty())
   );
@@ -134,7 +137,7 @@ export class ProfileComponent {
       this.selectedDepartment.set(firstDept);
       const majors = getMajorsForDepartment(facultyName, firstDept);
       if (majors.length > 0) {
-        this.selectedMajor.set(majors[0]);
+        this.onMajorSelect(majors[0]);
       }
     }
   }
@@ -143,16 +146,23 @@ export class ProfileComponent {
     this.selectedDepartment.set(departmentShortOrName);
     const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName);
     if (majors.length > 0 && !majors.includes(this.selectedMajor())) {
-      this.selectedMajor.set(majors[0]);
+      this.onMajorSelect(majors[0]);
     }
   }
 
   protected onMajorSelect(major: StudyMajor): void {
     this.selectedMajor.set(major);
+    const valid = this.studyContext.getAvailableYears(major, this.selectedFaculty());
+    if (!valid.some((y) => y.roman === this.selectedYear())) {
+      this.selectedYear.set(valid[valid.length - 1]?.roman ?? 'I');
+    }
   }
 
   protected onYearSelect(year: YearRoman): void {
-    this.selectedYear.set(year);
+    const valid = this.availableYears();
+    if (valid.some((y) => y.roman === year)) {
+      this.selectedYear.set(year);
+    }
   }
 
   protected onSemesterSelect(semester: SemesterRoman): void {

@@ -9,11 +9,13 @@ import {
   SemesterRoman,
   StudyMajor,
   Subject,
+  YearOption,
   YearRoman,
   buildCurriculumKey,
   getDepartmentsForFaculty,
   getFacultyIcon,
   getMajorsForDepartment,
+  getYearsForMajor,
 } from '../models/studyProfile';
 import { CURRICULUM_DATA } from '../data/curriculumData';
 import { AuthService } from './auth.service';
@@ -35,7 +37,7 @@ export class StudyContextService {
 
   public readonly faculties = FACULTIES;
   public readonly majors = STUDY_MAJORS;
-  public readonly years = STUDY_YEARS;
+  public readonly allYears = STUDY_YEARS;
   public readonly semesters = STUDY_SEMESTERS;
 
   public readonly faculty = signal<string>(DEFAULT_FACULTY);
@@ -44,6 +46,26 @@ export class StudyContextService {
   public readonly major = signal<StudyMajor>('Calculatoare');
   public readonly year = signal<YearRoman>('I');
   public readonly semester = signal<SemesterRoman>('Semestrul I');
+
+  public getAvailableYears(major: string, faculty?: string): YearOption[] {
+    let maxCurriculumYear = 0;
+    for (const y of STUDY_YEARS) {
+      const s1Key = `${major} - ${y.key}, Semestrul 1`;
+      const s2Key = `${major} - ${y.key}, Semestrul 2`;
+      if (CURRICULUM_DATA[s1Key] || CURRICULUM_DATA[s2Key]) {
+        const num = parseInt(y.key.replace(/\D/g, ''), 10);
+        if (num > maxCurriculumYear) maxCurriculumYear = num;
+      }
+    }
+    if (maxCurriculumYear > 0) {
+      return STUDY_YEARS.slice(0, maxCurriculumYear);
+    }
+    return getYearsForMajor(major, faculty ?? this.faculty());
+  }
+
+  public readonly years = computed<YearOption[]>(() =>
+    this.getAvailableYears(this.major(), this.faculty())
+  );
 
   public readonly availableDepartments = computed(() =>
     getDepartmentsForFaculty(this.faculty())
@@ -62,7 +84,7 @@ export class StudyContextService {
   );
 
   public readonly yearLabel = computed(
-    () => this.years.find((y) => y.roman === this.year())?.label ?? 'Anul I'
+    () => this.years().find((y) => y.roman === this.year())?.label ?? 'Anul I'
   );
 
   public readonly semesterShortLabel = computed(
@@ -95,9 +117,12 @@ export class StudyContextService {
         this.major.set(savedMajor);
       }
 
+      const validYears = this.getAvailableYears(this.major(), this.faculty());
       const savedYear = localStorage.getItem(STORAGE_KEYS.YEAR) as YearRoman | null;
-      if (savedYear && this.years.some((y) => y.roman === savedYear)) {
+      if (savedYear && validYears.some((y) => y.roman === savedYear)) {
         this.year.set(savedYear);
+      } else {
+        this.year.set('I');
       }
 
       const savedSemester = localStorage.getItem(STORAGE_KEYS.SEMESTER) as SemesterRoman | null;
@@ -124,8 +149,11 @@ export class StudyContextService {
           if (profile.major && this.majors.includes(profile.major)) {
             this.major.set(profile.major);
           }
-          if (profile.year && this.years.some((y) => y.roman === profile.year)) {
+          const validYears = this.getAvailableYears(this.major(), this.faculty());
+          if (profile.year && validYears.some((y) => y.roman === profile.year)) {
             this.year.set(profile.year);
+          } else if (!validYears.some((y) => y.roman === this.year())) {
+            this.year.set('I');
           }
           if (profile.semester && this.semesters.some((s) => s.roman === profile.semester)) {
             this.semester.set(profile.semester);
@@ -168,6 +196,10 @@ export class StudyContextService {
   }
 
   public setYear(y: YearRoman): void {
+    const validYears = this.years();
+    if (!validYears.some((item) => item.roman === y)) {
+      return;
+    }
     this.year.set(y);
     this.saveToStorage(STORAGE_KEYS.YEAR, y);
     this.syncToFirestore({ year: y });
@@ -176,7 +208,16 @@ export class StudyContextService {
   public setMajor(m: StudyMajor): void {
     this.major.set(m);
     this.saveToStorage(STORAGE_KEYS.MAJOR, m);
-    this.syncToFirestore({ major: m });
+
+    // Validate current year against the new major
+    const validYears = this.getAvailableYears(m, this.faculty());
+    if (!validYears.some((y) => y.roman === this.year())) {
+      const fallbackYear = validYears[validYears.length - 1]?.roman ?? 'I';
+      this.year.set(fallbackYear);
+      this.saveToStorage(STORAGE_KEYS.YEAR, fallbackYear);
+    }
+
+    this.syncToFirestore({ major: m, year: this.year() });
   }
 
   public setProfile(
@@ -189,23 +230,28 @@ export class StudyContextService {
     const fac = faculty ?? this.faculty();
     const dept = department ?? this.department();
 
+    const validYears = this.getAvailableYears(major, fac);
+    const validYear = validYears.some((y) => y.roman === year)
+      ? year
+      : (validYears[validYears.length - 1]?.roman ?? 'I');
+
     this.faculty.set(fac);
     this.department.set(dept);
     this.major.set(major);
-    this.year.set(year);
+    this.year.set(validYear);
     this.semester.set(semester);
 
     this.saveToStorage(STORAGE_KEYS.FACULTY, fac);
     this.saveToStorage(STORAGE_KEYS.DEPARTMENT, dept);
     this.saveToStorage(STORAGE_KEYS.MAJOR, major);
-    this.saveToStorage(STORAGE_KEYS.YEAR, year);
+    this.saveToStorage(STORAGE_KEYS.YEAR, validYear);
     this.saveToStorage(STORAGE_KEYS.SEMESTER, semester);
 
     this.syncToFirestore({
       faculty: fac,
       department: dept,
       major,
-      year,
+      year: validYear,
       semester,
     });
   }
