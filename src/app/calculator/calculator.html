@@ -372,6 +372,9 @@
     [totalCredits]="totalCredits()"
     [failedCredits]="failedCredits()"
     [semesterLabel]="studyContext.semester() === 'Semestrul I' ? '1' : '2'"
+    [facultyName]="studyContext.faculty()"
+    [majorName]="studyContext.major()"
+    [yearLabel]="studyContext.yearLabel()"
   ></app-calculator-results>
 
   <!-- Annual Results Summary Card -->
@@ -386,6 +389,8 @@
     [yearLabel]="studyContext.yearLabel()"
     [hasBothSemesters]="hasBothSemesters()"
     [activeSemester]="studyContext.semester()"
+    [facultyName]="studyContext.faculty()"
+    [majorName]="studyContext.major()"
     (switchSemester)="setSemester($event)"
   ></app-annual-results>
   </ng-container>

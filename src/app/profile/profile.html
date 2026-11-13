@@ -2,11 +2,14 @@
 <div *ngIf="authService.isLoggedIn(); else guestHome" class="max-w-4xl mx-auto space-y-6 animate-fadeIn py-4">
 
   <!-- Header Card: Student Identity -->
-  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+  <div
+    class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
     <div class="flex items-center space-x-4">
-      <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-md shadow-blue-500/20 select-none">
+      <div
+        class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-md shadow-blue-500/20 select-none">
         <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
         </svg>
       </div>
       <div>
@@ -14,19 +17,16 @@
           <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight">
             Profil Student
           </h2>
-          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
+          <span
+            class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Cont Activ
           </span>
-          <span
-            *ngIf="authService.isEmailVerified()"
-            class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60"
-          >
+          <span *ngIf="authService.isEmailVerified()"
+            class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
             Email Confirmat
           </span>
-          <span
-            *ngIf="!authService.isEmailVerified()"
-            class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60"
-          >
+          <span *ngIf="!authService.isEmailVerified()"
+            class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
             Email Neverificat
           </span>
         </div>
@@ -37,20 +37,16 @@
     </div>
 
     <!-- Quick Navigation to Calculator -->
-    <a
-      routerLink="/calculator"
-      class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition self-start sm:self-auto cursor-pointer"
-    >
+    <a routerLink="/calculator"
+      class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition self-start sm:self-auto cursor-pointer">
       <span>Deschide Calculatorul</span>
       <span>→</span>
     </a>
   </div>
 
   <!-- Verification Alert Box (Shown if not yet verified) -->
-  <div
-    *ngIf="!authService.isEmailVerified()"
-    class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 shadow-sm space-y-3"
-  >
+  <div *ngIf="!authService.isEmailVerified()"
+    class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 shadow-sm space-y-3">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div class="flex items-start gap-3">
         <div>
@@ -58,43 +54,40 @@
             Confirmă adresa ta de email instituțional (@ulbsibiu.ro)
           </h3>
           <p class="text-xs text-amber-800 dark:text-amber-300/90 mt-1 leading-relaxed">
-            Un link de validare a fost trimis către <strong>{{ studentEmail() }}</strong> la crearea contului. Te rugăm să deschizi emailul și să accesezi linkul de confirmare.
+            Un link de validare a fost trimis către <strong>{{ studentEmail() }}</strong> la crearea contului. Te rugăm
+            să deschizi emailul și să accesezi linkul de confirmare.
           </p>
         </div>
       </div>
 
       <div class="flex items-center gap-2 self-start sm:self-auto shrink-0">
-        <button
-          type="button"
-          (click)="sendVerificationEmail()"
-          [disabled]="isSendingVerification()"
-          class="px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold shadow-sm transition disabled:opacity-50 cursor-pointer"
-        >
+        <button type="button" (click)="sendVerificationEmail()" [disabled]="isSendingVerification()"
+          class="px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold shadow-sm transition disabled:opacity-50 cursor-pointer">
           {{ isSendingVerification() ? 'Se trimite...' : 'Retrimite email' }}
         </button>
-        <button
-          type="button"
-          (click)="checkEmailVerification()"
-          class="px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-700/70 text-amber-900 dark:text-amber-200 text-xs font-semibold hover:bg-amber-100/50 dark:hover:bg-slate-700 transition cursor-pointer"
-        >
+        <button type="button" (click)="checkEmailVerification()"
+          class="px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-700/70 text-amber-900 dark:text-amber-200 text-xs font-semibold hover:bg-amber-100/50 dark:hover:bg-slate-700 transition cursor-pointer">
           Verifică statusul
         </button>
       </div>
     </div>
 
     <!-- Verification Success Message -->
-    <div *ngIf="verificationSuccess()" class="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2 animate-fadeIn">
+    <div *ngIf="verificationSuccess()"
+      class="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2 animate-fadeIn">
       <span>{{ verificationSuccess() }}</span>
     </div>
 
     <!-- Verification Error Message -->
-    <div *ngIf="verificationError()" class="p-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 text-xs text-rose-800 dark:text-rose-300 flex items-center gap-2 animate-fadeIn">
+    <div *ngIf="verificationError()"
+      class="p-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 text-xs text-rose-800 dark:text-rose-300 flex items-center gap-2 animate-fadeIn">
       <span>{{ verificationError() }}</span>
     </div>
   </div>
 
   <!-- Study Context Settings Card -->
-  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-6">
+  <div
+    class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-6">
     <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
       <div>
         <h3 class="font-bold text-slate-800 dark:text-white text-base sm:text-lg flex items-center gap-2">
@@ -105,7 +98,8 @@
         </p>
       </div>
 
-      <span *ngIf="profileUpdateSuccess()" class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 animate-fadeIn">
+      <span *ngIf="profileUpdateSuccess()"
+        class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 animate-fadeIn">
         Actualizat!
       </span>
     </div>
@@ -113,28 +107,19 @@
     <div class="space-y-6">
       <!-- Faculty Selection -->
       <div>
-        <label for="profileFacultySelect" class="block text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mb-2.5">
+        <label for="profileFacultySelect"
+          class="block text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mb-2.5">
           Facultate
         </label>
         <div class="relative flex items-center">
           <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-            <img
-              [src]="selectedFacultyIcon()"
-              [alt]="selectedFaculty()"
-              class="w-12 h-12 rounded-full object-contain shrink-0 shadow-sm border border-slate-200/60 dark:border-slate-700/60"
-            />
+            <img [src]="selectedFacultyIcon()" [alt]="selectedFaculty()"
+              class="w-12 h-12 rounded-full object-contain shrink-0 shadow-sm border border-slate-200/60 dark:border-slate-700/60" />
           </div>
-          <select
-            id="profileFacultySelect"
-            [ngModel]="selectedFaculty()"
-            (ngModelChange)="onFacultySelect($event)"
-            class="w-full min-h-[76px] pl-20 pr-12 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-base sm:text-lg focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 font-bold hover:border-blue-400 dark:hover:border-blue-500 shadow-xs"
-          >
-            <option
-              *ngFor="let f of studyContext.faculties"
-              [value]="f.name"
-              class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-medium py-2 text-base"
-            >
+          <select id="profileFacultySelect" [ngModel]="selectedFaculty()" (ngModelChange)="onFacultySelect($event)"
+            class="w-full min-h-[76px] pl-20 pr-12 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-base sm:text-lg focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 font-bold hover:border-blue-400 dark:hover:border-blue-500 shadow-xs">
+            <option *ngFor="let f of studyContext.faculties" [value]="f.name"
+              class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-medium py-2 text-base">
               {{ f.name }}
             </option>
           </select>
@@ -148,26 +133,21 @@
 
       <!-- Department Selection -->
       <div>
-        <label for="profileDeptSelect" class="block text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mb-2.5">
+        <label for="profileDeptSelect"
+          class="block text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mb-2.5">
           Departament
         </label>
         <div class="relative flex items-center">
           <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-            <span class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/70 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 font-black text-sm sm:text-base flex items-center justify-center tracking-wider shrink-0 shadow-xs">
+            <span
+              class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/70 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 font-black text-sm sm:text-base flex items-center justify-center tracking-wider shrink-0 shadow-xs">
               {{ selectedDepartment() }}
             </span>
           </div>
-          <select
-            id="profileDeptSelect"
-            [ngModel]="selectedDepartment()"
-            (ngModelChange)="onDepartmentSelect($event)"
-            class="w-full min-h-[76px] pl-20 pr-12 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-base sm:text-lg focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 font-bold hover:border-blue-400 dark:hover:border-blue-500 shadow-xs"
-          >
-            <option
-              *ngFor="let d of availableDepartments()"
-              [value]="d.shortName"
-              class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-medium py-2 text-base"
-            >
+          <select id="profileDeptSelect" [ngModel]="selectedDepartment()" (ngModelChange)="onDepartmentSelect($event)"
+            class="w-full min-h-[76px] pl-20 pr-12 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-base sm:text-lg focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 font-bold hover:border-blue-400 dark:hover:border-blue-500 shadow-xs">
+            <option *ngFor="let d of availableDepartments()" [value]="d.shortName"
+              class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-medium py-2 text-base">
               {{ d.name }}
             </option>
           </select>
@@ -181,32 +161,29 @@
 
       <!-- Specialization / Major -->
       <div>
-        <label for="profileMajorSelect" class="block text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mb-2.5">
+        <label for="profileMajorSelect"
+          class="block text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mb-2.5">
           Specializare / Program de studiu
         </label>
         <div class="relative flex items-center">
           <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-            <div class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0 shadow-xs">
-              <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0 shadow-xs">
+              <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
           </div>
-          <select
-            id="profileMajorSelect"
-            [ngModel]="selectedMajor()"
-            (ngModelChange)="onMajorSelect($event)"
+          <select id="profileMajorSelect" [ngModel]="selectedMajor()" (ngModelChange)="onMajorSelect($event)"
             [disabled]="availableMajors().length === 0"
-            class="w-full min-h-[76px] pl-20 pr-12 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-base sm:text-lg focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 font-bold hover:border-blue-400 dark:hover:border-blue-500 shadow-xs disabled:opacity-50 disabled:cursor-not-allowed"
-          >
+            class="w-full min-h-[76px] pl-20 pr-12 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-base sm:text-lg focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 font-bold hover:border-blue-400 dark:hover:border-blue-500 shadow-xs disabled:opacity-50 disabled:cursor-not-allowed">
             <option *ngIf="availableMajors().length === 0" value="" disabled selected class="text-sm">
               Nicio specializare disponibilă pentru acest departament
             </option>
-            <option
-              *ngFor="let m of availableMajors()"
-              [value]="m"
-              class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-medium py-2 text-base"
-            >
+            <option *ngFor="let m of availableMajors()" [value]="m"
+              class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-medium py-2 text-base">
               {{ m }}
             </option>
           </select>
@@ -218,7 +195,8 @@
         </div>
 
         <!-- Empty State Callout when no majors exist for this department/faculty -->
-        <div *ngIf="availableMajors().length === 0" class="mt-3 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+        <div *ngIf="availableMajors().length === 0"
+          class="mt-3 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
           <div class="space-y-0.5">
             <p class="text-xs font-bold text-amber-900 dark:text-amber-200">
               Planul de învățământ pentru această specializare este în curs de colectare.
@@ -227,11 +205,8 @@
               Contribuie cu programa ta pentru a o adăuga în aplicație!
             </p>
           </div>
-          <a
-            routerLink="/contact"
-            [queryParams]="getContactQueryParams()"
-            class="self-start sm:self-auto shrink-0 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs transition cursor-pointer"
-          >
+          <a routerLink="/contact" [queryParams]="getContactQueryParams()"
+            class="self-start sm:self-auto shrink-0 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs transition cursor-pointer">
             Trimite programa
           </a>
         </div>
@@ -242,26 +217,15 @@
         <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">
           An de studiu
         </label>
-        <div
-          class="grid gap-2.5"
-          [ngClass]="availableYears().length === 3 ? 'grid-cols-3' : 'grid-cols-4'"
-        >
-          <button
-            *ngFor="let y of availableYears()"
-            type="button"
-            (click)="onYearSelect(y.roman)"
-            [class.bg-blue-600]="selectedYear() === y.roman"
-            [class.text-white]="selectedYear() === y.roman"
-            [class.border-blue-600]="selectedYear() === y.roman"
-            [class.shadow-sm]="selectedYear() === y.roman"
-            [class.bg-slate-50/70]="selectedYear() !== y.roman"
-            [class.dark:bg-slate-800]="selectedYear() !== y.roman"
-            [class.text-slate-700]="selectedYear() !== y.roman"
-            [class.dark:text-slate-300]="selectedYear() !== y.roman"
+        <div class="grid gap-2.5" [ngClass]="availableYears().length === 3 ? 'grid-cols-3' : 'grid-cols-4'">
+          <button *ngFor="let y of availableYears()" type="button" (click)="onYearSelect(y.roman)"
+            [class.bg-blue-600]="selectedYear() === y.roman" [class.text-white]="selectedYear() === y.roman"
+            [class.border-blue-600]="selectedYear() === y.roman" [class.shadow-sm]="selectedYear() === y.roman"
+            [class.bg-slate-50/70]="selectedYear() !== y.roman" [class.dark:bg-slate-800]="selectedYear() !== y.roman"
+            [class.text-slate-700]="selectedYear() !== y.roman" [class.dark:text-slate-300]="selectedYear() !== y.roman"
             [class.border-slate-200]="selectedYear() !== y.roman"
             [class.dark:border-slate-700]="selectedYear() !== y.roman"
-            class="py-2.5 px-2 text-center font-semibold text-xs sm:text-sm rounded-xl border transition-all cursor-pointer hover:border-blue-400"
-          >
+            class="py-2.5 px-2 text-center font-semibold text-xs sm:text-sm rounded-xl border transition-all cursor-pointer hover:border-blue-400">
             {{ y.label }}
           </button>
         </div>
@@ -273,71 +237,55 @@
           Semestru activ în aplicație
         </label>
         <div class="grid grid-cols-2 gap-3">
-          <button
-            *ngFor="let s of studyContext.semesters"
-            type="button"
-            (click)="onSemesterSelect(s.roman)"
-            [class.bg-blue-600]="selectedSemester() === s.roman"
-            [class.text-white]="selectedSemester() === s.roman"
-            [class.border-blue-600]="selectedSemester() === s.roman"
-            [class.shadow-sm]="selectedSemester() === s.roman"
+          <button *ngFor="let s of studyContext.semesters" type="button" (click)="onSemesterSelect(s.roman)"
+            [class.bg-blue-600]="selectedSemester() === s.roman" [class.text-white]="selectedSemester() === s.roman"
+            [class.border-blue-600]="selectedSemester() === s.roman" [class.shadow-sm]="selectedSemester() === s.roman"
             [class.bg-slate-50/70]="selectedSemester() !== s.roman"
             [class.dark:bg-slate-800]="selectedSemester() !== s.roman"
             [class.text-slate-700]="selectedSemester() !== s.roman"
             [class.dark:text-slate-300]="selectedSemester() !== s.roman"
             [class.border-slate-200]="selectedSemester() !== s.roman"
             [class.dark:border-slate-700]="selectedSemester() !== s.roman"
-            class="py-3 px-4 text-center font-semibold text-xs sm:text-sm rounded-xl border transition-all cursor-pointer hover:border-blue-400 flex items-center justify-center gap-2"
-          >
+            class="py-3 px-4 text-center font-semibold text-xs sm:text-sm rounded-xl border transition-all cursor-pointer hover:border-blue-400 flex items-center justify-center gap-2">
             <span>{{ s.roman }}</span>
           </button>
         </div>
       </div>
 
       <!-- Save Profile Button & Status -->
-      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div
+        class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div class="flex items-center gap-2">
-          <button
-            type="button"
-            (click)="saveProfile()"
-            [disabled]="isSavingProfile() || !hasProfileChanges()"
-            [class.bg-blue-600]="hasProfileChanges()"
-            [class.hover:bg-blue-700]="hasProfileChanges()"
-            [class.text-white]="hasProfileChanges()"
-            [class.shadow-md]="hasProfileChanges()"
-            [class.shadow-blue-500/25]="hasProfileChanges()"
-            [class.bg-slate-100]="!hasProfileChanges()"
-            [class.dark:bg-slate-800]="!hasProfileChanges()"
-            [class.text-slate-400]="!hasProfileChanges()"
-            [class.dark:text-slate-500]="!hasProfileChanges()"
-            [class.border]="!hasProfileChanges()"
-            [class.border-slate-200]="!hasProfileChanges()"
-            [class.dark:border-slate-700]="!hasProfileChanges()"
-            class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-          >
+          <button type="button" (click)="saveProfile()" [disabled]="isSavingProfile() || !hasProfileChanges()"
+            [class.bg-blue-600]="hasProfileChanges()" [class.hover:bg-blue-700]="hasProfileChanges()"
+            [class.text-white]="hasProfileChanges()" [class.shadow-md]="hasProfileChanges()"
+            [class.shadow-blue-500/25]="hasProfileChanges()" [class.bg-slate-100]="!hasProfileChanges()"
+            [class.dark:bg-slate-800]="!hasProfileChanges()" [class.text-slate-400]="!hasProfileChanges()"
+            [class.dark:text-slate-500]="!hasProfileChanges()" [class.border]="!hasProfileChanges()"
+            [class.border-slate-200]="!hasProfileChanges()" [class.dark:border-slate-700]="!hasProfileChanges()"
+            class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
             <svg *ngIf="isSavingProfile()" class="animate-spin h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
             </svg>
             <span>{{ isSavingProfile() ? 'Se salvează profilul...' : 'Salvează datele de studiu' }}</span>
-            <span *ngIf="hasProfileChanges()" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse" title="Modificări nesalvate"></span>
+            <span *ngIf="hasProfileChanges()" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"
+              title="Modificări nesalvate"></span>
           </button>
 
-          <button
-            *ngIf="hasProfileChanges()"
-            type="button"
-            (click)="resetProfileSelection()"
-            class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
-          >
+          <button *ngIf="hasProfileChanges()" type="button" (click)="resetProfileSelection()"
+            class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer">
             Anulează
           </button>
         </div>
 
         <div>
-          <span *ngIf="hasProfileChanges()" class="text-xs text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1">
+          <span *ngIf="hasProfileChanges()"
+            class="text-xs text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1">
             Ai modificări nesalvate ale profilului
           </span>
-          <span *ngIf="profileUpdateSuccess()" class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 animate-fadeIn">
+          <span *ngIf="profileUpdateSuccess()"
+            class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 animate-fadeIn">
             Datele de studii au fost salvate cu succes!
           </span>
           <span *ngIf="!hasProfileChanges() && !profileUpdateSuccess()" class="text-xs text-slate-400">
@@ -349,7 +297,8 @@
   </div>
 
   <!-- Account Security & Danger Zone Card -->
-  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-6">
+  <div
+    class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-6">
     <div class="border-b border-slate-100 dark:border-slate-800 pb-4">
       <h3 class="font-bold text-slate-800 dark:text-white text-base sm:text-lg flex items-center gap-2">
         Securitate și Administrare Cont
@@ -361,29 +310,20 @@
 
     <div class="flex flex-wrap items-center gap-3">
       <!-- Change Password Button -->
-      <button
-        type="button"
-        (click)="openPasswordModal()"
-        class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 transition flex items-center gap-2 cursor-pointer"
-      >
+      <button type="button" (click)="openPasswordModal()"
+        class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 transition flex items-center gap-2 cursor-pointer">
         <span>Schimbă parola</span>
       </button>
 
       <!-- Logout Button -->
-      <button
-        type="button"
-        (click)="onLogout()"
-        class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 transition flex items-center gap-2 cursor-pointer"
-      >
+      <button type="button" (click)="onLogout()"
+        class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 transition flex items-center gap-2 cursor-pointer">
         <span>Deconectare</span>
       </button>
 
       <!-- Delete Account Button (Danger Zone) -->
-      <button
-        type="button"
-        (click)="openDeleteModal()"
-        class="bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/40 text-rose-600 dark:text-rose-300 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 transition ml-auto flex items-center gap-2 cursor-pointer"
-      >
+      <button type="button" (click)="openDeleteModal()"
+        class="bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/40 text-rose-600 dark:text-rose-300 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 transition ml-auto flex items-center gap-2 cursor-pointer">
         <span>Șterge contul</span>
       </button>
     </div>
@@ -394,7 +334,8 @@
 <!-- Guest View (shown if user visits / when not logged in) -->
 <ng-template #guestHome>
   <section class="max-w-3xl mx-auto text-center py-12 md:py-16 animate-fadeIn">
-    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-6 border border-blue-200 dark:border-blue-900 shadow-xs">
+    <div
+      class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-6 border border-blue-200 dark:border-blue-900 shadow-xs">
       <img src="assets/facultati/inginerie.png" alt="Inginerie" class="w-5 h-5 rounded-full object-contain" />
       <span>Facultatea de Inginerie — ULBS</span>
     </div>
@@ -404,20 +345,17 @@
     </h2>
 
     <p class="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-8">
-      Calculează media semestrială pe baza creditelor ECTS și verifică eligibilitatea pentru bursă (medie ≥ 8.00, fără restanțe).
+      Calculează media semestrială pe baza creditelor ECTS și verifică eligibilitatea pentru bursă (medie ≥ 8.00, fără
+      restanțe).
     </p>
 
     <div class="flex flex-wrap items-center justify-center gap-3">
-      <a
-        routerLink="/calculator"
-        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md shadow-blue-500/20 hover:shadow-lg transition cursor-pointer"
-      >
+      <a routerLink="/calculator"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md shadow-blue-500/20 hover:shadow-lg transition cursor-pointer">
         Deschide Calculatorul
       </a>
-      <a
-        routerLink="/login"
-        class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 transition cursor-pointer"
-      >
+      <a routerLink="/login"
+        class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 transition cursor-pointer">
         Autentificare Student (@ulbsibiu.ro)
       </a>
     </div>
@@ -425,13 +363,7 @@
 </ng-template>
 
 <!-- ================= MODAL: SCHIMBĂ PAROLA ================= -->
-<app-change-password-modal
-  *ngIf="showPasswordModal()"
-  (closeModal)="closePasswordModal()"
-></app-change-password-modal>
+<app-change-password-modal *ngIf="showPasswordModal()" (closeModal)="closePasswordModal()"></app-change-password-modal>
 
 <!-- ================= MODAL: ȘTERGE CONTUL (CONFIRMARE & PAROLĂ) ================= -->
-<app-delete-account-modal
-  *ngIf="showDeleteModal()"
-  (closeModal)="closeDeleteModal()"
-></app-delete-account-modal>
+<app-delete-account-modal *ngIf="showDeleteModal()" (closeModal)="closeDeleteModal()"></app-delete-account-modal>

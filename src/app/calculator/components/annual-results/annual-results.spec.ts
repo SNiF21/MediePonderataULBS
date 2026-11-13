@@ -54,5 +54,28 @@ describe('AnnualResultsComponent', () => {
     fixture.detectChanges();
     expect(component.showPendingNotice()).toBe(false);
   });
-});
 
+  it('should share annual results via navigator.share when available', async () => {
+    fixture.componentRef.setInput('annualAverage', 8.85);
+    fixture.componentRef.setInput('semester1Average', 8.7);
+    fixture.componentRef.setInput('semester2Average', 9.0);
+    fixture.componentRef.setInput('hasBothSemesters', true);
+    fixture.componentRef.setInput('facultyName', 'Inginerie');
+    fixture.componentRef.setInput('majorName', 'Calculatoare');
+    fixture.detectChanges();
+
+    const shareSpy = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'share', {
+      value: shareSpy,
+      configurable: true,
+    });
+
+    await component.shareAnnualResult();
+    expect(shareSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: expect.stringContaining('Media Anuală Ponderată ULBS'),
+        url: 'https://simulator-medie-ponderata.web.app',
+      })
+    );
+  });
+});

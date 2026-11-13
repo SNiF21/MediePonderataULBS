@@ -27,5 +27,55 @@ describe('CalculatorResultsComponent', () => {
     expect(component.totalCredits()).toBe(0);
     expect(component.failedCredits()).toBe(0);
   });
-});
 
+  it('should do nothing on shareResult if weightedAverage is null', async () => {
+    const shareSpy = vi.fn();
+    Object.assign(navigator, { share: shareSpy });
+
+    await component.shareResult();
+    expect(shareSpy).not.toHaveBeenCalled();
+  });
+
+  it('should trigger navigator.share when available and average is present', async () => {
+    fixture.componentRef.setInput('weightedAverage', 9.25);
+    fixture.componentRef.setInput('isScholarshipEligible', true);
+    fixture.componentRef.setInput('facultyName', 'Inginerie');
+    fixture.componentRef.setInput('majorName', 'Calculatoare');
+    fixture.detectChanges();
+
+    const shareSpy = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'share', {
+      value: shareSpy,
+      configurable: true,
+    });
+
+    await component.shareResult();
+    expect(shareSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: expect.stringContaining('Calculator Medie Ponderată ULBS'),
+        url: 'https://simulator-medie-ponderata.web.app',
+      })
+    );
+  });
+
+  it('should fallback to clipboard if navigator.share is unavailable', async () => {
+    fixture.componentRef.setInput('weightedAverage', 8.5);
+    fixture.componentRef.setInput('facultyName', 'Inginerie');
+    fixture.detectChanges();
+
+    Object.defineProperty(navigator, 'share', {
+      value: undefined,
+      configurable: true,
+    });
+
+    const writeTextSpy = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', {
+      value: { writeText: writeTextSpy },
+      configurable: true,
+    });
+
+    await component.shareResult();
+    expect(writeTextSpy).toHaveBeenCalled();
+    expect(component.copySuccess()).toBe(true);
+  });
+});
