@@ -37,4 +37,22 @@ describe('AuthComponent', () => {
     component['onMajorChange']('Calculatoare');
     expect(component.availableYears().length).toBe(4);
   });
+
+  it('should block registration when GDPR is not accepted', async () => {
+    component['setMode']('register');
+    component['email'].set('andrei.popa@ulbsibiu.ro');
+    component['password'].set('parola123');
+    component['confirmPassword'].set('parola123');
+    component.acceptedGdpr.set(false);
+
+    await component['onSubmit']();
+
+    expect(component['errorMessage']()).toContain('Politica de Confidențialitate & GDPR');
+  });
+
+  it('should reset acceptedGdpr when switching mode', () => {
+    component.acceptedGdpr.set(true);
+    component['setMode']('login');
+    expect(component.acceptedGdpr()).toBe(false);
+  });
 });

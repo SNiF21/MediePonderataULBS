@@ -1,0 +1,268 @@
+<section class="max-w-4xl mx-auto space-y-8 animate-fadeIn py-6 pb-14 px-4 sm:px-6">
+
+  <!-- Header Card -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-10 shadow-md border border-slate-200/80 dark:border-slate-800">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-3 border border-blue-200/80 dark:border-blue-900/60 shadow-xs">
+          <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>Conformitate GDPR • Regulamentul (UE) 2016/679</span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          Politică de Confidențialitate
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2">
+          Ultima actualizare: <span class="font-medium text-slate-700 dark:text-slate-300">{{ lastUpdated }}</span>
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-auto shrink-0">
+        <a
+          routerLink="/calculator"
+          class="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow-sm transition"
+        >
+          <span>Deschide Calculatorul</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-6 leading-relaxed">
+      Protecția datelor dumneavoastră cu caracter personal este esențială pentru noi. Această politică explică transparent ce date colectăm, modul în care sunt prelucrate, temeiurile juridice și drepturile dumneavoastră conform legislației privind protecția datelor.
+    </p>
+  </div>
+
+  <!-- Disclaimer Banner -->
+  <div class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 shadow-sm space-y-2">
+    <div class="flex items-center gap-2 text-amber-900 dark:text-amber-200 font-bold text-sm">
+      <svg class="w-5 h-5 shrink-0 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>Statutul Aplicației și Declinare de Responsabilitate</span>
+    </div>
+    <p class="text-xs sm:text-sm text-amber-800 dark:text-amber-300/90 leading-relaxed">
+      Aplicația <strong>„Calculator Medie Ponderată ULBS”</strong> este o inițiativă independentă a unui student și <strong>nu reprezintă o platformă oficială</strong> dezvoltată, administrată sau aprobată de Universitatea „Lucian Blaga” din Sibiu (ULBS). Rezultatele calculate (medii ponderate, punctaje ECTS, eligibilitate la bursă) au titlu orientativ și nu înlocuiesc evidențele din sistemele oficiale ale universității (uMS / secretariat).
+    </p>
+  </div>
+
+  <!-- Section 1: Operatorul de date -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 inline-flex items-center justify-center text-xs font-bold">1</span>
+      <span>Responsabilul de Prelucrare a Datelor</span>
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Dezvoltatorul și administratorul tehnic al platformei este <strong>Andrei-Cătălin Colac</strong>. Pentru orice întrebare, solicitare de exercitare a drepturilor sau clarificare referitoare la datele personale, ne puteți contacta prin formularul integrat din secțiunea
+      <a routerLink="/contact" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">Contact & Raportare</a>
+      sau prin intermediul profilului GitHub
+      <a href="https://github.com/SNiF21" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">&#64;SNiF21</a>.
+    </p>
+  </div>
+
+  <!-- Section 2: Date colectate -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-6">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 inline-flex items-center justify-center text-xs font-bold">2</span>
+      <span>Ce Date Colectăm și Cum Sunt Prelucrate</span>
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Datele colectate sunt strict limitate la ceea ce este necesar pentru funcționarea calculatorului academic:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Card Guest -->
+      <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2.5">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
+          Modul Oaspete (Fără Cont)
+        </span>
+        <h3 class="font-bold text-sm text-slate-800 dark:text-slate-100">Stocare Exclusiv Locală</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          Dacă utilizați calculatorul fără autentificare, notele și configurarea de studiu sunt salvate exclusiv în browserul dumneavoastră (<code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono text-[11px]">localStorage</code>). Aceste date <strong>nu părăsesc niciodată dispozitivul dumneavoastră</strong> și nu ajung pe serverele noastre.
+        </p>
+      </div>
+
+      <!-- Card Cont Autentificat -->
+      <div class="p-5 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-900/40 space-y-2.5">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-200/80 dark:bg-blue-900/60 text-blue-800 dark:text-blue-200">
+          Cont Student Autentificat
+        </span>
+        <h3 class="font-bold text-sm text-slate-800 dark:text-slate-100">Sincronizare în Cloud</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          La crearea contului, salvăm în mod securizat: adresa instituțională (<code class="px-1 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 font-mono text-[11px]">&#64;ulbsibiu.ro</code>), parola în formă criptată (hash), profilul de studii și notele introduse pentru a le putea accesa de pe orice dispozitiv.
+        </p>
+      </div>
+    </div>
+
+    <!-- Formular Contact -->
+    <div class="p-4 rounded-2xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/80 text-xs text-slate-600 dark:text-slate-300 space-y-1.5">
+      <h3 class="font-bold text-slate-800 dark:text-slate-200">Date transmise prin formularul de contact</h3>
+      <p class="leading-relaxed">
+        Dacă trimiteți o sesizare prin formularul de contact, colectăm adresa de email pentru a vă putea răspunde, numele (opțional), categoria problemei, planul de învățământ vizat și mesajul propriu-zis.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 3: Temeiul Juridic -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 inline-flex items-center justify-center text-xs font-bold">3</span>
+      <span>Temeiul Juridic al Prelucrării (Art. 6 GDPR)</span>
+    </h2>
+    <ul class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+      <li class="flex items-start gap-2.5">
+        <span class="text-blue-600 dark:text-blue-400 font-bold shrink-0">•</span>
+        <div>
+          <strong class="text-slate-800 dark:text-slate-100">Furnizarea serviciului (Art. 6 alin. 1 lit. b GDPR):</strong>
+          Prelucrarea este necesară pentru a vă permite calcularea mediei, salvarea notelor și accesarea lor pe baza contului creat voluntar.
+        </div>
+      </li>
+      <li class="flex items-start gap-2.5">
+        <span class="text-blue-600 dark:text-blue-400 font-bold shrink-0">•</span>
+        <div>
+          <strong class="text-slate-800 dark:text-slate-100">Consimțământul dumneavoastră (Art. 6 alin. 1 lit. a GDPR):</strong>
+          Înregistrarea unui cont nou sau trimiterea unui mesaj de asistență reprezintă acordul dumneavoastră expres pentru prelucrarea datelor aferente.
+        </div>
+      </li>
+      <li class="flex items-start gap-2.5">
+        <span class="text-blue-600 dark:text-blue-400 font-bold shrink-0">•</span>
+        <div>
+          <strong class="text-slate-800 dark:text-slate-100">Interesul legitim (Art. 6 alin. 1 lit. f GDPR):</strong>
+          Protejarea aplicației împotriva utilizării abuzive, prevenirea incidentelor de securitate și asigurarea funcționării tehnice optime.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Section 4: Furnizori Terți (Sub-împuterniciți) -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 inline-flex items-center justify-center text-xs font-bold">4</span>
+      <span>Furnizori Terți și Sub-împuterniciți</span>
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Nu vindem și nu înstrăinăm datele dumneavoastră. Pentru infrastructura tehnică apelăm la furnizori reputați care respectă standardele europene de securitate:
+    </p>
+
+    <div class="space-y-3">
+      <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/80">
+        <h3 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100">Google Firebase (Google Ireland Limited / Google LLC)</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+          Asigură autentificarea securizată și stocarea bazei de date Cloud Firestore. Datele sunt protejate prin Clauzele Contractuale Standard (SCC) ale Uniunii Europene și conform Cadrului privind Confidențialitatea Datelor UE-SUA.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/80">
+        <h3 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100">Web3Forms</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+          Serviciu utilizat strict pentru redirecționarea mesajelor transmise prin formularul de contact către căsuța poștală a administratorului, fără utilizare în scopuri publicitare.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: Drepturile Utilizatorilor conform GDPR -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 inline-flex items-center justify-center text-xs font-bold">5</span>
+      <span>Drepturile Dumneavoastră conform GDPR</span>
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Conform Regulamentului (UE) 2016/679, beneficiați de un set complet de drepturi garantate:
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+        <strong class="text-slate-800 dark:text-slate-100 block mb-1">Dreptul de acces (Art. 15)</strong>
+        <span class="text-slate-600 dark:text-slate-300">Puteți vizualiza în orice clipă datele salvate în cont direct în secțiunile Profil și Calculator.</span>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+        <strong class="text-slate-800 dark:text-slate-100 block mb-1">Dreptul la rectificare (Art. 16)</strong>
+        <span class="text-slate-600 dark:text-slate-300">Puteți modifica, șterge sau înlocui notele și opțiunile oricând, modificările fiind reflectate instantaneu.</span>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+        <strong class="text-slate-800 dark:text-slate-100 block mb-1">Dreptul la ștergere („Dreptul de a fi uitat”, Art. 17)</strong>
+        <span class="text-slate-600 dark:text-slate-300">Aveți la dispoziție butonul dedicat <strong>„Șterge contul”</strong> din Profil, care elimină permanent contul și toate notele din baza de date.</span>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+        <strong class="text-slate-800 dark:text-slate-100 block mb-1">Dreptul la portabilitate (Art. 20)</strong>
+        <span class="text-slate-600 dark:text-slate-300">Puteți solicita o copie a datelor asociate contului dumneavoastră prin formularul de asistență.</span>
+      </div>
+    </div>
+
+    <div class="p-4 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-900/40 text-xs text-slate-600 dark:text-slate-300">
+      <p class="leading-relaxed">
+        Dacă doriți să depuneți o plângere privind modul de prelucrare a datelor, aveți dreptul legal de a vă adresa autorității naționale de supraveghere:
+        <strong class="text-slate-800 dark:text-slate-100">Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</strong>
+        la <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">www.dataprotection.ro</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 6: Cookies și Stocare Locală -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 inline-flex items-center justify-center text-xs font-bold">6</span>
+      <span>Cookie-uri și Tehnologii de Stocare Locală</span>
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Aplicația <strong>nu utilizează cookie-uri de urmărire publicitară</strong> și nu partajează date cu rețele de publicitate terțe. Utilizăm mecanismul de stocare locală din browser (<code class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono text-[11px]">localStorage</code>) strict pentru funcționalitatea de bază:
+    </p>
+    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 pl-1">
+      <li>Memorarea preferinței pentru tema luminoasă sau întunecată;</li>
+      <li>Păstrarea notelor în modul oaspete sau offline;</li>
+      <li>Păstrarea sesiunii de autentificare Firebase pentru a nu necesita reconectare la fiecare vizită.</li>
+    </ul>
+  </div>
+
+  <!-- Section 7: Securitate -->
+  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 inline-flex items-center justify-center text-xs font-bold">7</span>
+      <span>Securitatea Datelor</span>
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Implementăm măsuri tehnice moderne pentru protejarea datelor:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+        <strong class="text-slate-800 dark:text-slate-100 block mb-1">Criptare în Tranzit (HTTPS/TLS)</strong>
+        <span class="text-slate-600 dark:text-slate-300">Toate comunicațiile dintre browserul dumneavoastră și baza de date sunt complet criptate.</span>
+      </div>
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+        <strong class="text-slate-800 dark:text-slate-100 block mb-1">Reguli Stricte de Acces (Firestore Security)</strong>
+        <span class="text-slate-600 dark:text-slate-300">Fiecare student își poate citi și modifica exclusiv propriul profil și propriile note.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Action Card -->
+  <div class="p-6 rounded-3xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-center space-y-3">
+    <h3 class="font-bold text-sm sm:text-base text-slate-800 dark:text-white">
+      Ai întrebări sau dorești clarificări?
+    </h3>
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+      Suntem deschiși la feedback pentru a menține platforma cât mai sigură și utilă pentru toți studenții universității.
+    </p>
+    <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+      <a
+        routerLink="/contact"
+        class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm transition shadow-sm"
+      >
+        Formular de Contact
+      </a>
+      <a
+        routerLink="/calculator"
+        class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold text-xs sm:text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition"
+      >
+        Înapoi la Calculator
+      </a>
+    </div>
+  </div>
+
+</section>

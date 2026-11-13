@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService, INSTITUTIONAL_DOMAIN } from '../services/auth.service';
 import {
   DEFAULT_DEPARTMENT,
@@ -24,7 +24,7 @@ type AuthMode = 'login' | 'register' | 'forgot';
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './auth.html',
 })
 export class AuthComponent {
@@ -92,6 +92,7 @@ export class AuthComponent {
   protected readonly isSubmitting = signal<boolean>(false);
   protected readonly errorMessage = signal<string | null>(null);
   protected readonly successMessage = signal<string | null>(null);
+  public readonly acceptedGdpr = signal<boolean>(false);
 
   protected readonly domain = INSTITUTIONAL_DOMAIN;
 
@@ -105,6 +106,7 @@ export class AuthComponent {
     this.mode.set(newMode);
     this.errorMessage.set(null);
     this.successMessage.set(null);
+    this.acceptedGdpr.set(false);
   }
 
   protected appendDomain() {
@@ -148,6 +150,12 @@ export class AuthComponent {
     }
 
     if (this.mode() === 'register') {
+      if (!this.acceptedGdpr()) {
+        this.errorMessage.set(
+          'Este obligatoriu să citești și să accepți Politica de Confidențialitate & GDPR pentru a-ți putea crea contul.'
+        );
+        return;
+      }
       if (passVal !== this.confirmPassword()) {
         this.errorMessage.set('Parolele introduse nu coincid.');
         return;
