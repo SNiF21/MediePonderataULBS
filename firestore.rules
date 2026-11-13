@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // 1. Student Profile: /users/{userId}
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      // 2. Semester Grades Subcollection: /users/{userId}/semesterGrades/{semesterDocId}
+      match /semesterGrades/{semesterDocId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // 3. Contact Submissions: /contact_submissions/{submissionId}
+    match /contact_submissions/{submissionId} {
+      allow create: if request.resource.data.email is string;
+      allow read, update, delete: if false;
+    }
+
+    // 4. Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

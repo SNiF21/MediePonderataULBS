@@ -119,5 +119,23 @@ describe('ContactComponent', () => {
     component.message.set('1234567890');
     expect(component.isMessageValid()).toBe(true);
   });
+
+  it('should prefill fields from query params when navigated with parameters', () => {
+    (component as any).applyQueryParams({
+      category: 'credite',
+      faculty: 'Facultatea de Drept',
+      major: 'Drept',
+      year: 'Anul I',
+      subjectTitle: 'Plan de învățământ: Drept',
+      message: 'Planul de învățământ este...',
+    });
+
+    expect(component.category()).toBe('credite');
+    expect(component.faculty()).toBe('Facultatea de Drept');
+    expect(component.major()).toBe('Drept');
+    expect(component.year()).toBe('Anul I');
+    expect(component.subjectTitle()).toBe('Plan de învățământ: Drept');
+    expect(component.message()).toBe('Planul de învățământ este...');
+  });
 });
 

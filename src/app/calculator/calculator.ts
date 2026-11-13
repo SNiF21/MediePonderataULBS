@@ -524,4 +524,15 @@ export class Calculator {
   protected setYear(y: YearRoman): void {
     this.studyContext.setYear(y);
   }
+
+  public getContactQueryParams(): Record<string, string> {
+    return {
+      category: 'credite',
+      faculty: this.studyContext.faculty(),
+      major: this.studyContext.major(),
+      year: this.studyContext.yearLabel(),
+      subjectTitle: `Plan de învățământ: ${this.studyContext.major()} - ${this.studyContext.yearLabel()}, ${this.studyContext.semester()}`,
+      message: `Salut! Doresc să contribui cu planul de învățământ pentru specializarea ${this.studyContext.major()} (${this.studyContext.faculty()}, ${this.studyContext.yearLabel()}, ${this.studyContext.semester()}). Disciplinele și creditele ECTS sunt: \n\n1. [Nume Materie] - [Nr] credite (Examen/Colocviu)\n2. ...`,
+    };
+  }
 }

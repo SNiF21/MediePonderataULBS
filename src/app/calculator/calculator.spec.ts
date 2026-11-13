@@ -252,4 +252,23 @@ describe('Calculator', () => {
     component['setYear']('IV');
     expect(studyContext.year()).not.toBe('IV');
   });
+
+  it('should render empty state message when curriculum has no subjects and provide contact query params', async () => {
+    studyContext.setMajor('Drept' as any);
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(component.subjects().length).toBe(0);
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain(
+      'Planul de învățământ pentru această specializare este în curs de colectare. Contribuie cu programa ta!'
+    );
+
+    const qp = component.getContactQueryParams();
+    expect(qp['category']).toBe('credite');
+    expect(qp['faculty']).toBeTruthy();
+    expect(qp['major']).toBe('Drept');
+    expect(qp['subjectTitle']).toContain('Plan de învățământ');
+  });
 });

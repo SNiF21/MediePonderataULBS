@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { StudyContextService } from '../services/study-context.service';
 import { ContactCategory, ContactService, ContactSubmission } from '../services/contact.service';
@@ -23,6 +23,7 @@ export class ContactComponent {
   protected readonly authService = inject(AuthService);
   protected readonly studyContext = inject(StudyContextService);
   protected readonly contactService = inject(ContactService);
+  private readonly route = inject(ActivatedRoute, { optional: true });
 
   // Form Signals
   public readonly name = signal<string>('');
@@ -82,7 +83,40 @@ export class ContactComponent {
     this.major.set(this.studyContext.major());
     this.year.set(this.studyContext.yearLabel());
 
+    if (this.route) {
+      this.applyQueryParams(this.route.snapshot.queryParams);
+      this.route.queryParams.subscribe((params) => this.applyQueryParams(params));
+    }
+
     this.loadRecentSubmissions();
+  }
+
+  private applyQueryParams(qp: Record<string, string | undefined>): void {
+    if (!qp) return;
+    if (
+      qp['category'] &&
+      (qp['category'] === 'credite' ||
+        qp['category'] === 'tehnic' ||
+        qp['category'] === 'sugestie' ||
+        qp['category'] === 'general')
+    ) {
+      this.category.set(qp['category'] as ContactCategory);
+    }
+    if (qp['faculty']) {
+      this.faculty.set(qp['faculty']);
+    }
+    if (qp['major']) {
+      this.major.set(qp['major']);
+    }
+    if (qp['year']) {
+      this.year.set(qp['year']);
+    }
+    if (qp['subjectTitle']) {
+      this.subjectTitle.set(qp['subjectTitle']);
+    }
+    if (qp['message']) {
+      this.message.set(qp['message']);
+    }
   }
 
   public selectCategory(cat: ContactCategory): void {

@@ -216,6 +216,25 @@
             </svg>
           </div>
         </div>
+
+        <!-- Empty State Callout when no majors exist for this department/faculty -->
+        <div *ngIf="availableMajors().length === 0" class="mt-3 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+          <div class="space-y-0.5">
+            <p class="text-xs font-bold text-amber-900 dark:text-amber-200">
+              Planul de învățământ pentru această specializare este în curs de colectare.
+            </p>
+            <p class="text-[11px] text-amber-800 dark:text-amber-300">
+              Contribuie cu programa ta pentru a o adăuga în aplicație!
+            </p>
+          </div>
+          <a
+            routerLink="/contact"
+            [queryParams]="getContactQueryParams()"
+            class="self-start sm:self-auto shrink-0 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs transition cursor-pointer"
+          >
+            Trimite programa
+          </a>
+        </div>
       </div>
 
       <!-- Year of Study (I, II, III or IV depending on major duration) -->

@@ -235,8 +235,12 @@
               [ngModel]="selectedMajor()"
               (ngModelChange)="onMajorChange($event)"
               name="selectedMajor"
-              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100"
+              [disabled]="availableMajors().length === 0"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 disabled:opacity-50 disabled:cursor-not-allowed"
             >
+              <option *ngIf="availableMajors().length === 0" value="" disabled selected class="text-xs">
+                Nicio specializare disponibilă momentan
+              </option>
               <option *ngFor="let m of availableMajors()" [value]="m" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100">
                 {{ m }}
               </option>
@@ -245,6 +249,9 @@
               ▼
             </div>
           </div>
+          <p *ngIf="availableMajors().length === 0" class="text-[11px] text-amber-600 dark:text-amber-400 mt-1 font-medium">
+            Planul de învățământ pentru această facultate este în curs de colectare.
+          </p>
         </div>
 
         <!-- Year of Study (I, II, III or IV depending on major duration) -->

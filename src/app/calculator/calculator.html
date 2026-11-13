@@ -7,9 +7,18 @@
         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-white flex items-center gap-2.5">
           <img src="assets/icon.png" alt="Icon" class="w-8 h-8 sm:w-9 sm:h-9 object-contain dark:invert select-none" /> Calculator Medie Ponderată
         </h2>
-        
+
+        <!-- Data Source Disclaimer -->
+        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-blue-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Disciplinele și creditele sunt preluate de pe site-urile oficiale ale facultăților ULBS, conform celor mai recente planuri de învățământ publicate.</span>
+        </p>
+
         <!-- Active Profile Badges & Link to Profile -->
         <div class="flex flex-wrap items-center gap-2 mt-2.5">
+          <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Date Studii Active:</span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
             <img [src]="studyContext.facultyIcon()" [alt]="studyContext.faculty()" class="w-4 h-4 rounded-full object-contain shrink-0" />
             <span>{{ studyContext.major() }}</span>
@@ -72,6 +81,55 @@
     </div>
   </div>
 
+  <!-- Empty State Card (When no curriculum is configured for this major/year/semester) -->
+  <div *ngIf="subjects().length === 0" class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-md border border-slate-200/80 dark:border-slate-800 text-center space-y-6 animate-fadeIn">
+    
+    <div class="w-16 h-16 mx-auto rounded-3xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shadow-inner select-none">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    </div>
+
+    <div class="max-w-xl mx-auto space-y-3">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800/80">
+        Programă în colectare
+      </span>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight">
+        Planul de învățământ pentru această specializare este în curs de colectare. Contribuie cu programa ta!
+      </h3>
+
+      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        Nu avem încă disciplinele și creditele ECTS pentru 
+        <strong class="text-slate-900 dark:text-white">{{ studyContext.major() }}</strong> 
+        ({{ studyContext.faculty() }}, {{ studyContext.yearLabel() }}, {{ studyContext.semester() }}).
+        Trimite-ne fișa disciplinei sau planul de învățământ aprobat, iar noi îl vom adăuga în aplicație în cel mai scurt timp!
+      </p>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+      <a
+        routerLink="/contact"
+        [queryParams]="getContactQueryParams()"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/20 transition cursor-pointer"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        <span>Trimite Programa / Fișa Disciplinei</span>
+      </a>
+
+      <a
+        routerLink="/profile"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm border border-slate-200 dark:border-slate-700 transition cursor-pointer"
+      >
+        <span>Schimbă Specializarea din Profil</span>
+      </a>
+    </div>
+
+  </div>
+
+  <ng-container *ngIf="subjects().length > 0">
   <!-- Subjects Grade Grid -->
   <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5">
@@ -330,6 +388,7 @@
     [activeSemester]="studyContext.semester()"
     (switchSemester)="setSemester($event)"
   ></app-annual-results>
+  </ng-container>
 
   <!-- Feedback / Report Credits Helper Link -->
   <div class="text-center py-2">

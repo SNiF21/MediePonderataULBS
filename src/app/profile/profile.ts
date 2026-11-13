@@ -217,4 +217,15 @@ export class ProfileComponent {
   protected closeDeleteModal(): void {
     this.showDeleteModal.set(false);
   }
+
+  public getContactQueryParams(): Record<string, string> {
+    return {
+      category: 'credite',
+      faculty: this.selectedFaculty(),
+      major: this.selectedMajor(),
+      year: this.studyContext.yearLabel(),
+      subjectTitle: `Plan de învățământ: ${this.selectedFaculty()}`,
+      message: `Salut! Doresc să contribui cu planul de învățământ pentru ${this.selectedFaculty()}. Specializarea mea este ...`,
+    };
+  }
 }
