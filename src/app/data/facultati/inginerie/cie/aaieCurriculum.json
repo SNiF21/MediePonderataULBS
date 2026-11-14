@@ -1,0 +1,110 @@
+{
+  "Aplicații Avansate în Ingineria Electrică - Anul 1, Semestrul 1": [
+    {
+      "name": "Calitatea energiei electrice",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Proiectarea asistată a circuitelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Procesarea numerică a semnalelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul proiectelor complexe",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică profesională 1",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Aplicații Avansate în Ingineria Electrică - Anul 1, Semestrul 2": [
+    {
+      "name": "Sisteme SCADA în conducerea sistemelor electroenergetice",
+      "credits": 7,
+      "type": "Examen"
+    },
+    {
+      "name": "Tehnici avansate pentru măsurarea câmpului electromagnetic",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Interferențe și perturbații",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Modelarea și simularea sistemelor electrice",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională 2",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Aplicații Avansate în Ingineria Electrică - Anul 2, Semestrul 1": [
+    {
+      "name": "Aplicații CAD în inginerie electrică",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Comanda performantă a mașinii electrice de curent alternativ",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Senzori inteligenți și sisteme distribuite de măsură",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Eficiența energetică a proceselor electro-tehnologice",
+        "Sisteme SCADA în conducerea sistemelor electroenergetice"
+      ]
+    },
+    {
+      "name": "Practică de cercetare",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Aplicații Avansate în Ingineria Electrică - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică de cercetare",
+      "credits": 18,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică elaborare disertație",
+      "credits": 6,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborare disertație",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ]
+}

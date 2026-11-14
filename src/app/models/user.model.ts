@@ -1,4 +1,4 @@
-import { SemesterRoman, StudyMajor, YearRoman } from './studyProfile';
+import { SemesterRoman, StudyDegree, StudyMajor, YearRoman } from './studyProfile';
 
 export interface StudentProfile {
   uid: string;
@@ -7,6 +7,7 @@ export interface StudentProfile {
   createdAt: string;
   faculty?: string;
   department?: string;
+  degree?: StudyDegree;
   major: StudyMajor;
   year: YearRoman;
   semester: SemesterRoman;

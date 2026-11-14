@@ -28,6 +28,10 @@ export function getSubjectOptions(subject: Subject): string[] {
   return [];
 }
 
+export type StudyDegree = 'Licență' | 'Master';
+
+export const STUDY_DEGREES: StudyDegree[] = ['Licență', 'Master'];
+
 export type StudyMajor =
   | 'Calculatoare'
   | 'Tehnologia Informației'
@@ -51,7 +55,21 @@ export type StudyMajor =
   | 'Management'
   | 'Informatică'
   | 'Matematică Informatică'
-  | 'Matematică informatică';
+  | 'Matematică informatică'
+  | 'Applied Artificial Intelligence'
+  | 'Aplicații Avansate în Ingineria Electrică'
+  | 'Advanced Computing Systems'
+  | 'Embedded Systems'
+  | 'Ingineria Calculatoarelor în Aplicații Industriale'
+  | 'Ingineria și Managementul Gazelor Naturale'
+  | 'Logistică Industrială'
+  | 'Managementul Afacerilor Industriale'
+  | 'Managementul Calității'
+  | 'Managementul Proiectelor'
+  | 'Sisteme și Tehnologii Inteligente de Fabricație'
+  | 'Sisteme CAD-CAE-CAM în Deformarea Plastică'
+  | 'Sisteme Mecatronice Avansate'
+  | 'Sisteme Mecatronice Avansate (Dual)';
 
 export const STUDY_MAJORS: StudyMajor[] = [
   'Calculatoare',
@@ -76,6 +94,20 @@ export const STUDY_MAJORS: StudyMajor[] = [
   'Management',
   'Informatică',
   'Matematică Informatică',
+  'Applied Artificial Intelligence',
+  'Aplicații Avansate în Ingineria Electrică',
+  'Advanced Computing Systems',
+  'Embedded Systems',
+  'Ingineria Calculatoarelor în Aplicații Industriale',
+  'Ingineria și Managementul Gazelor Naturale',
+  'Logistică Industrială',
+  'Managementul Afacerilor Industriale',
+  'Managementul Calității',
+  'Managementul Proiectelor',
+  'Sisteme și Tehnologii Inteligente de Fabricație',
+  'Sisteme CAD-CAE-CAM în Deformarea Plastică',
+  'Sisteme Mecatronice Avansate',
+  'Sisteme Mecatronice Avansate (Dual)',
 ];
 
 export interface DepartmentOption {
@@ -111,6 +143,11 @@ export const FACULTIES: FacultyOption[] = [
           'Electronică Aplicată',
           'Electronică Aplicată (Dual)',
           'Electromecanică',
+          'Applied Artificial Intelligence',
+          'Aplicații Avansate în Ingineria Electrică',
+          'Advanced Computing Systems',
+          'Embedded Systems',
+          'Ingineria Calculatoarelor în Aplicații Industriale',
         ],
       },
       {
@@ -124,6 +161,12 @@ export const FACULTIES: FacultyOption[] = [
           'Tehnologia Construcțiilor de Mașini',
           'Inginerie Economică în Domeniul Mecanic',
           'Inginerie Economică în Domeniul Mecanic (ID)',
+          'Ingineria și Managementul Gazelor Naturale',
+          'Logistică Industrială',
+          'Managementul Afacerilor Industriale',
+          'Managementul Calității',
+          'Managementul Proiectelor',
+          'Sisteme și Tehnologii Inteligente de Fabricație',
         ],
       },
       {
@@ -138,6 +181,9 @@ export const FACULTIES: FacultyOption[] = [
           'Robotică',
           'Robotică (Dual)',
           'Sisteme de Producție Digitale',
+          'Sisteme CAD-CAE-CAM în Deformarea Plastică',
+          'Sisteme Mecatronice Avansate',
+          'Sisteme Mecatronice Avansate (Dual)',
         ],
       },
     ],
@@ -273,9 +319,18 @@ export function getDepartmentsForFaculty(facultyName: string): DepartmentOption[
   return f ? f.departments : (FACULTIES[0]?.departments ?? []);
 }
 
+export function getMajorDegree(major: StudyMajor | string): StudyDegree {
+  const years = MAJOR_TOTAL_YEARS[major];
+  if (years && years <= 2) {
+    return 'Master';
+  }
+  return 'Licență';
+}
+
 export function getMajorsForDepartment(
   facultyName: string,
-  departmentNameOrShort: string
+  departmentNameOrShort: string,
+  degree?: StudyDegree
 ): StudyMajor[] {
   const depts = getDepartmentsForFaculty(facultyName);
   const norm = (departmentNameOrShort ?? '').toLowerCase().trim();
@@ -287,7 +342,11 @@ export function getMajorsForDepartment(
       (norm === 'mi' && item.shortName === 'DMI') ||
       (norm === 'mmaf' && item.shortName === 'DMMA')
   );
-  return d ? d.majors : STUDY_MAJORS;
+  const majors = d ? d.majors : STUDY_MAJORS;
+  if (!degree) {
+    return majors;
+  }
+  return majors.filter((m) => getMajorDegree(m) === degree);
 }
 
 export type YearRoman = 'I' | 'II' | 'III' | 'IV';
@@ -329,6 +388,20 @@ export const MAJOR_TOTAL_YEARS: Record<string, number> = {
   Informatică: 3,
   'Matematică Informatică': 3,
   'Matematică informatică': 3,
+  'Applied Artificial Intelligence': 2,
+  'Aplicații Avansate în Ingineria Electrică': 2,
+  'Advanced Computing Systems': 2,
+  'Embedded Systems': 2,
+  'Ingineria Calculatoarelor în Aplicații Industriale': 2,
+  'Ingineria și Managementul Gazelor Naturale': 2,
+  'Logistică Industrială': 2,
+  'Managementul Afacerilor Industriale': 2,
+  'Managementul Calității': 2,
+  'Managementul Proiectelor': 2,
+  'Sisteme și Tehnologii Inteligente de Fabricație': 2,
+  'Sisteme CAD-CAE-CAM în Deformarea Plastică': 2,
+  'Sisteme Mecatronice Avansate': 2,
+  'Sisteme Mecatronice Avansate (Dual)': 2,
 };
 
 export const FACULTY_DEFAULT_YEARS: Record<string, number> = {

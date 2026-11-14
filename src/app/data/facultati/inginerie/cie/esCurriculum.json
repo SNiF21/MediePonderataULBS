@@ -1,0 +1,110 @@
+{
+  "Embedded Systems - Anul 1, Semestrul 1": [
+    {
+      "name": "Embedded Computing",
+      "credits": 7,
+      "type": "Examen"
+    },
+    {
+      "name": "Software Engineering",
+      "credits": 7,
+      "type": "Examen"
+    },
+    {
+      "name": "Machine Learning",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Ethics and Academic Integrity",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Professional Internship 1",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Embedded Systems - Anul 1, Semestrul 2": [
+    {
+      "name": "Industrial Automation and Industry 5.0 Systems",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Networking and Distributed Systems",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Energy-Efficient and Sustainable Embedded Systems",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Optional 1",
+      "credits": 6,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Hardware Acceleration and DevOps",
+        "Deep Neural Networks"
+      ]
+    },
+    {
+      "name": "Professional Internship 2",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Embedded Systems - Anul 2, Semestrul 1": [
+    {
+      "name": "Embedded Systems Design",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Advanced DSP Methods",
+      "credits": 7,
+      "type": "Examen"
+    },
+    {
+      "name": "Internet of Things",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Optional 2",
+      "credits": 6,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Plant Control",
+        "Cyber-Physical Systems"
+      ]
+    },
+    {
+      "name": "Research Activities",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Embedded Systems - Anul 2, Semestrul 2": [
+    {
+      "name": "Research Activities",
+      "credits": 18,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practical Activities for Preparing the Disertation Thesis",
+      "credits": 6,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Preparing the Disertation Thesis",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ]
+}

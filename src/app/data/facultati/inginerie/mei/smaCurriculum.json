@@ -1,0 +1,115 @@
+{
+  "Sisteme Mecatronice Avansate - Anul 1, Semestrul 1": [
+    {
+      "name": "Biomecatronică",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Metode și tehnici avansate de proiectare asistată",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Proiectarea optimală a sistemelor mecatronice",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Controlul avansat al sistemelor mecatronice",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Sisteme Mecatronice Avansate - Anul 1, Semestrul 2": [
+    {
+      "name": "Sisteme senzoriale și instrumentație virtuală",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Diagnoza și fiabilitatea sistemelor mecatronice",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Microsisteme electromecanice în industria automotive",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 1",
+      "credits": 6,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Analiza și sinteza sistemelor hidronice și pneutronice",
+        "Hidraulică proporțională"
+      ]
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Sisteme Mecatronice Avansate - Anul 2, Semestrul 1": [
+    {
+      "name": "Microrobotică și microsisteme",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Sisteme de conducere avansate în mecatronică",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Simularea cinematică și dinamică a sistemelor mecatronice",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Fabricație aditivă și inginerie inversă",
+        "Programarea CNC"
+      ]
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Sisteme Mecatronice Avansate - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborare disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ]
+}

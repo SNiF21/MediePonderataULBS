@@ -1,0 +1,110 @@
+{
+  "Advanced Computing Systems - Anul 1, Semestrul 1": [
+    {
+      "name": "High-Performance Computing",
+      "credits": 7,
+      "type": "Examen"
+    },
+    {
+      "name": "Advances in Software Engineering",
+      "credits": 7,
+      "type": "Examen"
+    },
+    {
+      "name": "Advanced Methods in Text Mining",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Ethics and Academic Integrity",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Professional Internship",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Advanced Computing Systems - Anul 1, Semestrul 2": [
+    {
+      "name": "Quantum Computing Fundamentals",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Advances in Computer Vision",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Blockchain Technologies",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Optional 1",
+      "credits": 6,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Deep Learning",
+        "Cloud computing"
+      ]
+    },
+    {
+      "name": "Research Activities 1",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Advanced Computing Systems - Anul 2, Semestrul 1": [
+    {
+      "name": "Advances in Computer Vision",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Agent & Service Oriented Software Engineering",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Evolutionary Computing",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Optional 2",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Cybersecurity",
+        "Multiagent Systems"
+      ]
+    },
+    {
+      "name": "Research Activities",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Advanced Computing Systems - Anul 2, Semestrul 2": [
+    {
+      "name": "Research Activities",
+      "credits": 18,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practical Activities for Preparing the Disertation Thesis",
+      "credits": 6,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Preparing the Disertation Thesis",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ]
+}

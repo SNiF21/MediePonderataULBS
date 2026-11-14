@@ -102,4 +102,32 @@ describe('ProfileComponent', () => {
     authService.user.set({ email: 'maria.ionescu-radulescu@ulbsibiu.ro' } as any);
     expect(component.studentGreeting()).toBe('Salut, Ionescu-Radulescu');
   });
+
+  it('should manage degree picker (Licență vs Master) and filter availableMajors in ProfileComponent', async () => {
+    // Initial state should be Licență
+    expect(component['selectedDegree']()).toBe('Licență');
+    const bachelors = component['availableMajors']();
+    expect(bachelors.length).toBeGreaterThan(0);
+    expect(bachelors).toContain('Calculatoare');
+    expect(bachelors).not.toContain('Advanced Computing Systems');
+
+    // Switch to Master
+    component['onDegreeSelect']('Master');
+    expect(component['selectedDegree']()).toBe('Master');
+    const masters = component['availableMajors']();
+    expect(masters.length).toBeGreaterThan(0);
+    expect(masters).toContain('Advanced Computing Systems');
+    expect(masters).toContain('Applied Artificial Intelligence');
+    expect(masters).not.toContain('Calculatoare');
+
+    // Saving profile should update StudyContextService
+    await component['saveProfile']();
+    const studyContext = TestBed.inject(StudyContextService);
+    expect(studyContext.degree()).toBe('Master');
+
+    // Switch back to Licență
+    component['onDegreeSelect']('Licență');
+    expect(component['selectedDegree']()).toBe('Licență');
+    expect(component['availableMajors']()).toContain('Calculatoare');
+  });
 });

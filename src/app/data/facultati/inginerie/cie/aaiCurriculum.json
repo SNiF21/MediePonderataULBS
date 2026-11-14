@@ -1,0 +1,61 @@
+{
+  "Applied Artificial Intelligence - Anul 1, Semestrul 1": [
+    {
+      "name": "Fundamentals of Artificial Intelligence",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Machine Learning",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Programming for AI",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Prompt design for AI models",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Ethics and Academic Integrity in AI",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Professional Internship",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Applied Artificial Intelligence - Anul 1, Semestrul 2": [
+    {
+      "name": "Deep Learning",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Quantum AI",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Computer Vision and Pattern Recognition",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Smart Contracts and Blockchain",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Research Activities 1",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ]
+}

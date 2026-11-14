@@ -5,11 +5,14 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { StudyContextService } from '../services/study-context.service';
 import {
+  STUDY_DEGREES,
   SemesterRoman,
+  StudyDegree,
   StudyMajor,
   YearRoman,
   getDepartmentsForFaculty,
   getFacultyIcon,
+  getMajorDegree,
   getMajorsForDepartment,
 } from '../models/studyProfile';
 import { ChangePasswordModalComponent } from './components/change-password-modal/change-password-modal';
@@ -36,12 +39,14 @@ export class ProfileComponent {
     effect(() => {
       const f = this.studyContext.faculty();
       const d = this.studyContext.department();
+      const deg = this.studyContext.degree();
       const m = this.studyContext.major();
       const y = this.studyContext.year();
       const s = this.studyContext.semester();
       if (!this.hasProfileChanges()) {
         this.selectedFaculty.set(f);
         this.selectedDepartment.set(d);
+        this.selectedDegree.set(deg);
         this.selectedMajor.set(m);
         this.selectedYear.set(y);
         this.selectedSemester.set(s);
@@ -123,8 +128,10 @@ export class ProfileComponent {
   }
 
   // Study context selection signals (pending save)
+  public readonly studyDegrees = STUDY_DEGREES;
   protected readonly selectedFaculty = signal<string>(this.studyContext.faculty());
   protected readonly selectedDepartment = signal<string>(this.studyContext.department());
+  protected readonly selectedDegree = signal<StudyDegree>(this.studyContext.degree());
   protected readonly selectedMajor = signal<StudyMajor>(this.studyContext.major());
   protected readonly selectedYear = signal<YearRoman>(this.studyContext.year());
   protected readonly selectedSemester = signal<SemesterRoman>(this.studyContext.semester());
@@ -134,7 +141,7 @@ export class ProfileComponent {
     getDepartmentsForFaculty(this.selectedFaculty())
   );
   protected readonly availableMajors = computed(() =>
-    getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment())
+    getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), this.selectedDegree())
   );
   public readonly availableYears = computed(() =>
     this.studyContext.getAvailableYears(this.selectedMajor(), this.selectedFaculty())
@@ -147,6 +154,7 @@ export class ProfileComponent {
     return (
       this.selectedFaculty() !== this.studyContext.faculty() ||
       this.selectedDepartment() !== this.studyContext.department() ||
+      this.selectedDegree() !== this.studyContext.degree() ||
       this.selectedMajor() !== this.studyContext.major() ||
       this.selectedYear() !== this.studyContext.year() ||
       this.selectedSemester() !== this.studyContext.semester()
@@ -159,7 +167,7 @@ export class ProfileComponent {
     if (depts.length > 0 && !depts.some((d) => d.shortName === this.selectedDepartment() || d.name === this.selectedDepartment())) {
       const firstDept = depts[0].shortName;
       this.selectedDepartment.set(firstDept);
-      const majors = getMajorsForDepartment(facultyName, firstDept);
+      const majors = getMajorsForDepartment(facultyName, firstDept, this.selectedDegree());
       if (majors.length > 0) {
         this.onMajorSelect(majors[0]);
       }
@@ -168,14 +176,26 @@ export class ProfileComponent {
 
   protected onDepartmentSelect(departmentShortOrName: string): void {
     this.selectedDepartment.set(departmentShortOrName);
-    const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName);
+    const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName, this.selectedDegree());
     if (majors.length > 0 && !majors.includes(this.selectedMajor())) {
+      this.onMajorSelect(majors[0]);
+    }
+  }
+
+  protected onDegreeSelect(degree: StudyDegree): void {
+    this.selectedDegree.set(degree);
+    const majors = getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), degree);
+    if (majors.length > 0 && (!majors.includes(this.selectedMajor()) || getMajorDegree(this.selectedMajor()) !== degree)) {
       this.onMajorSelect(majors[0]);
     }
   }
 
   protected onMajorSelect(major: StudyMajor): void {
     this.selectedMajor.set(major);
+    const expDegree = getMajorDegree(major);
+    if (this.selectedDegree() !== expDegree) {
+      this.selectedDegree.set(expDegree);
+    }
     const valid = this.studyContext.getAvailableYears(major, this.selectedFaculty());
     if (!valid.some((y) => y.roman === this.selectedYear())) {
       this.selectedYear.set(valid[valid.length - 1]?.roman ?? 'I');
@@ -196,6 +216,7 @@ export class ProfileComponent {
   protected resetProfileSelection(): void {
     this.selectedFaculty.set(this.studyContext.faculty());
     this.selectedDepartment.set(this.studyContext.department());
+    this.selectedDegree.set(this.studyContext.degree());
     this.selectedMajor.set(this.studyContext.major());
     this.selectedYear.set(this.studyContext.year());
     this.selectedSemester.set(this.studyContext.semester());
@@ -209,7 +230,8 @@ export class ProfileComponent {
         this.selectedYear(),
         this.selectedSemester(),
         this.selectedFaculty(),
-        this.selectedDepartment()
+        this.selectedDepartment(),
+        this.selectedDegree()
       );
       this.profileUpdateSuccess.set(true);
       setTimeout(() => this.profileUpdateSuccess.set(false), 3000);

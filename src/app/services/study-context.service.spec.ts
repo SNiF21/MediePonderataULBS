@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { StudyContextService } from './study-context.service';
 import { AuthService } from './auth.service';
 import { FirebaseService } from './firebase.service';
-import { StudyMajor } from '../models/studyProfile';
+import { StudyMajor, getMajorDegree, getMajorsForDepartment } from '../models/studyProfile';
 
 describe('StudyContextService', () => {
   let service: StudyContextService;
@@ -283,6 +283,114 @@ describe('StudyContextService', () => {
           const subs = service.subjects();
           expect(subs.length).toBeGreaterThan(0);
           const totalCredits = subs.reduce((sum, item) => sum + item.credits, 0);
+          expect(totalCredits).toBe(30);
+        }
+      }
+    }
+  });
+
+  it('should differentiate Licență (3-4 years) vs Master (1-2 years) correctly with getMajorDegree', () => {
+    // Bachelor (3 or 4 years)
+    expect(getMajorDegree('Calculatoare')).toBe('Licență');
+    expect(getMajorDegree('Tehnologia Informației')).toBe('Licență');
+    expect(getMajorDegree('Management')).toBe('Licență');
+    expect(getMajorDegree('Informatică')).toBe('Licență');
+    expect(getMajorDegree('Matematică Informatică')).toBe('Licență');
+
+    // Master (1 or 2 years)
+    const masterMajors: StudyMajor[] = [
+      'Applied Artificial Intelligence',
+      'Aplicații Avansate în Ingineria Electrică',
+      'Advanced Computing Systems',
+      'Embedded Systems',
+      'Ingineria Calculatoarelor în Aplicații Industriale',
+      'Ingineria și Managementul Gazelor Naturale',
+      'Logistică Industrială',
+      'Managementul Afacerilor Industriale',
+      'Managementul Calității',
+      'Managementul Proiectelor',
+      'Sisteme și Tehnologii Inteligente de Fabricație',
+      'Sisteme CAD-CAE-CAM în Deformarea Plastică',
+      'Sisteme Mecatronice Avansate',
+      'Sisteme Mecatronice Avansate (Dual)',
+    ];
+
+    for (const m of masterMajors) {
+      expect(getMajorDegree(m)).toBe('Master');
+    }
+  });
+
+  it('should filter majors by degree in getMajorsForDepartment', () => {
+    const cieLicenta = getMajorsForDepartment('Facultatea de Inginerie', 'CIE', 'Licență');
+    const cieMaster = getMajorsForDepartment('Facultatea de Inginerie', 'CIE', 'Master');
+    expect(cieLicenta.length).toBe(6);
+    expect(cieLicenta).toContain('Calculatoare');
+    expect(cieLicenta).not.toContain('Advanced Computing Systems');
+
+    expect(cieMaster.length).toBe(5);
+    expect(cieMaster).toContain('Advanced Computing Systems');
+    expect(cieMaster).toContain('Applied Artificial Intelligence');
+    expect(cieMaster).not.toContain('Calculatoare');
+
+    const iimLicenta = getMajorsForDepartment('Facultatea de Inginerie', 'IIM', 'Licență');
+    const iimMaster = getMajorsForDepartment('Facultatea de Inginerie', 'IIM', 'Master');
+    expect(iimLicenta.length).toBe(6);
+    expect(iimMaster.length).toBe(6);
+    expect(iimMaster).toContain('Managementul Proiectelor');
+    expect(iimMaster).not.toContain('Tehnologia Construcțiilor de Mașini');
+
+    const meiLicenta = getMajorsForDepartment('Facultatea de Inginerie', 'MEI', 'Licență');
+    const meiMaster = getMajorsForDepartment('Facultatea de Inginerie', 'MEI', 'Master');
+    expect(meiLicenta.length).toBe(7);
+    expect(meiMaster.length).toBe(3);
+    expect(meiMaster).toContain('Sisteme Mecatronice Avansate');
+    expect(meiMaster).not.toContain('Mecatronică');
+  });
+
+  it('should manage degree state and filter availableMajors in StudyContextService', () => {
+    expect(service.degree()).toBe('Licență');
+    const bachelors = service.availableMajors();
+    expect(bachelors.every((m) => getMajorDegree(m) === 'Licență')).toBe(true);
+
+    service.setDegree('Master');
+    expect(service.degree()).toBe('Master');
+    const masters = service.availableMajors();
+    expect(masters.length).toBeGreaterThan(0);
+    expect(masters.every((m) => getMajorDegree(m) === 'Master')).toBe(true);
+    expect(getMajorDegree(service.major())).toBe('Master');
+
+    service.setDegree('Licență');
+    expect(service.degree()).toBe('Licență');
+    expect(service.availableMajors().every((m) => getMajorDegree(m) === 'Licență')).toBe(true);
+  });
+
+  it('should load curriculum subjects for all 14 new Master majors with 30 credits per semester', () => {
+    const masterMajorsData: { major: StudyMajor; dept: string; years: ('I' | 'II')[]; semesters: ('Semestrul I' | 'Semestrul II')[] }[] = [
+      { major: 'Applied Artificial Intelligence', dept: 'CIE', years: ['I'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Aplicații Avansate în Ingineria Electrică', dept: 'CIE', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Advanced Computing Systems', dept: 'CIE', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Embedded Systems', dept: 'CIE', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Ingineria Calculatoarelor în Aplicații Industriale', dept: 'CIE', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Ingineria și Managementul Gazelor Naturale', dept: 'IIM', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Logistică Industrială', dept: 'IIM', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Managementul Afacerilor Industriale', dept: 'IIM', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Managementul Calității', dept: 'IIM', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Managementul Proiectelor', dept: 'IIM', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Sisteme și Tehnologii Inteligente de Fabricație', dept: 'IIM', years: ['II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Sisteme CAD-CAE-CAM în Deformarea Plastică', dept: 'MEI', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Sisteme Mecatronice Avansate', dept: 'MEI', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+      { major: 'Sisteme Mecatronice Avansate (Dual)', dept: 'MEI', years: ['I', 'II'], semesters: ['Semestrul I', 'Semestrul II'] },
+    ];
+
+    for (const item of masterMajorsData) {
+      for (const y of item.years) {
+        for (const s of item.semesters) {
+          service.setProfile(item.major, y, s, 'Facultatea de Inginerie', item.dept, 'Master');
+          expect(service.degree()).toBe('Master');
+          expect(service.major()).toBe(item.major);
+          const subs = service.subjects();
+          expect(subs.length).toBeGreaterThan(0);
+          const totalCredits = subs.reduce((sum, sub) => sum + sub.credits, 0);
           expect(totalCredits).toBe(30);
         }
       }

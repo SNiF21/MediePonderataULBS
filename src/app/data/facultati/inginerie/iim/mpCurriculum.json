@@ -1,0 +1,120 @@
+{
+  "Managementul Proiectelor - Anul 1, Semestrul 1": [
+    {
+      "name": "Designul proiectelor complexe",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 1",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Managementul achizițiilor în proiecte",
+        "Drept comercial"
+      ]
+    },
+    {
+      "name": "Managementul financiar al proiectelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Sustenabilitatea proiectelor",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Managementul Proiectelor - Anul 1, Semestrul 2": [
+    {
+      "name": "Opțional 2",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Managementul echipelor de proiect",
+        "Managementul echipelor virtuale"
+      ]
+    },
+    {
+      "name": "Sisteme informaționale în proiecte",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Leadership în proiecte",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Studii tehnico-economice pentru proiecte",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Managementul Proiectelor - Anul 2, Semestrul 1": [
+    {
+      "name": "Fonduri structurale și alte tipuri de granturi pentru proiecte",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Inovare și transfer de tehnologie",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Ingineria și managementul investițiilor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Sustenabilitatea proiectelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică de cercetare",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ],
+  "Managementul Proiectelor - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică de cercetare",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborare disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ]
+}

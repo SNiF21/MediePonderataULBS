@@ -1,0 +1,120 @@
+{
+  "Managementul Afacerilor Industriale - Anul 1, Semestrul 1": [
+    {
+      "name": "Opțional 1",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Management financiar",
+        "Analiza diagnostic"
+      ]
+    },
+    {
+      "name": "Managementul proiectelor complexe",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Comunicare și negociere în afaceri",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Evaluarea riscurilor și managementul securității și sănătății în muncă",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Managementul Afacerilor Industriale - Anul 1, Semestrul 2": [
+    {
+      "name": "Opțional 2",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Capitalul uman în organizații",
+        "Comportament organizațional"
+      ]
+    },
+    {
+      "name": "Sisteme informatice pentru suport decizional",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Leadership în organizații",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Antreprenoriat și dezvoltarea afacerilor industriale",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Managementul Afacerilor Industriale - Anul 2, Semestrul 1": [
+    {
+      "name": "Managementul marketingului",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Comunicare și negociere în afaceri",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Ingineria și managementul investițiilor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Metode și tehnici pentru diagnoza și îmbunătățirea proceselor",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 3,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică de cercetare",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ],
+  "Managementul Afacerilor Industriale - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică de cercetare",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborare disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ]
+}

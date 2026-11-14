@@ -1,0 +1,105 @@
+{
+  "Sisteme CAD-CAE-CAM în Deformarea Plastică - Anul 1, Semestrul 1": [
+    {
+      "name": "Achiziția și prelucrarea datelor experimentale în procesele de deformare plastică",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Metode și tehnici avansate de proiectare asistată",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Metode numerice de optimizare a produselor",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Mașini, echipamente și strategii în sisteme integrate de producție",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Sisteme CAD-CAE-CAM în Deformarea Plastică - Anul 1, Semestrul 2": [
+    {
+      "name": "Tehnici CAE pentru controlul proceselor industriale",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Metode și tehnici de simulare a proceselor de prelucrare a materialelor plastice",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Simularea cinematică a sistemelor mecanice",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Sisteme de fabricație robotizate",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Sisteme CAD-CAE-CAM în Deformarea Plastică - Anul 2, Semestrul 1": [
+    {
+      "name": "Echipamente cu comandă numerică",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Tehnici CAM de programare a echipamentelor de deformare plastică",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Procedee speciale de deformare plastică",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Acționarea și automatizarea echipamentelor de deformare plastică",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ],
+  "Sisteme CAD-CAE-CAM în Deformarea Plastică - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborare disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ]
+}

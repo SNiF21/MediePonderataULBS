@@ -1,0 +1,130 @@
+{
+  "Managementul Calității - Anul 1, Semestrul 1": [
+    {
+      "name": "Controlul statistic al proceselor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Fiabilitatea și mentenabilitatea sistemelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Tehnici ale cunoașterii științifice",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Opțional 1",
+      "credits": 5,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Managementul sustenabil prin analiza și interpretarea datelor",
+        "Tehnica informării și comunicării"
+      ]
+    }
+  ],
+  "Managementul Calității - Anul 1, Semestrul 2": [
+    {
+      "name": "Tehnici și instrumente ale calității",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Proiect - Îmbunătățire continuă",
+      "credits": 4,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Politici și mecanisme instituționale în domeniul calității",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Leadership și cultura calității în organizații",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Calitatea și managementul mediului",
+        "Managementul dezvoltării durabile"
+      ]
+    }
+  ],
+  "Managementul Calității - Anul 2, Semestrul 1": [
+    {
+      "name": "Managementul sănătății și securității ocupaționale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul calității totale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul marketingului",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul proiectelor complexe",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 5,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Opțional 3",
+      "credits": 4,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Auditarea și certificarea sistemelor calității",
+        "Managementul achizițiilor și furnizorilor"
+      ]
+    }
+  ],
+  "Managementul Calității - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică de cercetare",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ]
+}

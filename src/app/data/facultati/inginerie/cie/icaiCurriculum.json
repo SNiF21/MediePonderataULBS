@@ -1,0 +1,130 @@
+{
+  "Ingineria Calculatoarelor în Aplicații Industriale - Anul 1, Semestrul 1": [
+    {
+      "name": "Structuri de date și algoritmi",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Proiectarea cu circuite logice în aplicații industriale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Aplicații ale tehnologiei informației",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Bazele logice ale automatelor",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică profesională 1",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Ingineria Calculatoarelor în Aplicații Industriale - Anul 1, Semestrul 2": [
+    {
+      "name": "Baze de date cu aplicații în industrie",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Proiectare orientată obiect",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Tehnici avansate de reglare a proceselor industriale",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 1",
+      "credits": 7,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Rețele de calculatoare și protocoale de comunicații",
+        "Internet și intranet"
+      ]
+    },
+    {
+      "name": "Practică profesională 2",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Ingineria Calculatoarelor în Aplicații Industriale - Anul 2, Semestrul 1": [
+    {
+      "name": "Arhitecturi avansate de calcul",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Sisteme de operare în timp real",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Interfețe și periferice în automotive",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 7,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Programarea aplicațiilor grafice",
+        "Realitate virtuală"
+      ]
+    },
+    {
+      "name": "Practică de cercetare",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Ingineria Calculatoarelor în Aplicații Industriale - Anul 2, Semestrul 2": [
+    {
+      "name": "Aplicații ale inteligenței artificiale",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Ingineria programării în timp real",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "WEB design",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Microcontrolere în automotive",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică elaborare disertație",
+      "credits": 6,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborare disertație",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "Logistică Industrială - Anul 1, Semestrul 1": [
+    {
+      "name": "Managementul ciclului de viață al produsului",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul lanțului logistic",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul proiectelor",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Sisteme de inspecție a calității în fluxuri logistice",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Logistică Industrială - Anul 1, Semestrul 2": [
+    {
+      "name": "Leadership",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Principiile fabricației suple",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Planificarea resurselor întreprinderii",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul achizițiilor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Logistică Industrială - Anul 2, Semestrul 1": [
+    {
+      "name": "Distribuție și vânzări",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Fiabilitatea și mentenanța sistemelor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Logistica activităților de expediție și transport",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul relațiilor cu clienții",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 8,
+      "type": "Colocviu"
+    }
+  ],
+  "Logistică Industrială - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică profesională",
+      "credits": 18,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 6,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborarea lucrării de disertație",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ]
+}

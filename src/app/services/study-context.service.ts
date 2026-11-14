@@ -3,10 +3,12 @@ import {
   DEFAULT_DEPARTMENT,
   DEFAULT_FACULTY,
   FACULTIES,
+  STUDY_DEGREES,
   STUDY_MAJORS,
   STUDY_SEMESTERS,
   STUDY_YEARS,
   SemesterRoman,
+  StudyDegree,
   StudyMajor,
   Subject,
   YearOption,
@@ -14,6 +16,7 @@ import {
   buildCurriculumKey,
   getDepartmentsForFaculty,
   getFacultyIcon,
+  getMajorDegree,
   getMajorsForDepartment,
   getYearsForMajor,
 } from '../models/studyProfile';
@@ -24,6 +27,7 @@ import { StudentProfile } from '../models/user.model';
 const STORAGE_KEYS = {
   FACULTY: 'study_context:faculty',
   DEPARTMENT: 'study_context:department',
+  DEGREE: 'study_context:degree',
   MAJOR: 'study_context:major',
   YEAR: 'study_context:year',
   SEMESTER: 'study_context:semester',
@@ -36,6 +40,7 @@ export class StudyContextService {
   private readonly authService = inject(AuthService);
 
   public readonly faculties = FACULTIES;
+  public readonly studyDegrees = STUDY_DEGREES;
   public readonly majors = STUDY_MAJORS;
   public readonly allYears = STUDY_YEARS;
   public readonly semesters = STUDY_SEMESTERS;
@@ -43,6 +48,7 @@ export class StudyContextService {
   public readonly faculty = signal<string>(DEFAULT_FACULTY);
   public readonly facultyIcon = computed(() => getFacultyIcon(this.faculty()));
   public readonly department = signal<string>(DEFAULT_DEPARTMENT);
+  public readonly degree = signal<StudyDegree>('Licență');
   public readonly major = signal<StudyMajor>('Calculatoare');
   public readonly year = signal<YearRoman>('I');
   public readonly semester = signal<SemesterRoman>('Semestrul I');
@@ -72,7 +78,7 @@ export class StudyContextService {
   );
 
   public readonly availableMajors = computed(() =>
-    getMajorsForDepartment(this.faculty(), this.department())
+    getMajorsForDepartment(this.faculty(), this.department(), this.degree())
   );
 
   public readonly curriculumKey = computed(() =>
@@ -117,6 +123,13 @@ export class StudyContextService {
         this.major.set(savedMajor);
       }
 
+      const savedDegree = localStorage.getItem(STORAGE_KEYS.DEGREE) as StudyDegree | null;
+      if (savedDegree && this.studyDegrees.includes(savedDegree)) {
+        this.degree.set(savedDegree);
+      } else if (savedMajor) {
+        this.degree.set(getMajorDegree(savedMajor));
+      }
+
       const validYears = this.getAvailableYears(this.major(), this.faculty());
       const savedYear = localStorage.getItem(STORAGE_KEYS.YEAR) as YearRoman | null;
       if (savedYear && validYears.some((y) => y.roman === savedYear)) {
@@ -146,6 +159,11 @@ export class StudyContextService {
           if (profile.department) {
             this.department.set(profile.department);
           }
+          if (profile.degree && this.studyDegrees.includes(profile.degree)) {
+            this.degree.set(profile.degree);
+          } else if (profile.major) {
+            this.degree.set(getMajorDegree(profile.major));
+          }
           if (profile.major && this.majors.includes(profile.major)) {
             this.major.set(profile.major);
           }
@@ -163,6 +181,16 @@ export class StudyContextService {
     );
   }
 
+  public setDegree(deg: StudyDegree): void {
+    this.degree.set(deg);
+    this.saveToStorage(STORAGE_KEYS.DEGREE, deg);
+    const majors = getMajorsForDepartment(this.faculty(), this.department(), deg);
+    if (majors.length > 0 && (!majors.includes(this.major()) || getMajorDegree(this.major()) !== deg)) {
+      this.setMajor(majors[0]);
+    }
+    this.syncToFirestore({ degree: deg, major: this.major(), year: this.year() });
+  }
+
   public setFaculty(f: string): void {
     this.faculty.set(f);
     this.saveToStorage(STORAGE_KEYS.FACULTY, f);
@@ -171,22 +199,22 @@ export class StudyContextService {
       const newDept = depts[0].shortName;
       this.department.set(newDept);
       this.saveToStorage(STORAGE_KEYS.DEPARTMENT, newDept);
-      const majors = getMajorsForDepartment(f, newDept);
+      const majors = getMajorsForDepartment(f, newDept, this.degree());
       if (majors.length > 0 && !majors.includes(this.major())) {
         this.setMajor(majors[0]);
       }
     }
-    this.syncToFirestore({ faculty: f, department: this.department(), major: this.major() });
+    this.syncToFirestore({ faculty: f, department: this.department(), degree: this.degree(), major: this.major() });
   }
 
   public setDepartment(d: string): void {
     this.department.set(d);
     this.saveToStorage(STORAGE_KEYS.DEPARTMENT, d);
-    const majors = getMajorsForDepartment(this.faculty(), d);
+    const majors = getMajorsForDepartment(this.faculty(), d, this.degree());
     if (majors.length > 0 && !majors.includes(this.major())) {
       this.setMajor(majors[0]);
     }
-    this.syncToFirestore({ department: d, major: this.major() });
+    this.syncToFirestore({ department: d, degree: this.degree(), major: this.major() });
   }
 
   public setSemester(sem: SemesterRoman): void {
@@ -209,6 +237,13 @@ export class StudyContextService {
     this.major.set(m);
     this.saveToStorage(STORAGE_KEYS.MAJOR, m);
 
+    // Sync degree if necessary
+    const expectedDegree = getMajorDegree(m);
+    if (this.degree() !== expectedDegree) {
+      this.degree.set(expectedDegree);
+      this.saveToStorage(STORAGE_KEYS.DEGREE, expectedDegree);
+    }
+
     // Validate current year against the new major
     const validYears = this.getAvailableYears(m, this.faculty());
     if (!validYears.some((y) => y.roman === this.year())) {
@@ -217,7 +252,7 @@ export class StudyContextService {
       this.saveToStorage(STORAGE_KEYS.YEAR, fallbackYear);
     }
 
-    this.syncToFirestore({ major: m, year: this.year() });
+    this.syncToFirestore({ degree: this.degree(), major: m, year: this.year() });
   }
 
   public setProfile(
@@ -225,10 +260,12 @@ export class StudyContextService {
     year: YearRoman,
     semester: SemesterRoman,
     faculty?: string,
-    department?: string
+    department?: string,
+    degree?: StudyDegree
   ): void {
     const fac = faculty ?? this.faculty();
     const dept = department ?? this.department();
+    const deg = degree ?? getMajorDegree(major);
 
     const validYears = this.getAvailableYears(major, fac);
     const validYear = validYears.some((y) => y.roman === year)
@@ -237,12 +274,14 @@ export class StudyContextService {
 
     this.faculty.set(fac);
     this.department.set(dept);
+    this.degree.set(deg);
     this.major.set(major);
     this.year.set(validYear);
     this.semester.set(semester);
 
     this.saveToStorage(STORAGE_KEYS.FACULTY, fac);
     this.saveToStorage(STORAGE_KEYS.DEPARTMENT, dept);
+    this.saveToStorage(STORAGE_KEYS.DEGREE, deg);
     this.saveToStorage(STORAGE_KEYS.MAJOR, major);
     this.saveToStorage(STORAGE_KEYS.YEAR, validYear);
     this.saveToStorage(STORAGE_KEYS.SEMESTER, semester);
@@ -250,6 +289,7 @@ export class StudyContextService {
     this.syncToFirestore({
       faculty: fac,
       department: dept,
+      degree: deg,
       major,
       year: validYear,
       semester,

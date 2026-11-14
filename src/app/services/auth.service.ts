@@ -15,7 +15,7 @@ import {
 import { collection, deleteDoc, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
 import { FirebaseService } from './firebase.service';
 import { StudentProfile } from '../models/user.model';
-import { SemesterRoman, StudyMajor, YearRoman } from '../models/studyProfile';
+import { SemesterRoman, StudyDegree, StudyMajor, YearRoman, getMajorDegree } from '../models/studyProfile';
 import { environment } from '../../environments/environment';
 
 export const INSTITUTIONAL_DOMAIN = environment.institutionalDomain || 'ulbsibiu.ro';
@@ -111,6 +111,7 @@ export class AuthService {
     initialProfile?: {
       faculty?: string;
       department?: string;
+      degree?: StudyDegree;
       major?: StudyMajor;
       year?: YearRoman;
       semester?: SemesterRoman;
@@ -144,6 +145,7 @@ export class AuthService {
       createdAt: new Date().toISOString(),
       faculty: initialProfile?.faculty ?? 'Facultatea de Inginerie',
       department: initialProfile?.department ?? 'CIE',
+      degree: initialProfile?.degree ?? getMajorDegree(initialProfile?.major ?? 'Calculatoare'),
       major: initialProfile?.major ?? 'Calculatoare',
       year: initialProfile?.year ?? 'I',
       semester: initialProfile?.semester ?? 'Semestrul I',

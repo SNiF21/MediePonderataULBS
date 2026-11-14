@@ -7,13 +7,16 @@ import {
   DEFAULT_DEPARTMENT,
   DEFAULT_FACULTY,
   FACULTIES,
+  STUDY_DEGREES,
   STUDY_MAJORS,
   STUDY_SEMESTERS,
   STUDY_YEARS,
   SemesterRoman,
+  StudyDegree,
   StudyMajor,
   YearRoman,
   getDepartmentsForFaculty,
+  getMajorDegree,
   getMajorsForDepartment,
   getYearsForMajor,
 } from '../models/studyProfile';
@@ -40,6 +43,7 @@ export class AuthComponent {
 
   // Profile options for registration
   protected readonly faculties = FACULTIES;
+  public readonly studyDegrees = STUDY_DEGREES;
   protected readonly years = STUDY_YEARS;
   protected readonly semesters = STUDY_SEMESTERS;
 
@@ -48,8 +52,9 @@ export class AuthComponent {
     getDepartmentsForFaculty(this.selectedFaculty())
   );
   protected readonly selectedDepartment = signal<string>(DEFAULT_DEPARTMENT);
+  protected readonly selectedDegree = signal<StudyDegree>('Licență');
   protected readonly availableMajors = computed(() =>
-    getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment())
+    getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), this.selectedDegree())
   );
 
   protected readonly selectedMajor = signal<StudyMajor>('Calculatoare');
@@ -60,8 +65,20 @@ export class AuthComponent {
     this.studyContext.getAvailableYears(this.selectedMajor(), this.selectedFaculty())
   );
 
+  protected onDegreeChange(degree: StudyDegree): void {
+    this.selectedDegree.set(degree);
+    const majors = getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), degree);
+    if (majors.length > 0 && (!majors.includes(this.selectedMajor()) || getMajorDegree(this.selectedMajor()) !== degree)) {
+      this.onMajorChange(majors[0]);
+    }
+  }
+
   protected onMajorChange(major: StudyMajor): void {
     this.selectedMajor.set(major);
+    const expDegree = getMajorDegree(major);
+    if (this.selectedDegree() !== expDegree) {
+      this.selectedDegree.set(expDegree);
+    }
     const valid = this.studyContext.getAvailableYears(major, this.selectedFaculty());
     if (!valid.some((y) => y.roman === this.selectedYear())) {
       this.selectedYear.set(valid[valid.length - 1]?.roman ?? 'I');
@@ -74,7 +91,7 @@ export class AuthComponent {
     if (depts.length > 0) {
       const firstDept = depts[0].shortName;
       this.selectedDepartment.set(firstDept);
-      const majors = getMajorsForDepartment(facultyName, firstDept);
+      const majors = getMajorsForDepartment(facultyName, firstDept, this.selectedDegree());
       if (majors.length > 0) {
         this.onMajorChange(majors[0]);
       }
@@ -83,7 +100,7 @@ export class AuthComponent {
 
   protected onDepartmentChange(departmentShortOrName: string) {
     this.selectedDepartment.set(departmentShortOrName);
-    const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName);
+    const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName, this.selectedDegree());
     if (majors.length > 0 && !majors.includes(this.selectedMajor())) {
       this.onMajorChange(majors[0]);
     }
@@ -172,6 +189,7 @@ export class AuthComponent {
         await this.authService.register(emailVal, passVal, {
           faculty: this.selectedFaculty(),
           department: this.selectedDepartment(),
+          degree: this.selectedDegree(),
           major: this.selectedMajor(),
           year: this.selectedYear(),
           semester: this.selectedSemester(),
@@ -182,7 +200,8 @@ export class AuthComponent {
           this.selectedYear(),
           this.selectedSemester(),
           this.selectedFaculty(),
-          this.selectedDepartment()
+          this.selectedDepartment(),
+          this.selectedDegree()
         );
         this.router.navigate(['/calculator']);
       } else if (this.mode() === 'forgot') {

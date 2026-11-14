@@ -20,6 +20,20 @@ import spdCurriculum from './facultati/inginerie/mei/spdCurriculum.json';
 import managementCurriculum from './facultati/stiinteEconomice/mmaf/managementCurriculum.json';
 import informaticaCurriculum from './facultati/stiinte/mi/informaticaCurriculum.json';
 import matematicaInformaticaCurriculum from './facultati/stiinte/mi/matematicaInformaticaCurriculum.json';
+import aaiCurriculum from './facultati/inginerie/cie/aaiCurriculum.json';
+import aaieCurriculum from './facultati/inginerie/cie/aaieCurriculum.json';
+import acsCurriculum from './facultati/inginerie/cie/acsCurriculum.json';
+import esCurriculum from './facultati/inginerie/cie/esCurriculum.json';
+import icaiCurriculum from './facultati/inginerie/cie/icaiCurriculum.json';
+import imgnCurriculum from './facultati/inginerie/iim/imgnCurriculum.json';
+import liCurriculum from './facultati/inginerie/iim/liCurriculum.json';
+import maiCurriculum from './facultati/inginerie/iim/maiCurriculum.json';
+import mcCurriculum from './facultati/inginerie/iim/mcCurriculum.json';
+import mpCurriculum from './facultati/inginerie/iim/mpCurriculum.json';
+import stifCurriculum from './facultati/inginerie/iim/stifCurriculum.json';
+import scccdpCurriculum from './facultati/inginerie/mei/scccdpCurriculum.json';
+import smaCurriculum from './facultati/inginerie/mei/smaCurriculum.json';
+import smaDualCurriculum from './facultati/inginerie/mei/smaDualCurriculum.json';
 import { Subject } from '../models/studyProfile';
 
 export const CURRICULUM_DATA: Record<string, Subject[]> = {
@@ -45,4 +59,18 @@ export const CURRICULUM_DATA: Record<string, Subject[]> = {
   ...(managementCurriculum as Record<string, Subject[]>),
   ...(informaticaCurriculum as Record<string, Subject[]>),
   ...(matematicaInformaticaCurriculum as Record<string, Subject[]>),
+  ...(aaiCurriculum as Record<string, Subject[]>),
+  ...(aaieCurriculum as Record<string, Subject[]>),
+  ...(acsCurriculum as Record<string, Subject[]>),
+  ...(esCurriculum as Record<string, Subject[]>),
+  ...(icaiCurriculum as Record<string, Subject[]>),
+  ...(imgnCurriculum as Record<string, Subject[]>),
+  ...(liCurriculum as Record<string, Subject[]>),
+  ...(maiCurriculum as Record<string, Subject[]>),
+  ...(mcCurriculum as Record<string, Subject[]>),
+  ...(mpCurriculum as Record<string, Subject[]>),
+  ...(stifCurriculum as Record<string, Subject[]>),
+  ...(scccdpCurriculum as Record<string, Subject[]>),
+  ...(smaCurriculum as Record<string, Subject[]>),
+  ...(smaDualCurriculum as Record<string, Subject[]>),
 };

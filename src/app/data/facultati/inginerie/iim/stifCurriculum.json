@@ -1,0 +1,51 @@
+{
+  "Sisteme și Tehnologii Inteligente de Fabricație - Anul 2, Semestrul 1": [
+    {
+      "name": "Managementul proiectului",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Metode de control ale fabricației produselor",
+      "credits": 5,
+      "type": "Examen"
+    },
+    {
+      "name": "Programarea avansată și exploatarea echipamentelor CNC",
+      "credits": 8,
+      "type": "Examen"
+    },
+    {
+      "name": "Logistică interoperațională",
+      "credits": 4,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 7,
+      "type": "Colocviu"
+    }
+  ],
+  "Sisteme și Tehnologii Inteligente de Fabricație - Anul 2, Semestrul 2": [
+    {
+      "name": "Practică profesională",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ]
+}

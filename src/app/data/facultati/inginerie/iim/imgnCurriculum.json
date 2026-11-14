@@ -1,0 +1,125 @@
+{
+  "Ingineria și Managementul Gazelor Naturale - Anul 1, Semestrul 1": [
+    {
+      "name": "Managementul forajului",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Materiale utilizate în transportul și distribuția gazelor naturale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 6,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Opțional 1",
+      "credits": 6,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Ingineria înmagazinării subterane și comercializarea hidrocarburilor",
+        "Eficientizarea consumurilor energetice la consumatori"
+      ]
+    },
+    {
+      "name": "Opțional 2",
+      "credits": 6,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Management investițional",
+        "Simularea numerică a transportului hidrocarburilor"
+      ]
+    }
+  ],
+  "Ingineria și Managementul Gazelor Naturale - Anul 1, Semestrul 2": [
+    {
+      "name": "Calitatea gazelor naturale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Optimizarea factorului de recuperare a structurilor gazeifere",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Evaluarea riscurilor și managementul securității și sănătății în muncă",
+      "credits": 3,
+      "type": "Examen"
+    },
+    {
+      "name": "Tehnologii specifice realizării rețelelor de transport gaze naturale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Managementul proiectului",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Practică profesională",
+      "credits": 6,
+      "type": "Colocviu"
+    }
+  ],
+  "Ingineria și Managementul Gazelor Naturale - Anul 2, Semestrul 1": [
+    {
+      "name": "Monitorizarea sistemelor de transport gaze naturale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Studii de impact și managementul riscului de mediu",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Mentenanța rețelelor de transport și distribuție gaze naturale",
+      "credits": 6,
+      "type": "Examen"
+    },
+    {
+      "name": "Etică și integritate academică",
+      "credits": 2,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică de cercetare",
+      "credits": 4,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Opțional 3",
+      "credits": 6,
+      "type": "Examen",
+      "isOptional": true,
+      "options": [
+        "Politici și strategii în ingineria gazelor naturale",
+        "Proiectarea sistemelor de transport gaze naturale"
+      ]
+    }
+  ],
+  "Ingineria și Managementul Gazelor Naturale - Anul 2, Semestrul 2": [
+    {
+      "name": "Elaborare disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică de cercetare",
+      "credits": 10,
+      "type": "Colocviu"
+    },
+    {
+      "name": "Practică pentru elaborarea lucrării de disertație",
+      "credits": 10,
+      "type": "Colocviu"
+    }
+  ]
+}
