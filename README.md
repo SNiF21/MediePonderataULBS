@@ -4,7 +4,7 @@ Aplicație web gratuită, modernă și securizată dedicată studenților Univer
 
 **Website Oficial (Producție):** [https://simulator-medie-ponderata.web.app](https://simulator-medie-ponderata.web.app)  
 **Domeniu alternativ:** [https://simulator-medie-ponderata.firebaseapp.com](https://simulator-medie-ponderata.firebaseapp.com)  
-**Versiune:** `v1.1.0`
+**Versiune:** `v1.2.0`
 
 ---
 
