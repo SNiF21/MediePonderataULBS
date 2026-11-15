@@ -74,7 +74,7 @@ describe('AnnualResultsComponent', () => {
     expect(shareSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         title: expect.stringContaining('Media Anuală Ponderată ULBS'),
-        url: 'https://simulator-medie-ponderata.web.app',
+        url: 'https://medieponderata-ulbs.web.app',
       })
     );
   });

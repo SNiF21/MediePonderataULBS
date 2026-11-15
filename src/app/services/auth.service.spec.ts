@@ -45,6 +45,7 @@ describe('AuthService', () => {
 
     it('should update isEmailVerified when reloadUser is called', async () => {
       const mockUser = {
+        uid: 'test-uid-123',
         email: 'student@ulbsibiu.ro',
         emailVerified: false,
         reload: vi.fn().mockImplementation(async function(this: any) {
@@ -53,12 +54,38 @@ describe('AuthService', () => {
         getIdToken: vi.fn().mockResolvedValue('token'),
       } as any;
       (service as any).firebase.auth = { currentUser: mockUser };
+      (service as any).firebase.firestore = null;
       service.user.set(mockUser);
 
       await service.reloadUser();
 
       expect(mockUser.reload).toHaveBeenCalled();
       expect(service.isEmailVerified()).toBe(true);
+    });
+
+    it('should defer Firestore profile writes while email is not verified', async () => {
+      const mockSetDoc = vi.fn();
+      (service as any).firebase.firestore = {} as any;
+      
+      // Ensure user is not email verified
+      const mockUser = {
+        uid: 'test-unverified-uid',
+        email: 'student@ulbsibiu.ro',
+        emailVerified: false,
+      } as any;
+      service.user.set(mockUser);
+      expect(service.isEmailVerified()).toBe(false);
+
+      // Attempt to save profile
+      await service.saveUserProfile({
+        uid: 'test-unverified-uid',
+        major: 'Calculatoare',
+      });
+
+      // Signals should update in memory
+      expect(service.profile()?.major).toBe('Calculatoare');
+      // Firestore setDoc should NOT be called
+      expect(mockSetDoc).not.toHaveBeenCalled();
     });
   });
 });

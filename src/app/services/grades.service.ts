@@ -55,9 +55,9 @@ export class GradesService {
       }
     }
 
-    // 2. Cloud Firestore check (if student is logged in)
+    // 2. Cloud Firestore check (if student is logged in and email verified)
     const user = this.authService.user();
-    if (user && this.firebase.firestore) {
+    if (user && this.authService.isEmailVerified() && this.firebase.firestore) {
       try {
         this.isSyncing.set(true);
         const docRef = doc(
@@ -168,7 +168,7 @@ export class GradesService {
     }
 
     const user = this.authService.user();
-    if (!user || !this.firebase.firestore) {
+    if (!user || !this.authService.isEmailVerified() || !this.firebase.firestore) {
       return false;
     }
 
@@ -213,7 +213,7 @@ export class GradesService {
     this.saveGradesLocally(curriculumKey, cleared);
 
     const user = this.authService.user();
-    if (user && this.firebase.firestore) {
+    if (user && this.authService.isEmailVerified() && this.firebase.firestore) {
       try {
         this.isSyncing.set(true);
         const docRef = doc(

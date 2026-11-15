@@ -53,7 +53,7 @@ describe('CalculatorResultsComponent', () => {
     expect(shareSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         title: expect.stringContaining('Calculator Medie Ponderată ULBS'),
-        url: 'https://simulator-medie-ponderata.web.app',
+        url: 'https://medieponderata-ulbs.web.app',
       })
     );
   });

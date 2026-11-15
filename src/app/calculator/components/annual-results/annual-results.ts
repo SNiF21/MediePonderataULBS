@@ -69,7 +69,7 @@ export class AnnualResultsComponent {
     const shareData = {
       title: 'Media Anuală Ponderată ULBS',
       text: `Media mea anuală la ${faculty}${major}${this.yearLabel()} este ${formattedAvg}/10 (Sem. 1: ${s1}, Sem. 2: ${s2} — ${statusText}). Calculează-ți și tu media pe:`,
-      url: 'https://simulator-medie-ponderata.web.app',
+      url: 'https://medieponderata-ulbs.web.app',
     };
 
     if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {

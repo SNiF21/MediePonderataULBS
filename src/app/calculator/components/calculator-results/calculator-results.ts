@@ -46,7 +46,7 @@ export class CalculatorResultsComponent {
     const shareData = {
       title: 'Calculator Medie Ponderată ULBS',
       text: `Media mea ponderată la ${faculty}${major}${year}${sem} este ${formattedAvg}/10 (${statusText}). Calculează-ți și tu media pe:`,
-      url: 'https://simulator-medie-ponderata.web.app',
+      url: 'https://medieponderata-ulbs.web.app',
     };
 
     if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {

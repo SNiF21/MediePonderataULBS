@@ -2,8 +2,8 @@
 
 Aplicație web gratuită, modernă și securizată dedicată studenților Universității „Lucian Blaga” din Sibiu (ULBS) pentru calculul precis al mediei ponderate pe baza creditelor ECTS, simularea mediilor anuale și verificarea eligibilității pentru bursa universitară.
 
-**Website Oficial (Producție):** [https://simulator-medie-ponderata.web.app](https://simulator-medie-ponderata.web.app)  
-**Domeniu alternativ:** [https://simulator-medie-ponderata.firebaseapp.com](https://simulator-medie-ponderata.firebaseapp.com)  
+**Website Oficial (Producție):** [https://medieponderata-ulbs.web.app](https://medieponderata-ulbs.web.app)  
+**Domeniu alternativ:** [https://medieponderata-ulbs.firebaseapp.com](https://medieponderata-ulbs.firebaseapp.com)  
 **Versiune:** `v1.2.0`
 
 ---
@@ -31,7 +31,7 @@ Aplicație web gratuită, modernă și securizată dedicată studenților Univer
 - **Bază de date:** Google Cloud Firestore (securizată cu reguli granulare de acces per utilizator)
 - **Analitice:** Google Analytics / Firebase Analytics
 - **Notificări Contact:** Integrare Web3Forms API
-- **Testare:** Vitest (suită completă de 71 de teste unitare)
+- **Testare:** Vitest (suită completă de 88 de teste unitare)
 - **Găzduire:** Firebase Hosting (distribuție globală prin CDN cu certificat SSL automat)
 
 ---
@@ -44,7 +44,7 @@ Proiect conceput și dezvoltat de:
 - **GitHub:** [@SNiF21](https://github.com/SNiF21)
 - **Instagram:** [@snif21](https://www.instagram.com/snif21/)
 - **Email:** [andi.cata4@gmail.com](mailto:andi.cata4@gmail.com)
-- **Raportare Probleme & Sugestii:** Direct prin formularul de [Contact & Sesizări](https://simulator-medie-ponderata.web.app/contact) din aplicație sau prin deschiderea unui Issue în acest repository.
+- **Raportare Probleme & Sugestii:** Direct prin formularul de [Contact & Sesizări](https://medieponderata-ulbs.web.app/contact) din aplicație sau prin deschiderea unui Issue în acest repository.
 
 ---
 

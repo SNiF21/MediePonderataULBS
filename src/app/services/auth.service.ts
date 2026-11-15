@@ -19,6 +19,7 @@ import { SemesterRoman, StudyDegree, StudyMajor, YearRoman, getMajorDegree } fro
 import { environment } from '../../environments/environment';
 
 export const INSTITUTIONAL_DOMAIN = environment.institutionalDomain || 'ulbsibiu.ro';
+export const PENDING_PROFILE_PREFIX = 'pending_student_profile_';
 
 @Injectable({
   providedIn: 'root',
@@ -102,6 +103,34 @@ export class AuthService {
     return parts.length === 2 && parts[0].length > 0 && parts[1] === INSTITUTIONAL_DOMAIN;
   }
 
+  private getPendingProfile(uid: string): StudentProfile | null {
+    if (typeof localStorage === 'undefined') return null;
+    try {
+      const raw = localStorage.getItem(`${PENDING_PROFILE_PREFIX}${uid}`);
+      return raw ? (JSON.parse(raw) as StudentProfile) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  private savePendingProfile(uid: string, profile: StudentProfile): void {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      localStorage.setItem(`${PENDING_PROFILE_PREFIX}${uid}`, JSON.stringify(profile));
+    } catch {
+      // Ignore storage errors
+    }
+  }
+
+  private clearPendingProfile(uid: string): void {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      localStorage.removeItem(`${PENDING_PROFILE_PREFIX}${uid}`);
+    } catch {
+      // Ignore storage errors
+    }
+  }
+
   /**
    * Registers a new student account using institutional email, password, and chosen study profile.
    */
@@ -137,7 +166,9 @@ export class AuthService {
       console.warn('Nu s-a putut trimite automat emailul de verificare:', verErr);
     }
 
-    // Create student profile in Firestore
+    // Prepare student profile in memory & localStorage.
+    // Defer writing to Firestore until email is verified (protects Spark write quota).
+    const resolvedMajor = initialProfile?.major ?? 'Calculatoare';
     const studentProfile: StudentProfile = {
       uid: user.uid,
       email: cleanEmail,
@@ -145,14 +176,16 @@ export class AuthService {
       createdAt: new Date().toISOString(),
       faculty: initialProfile?.faculty ?? 'Facultatea de Inginerie',
       department: initialProfile?.department ?? 'CIE',
-      degree: initialProfile?.degree ?? getMajorDegree(initialProfile?.major ?? 'Calculatoare'),
-      major: initialProfile?.major ?? 'Calculatoare',
+      degree: initialProfile?.degree ?? getMajorDegree(resolvedMajor),
+      major: resolvedMajor,
       year: initialProfile?.year ?? 'I',
       semester: initialProfile?.semester ?? 'Semestrul I',
     };
 
-    await this.saveUserProfile(studentProfile);
+    this.savePendingProfile(user.uid, studentProfile);
     this.profile.set(studentProfile);
+    this.user.set(user);
+    this.verifiedOverride.set(false);
 
     return user;
   }
@@ -192,6 +225,11 @@ export class AuthService {
       const freshUser = Object.assign(Object.create(Object.getPrototypeOf(currentUser)), currentUser);
       this.user.set(freshUser);
 
+      // 5. If verified, load or commit pending profile to Firestore
+      if (verified) {
+        await this.loadUserProfile(currentUser.uid, currentUser.email ?? '');
+      }
+
       return freshUser;
     }
     return null;
@@ -212,6 +250,8 @@ export class AuthService {
     }
 
     const cred = await signInWithEmailAndPassword(this.firebase.auth, cleanEmail, pass);
+    this.user.set(cred.user);
+    this.verifiedOverride.set(cred.user.emailVerified);
     await this.loadUserProfile(cred.user.uid, cleanEmail);
     return cred.user;
   }
@@ -246,8 +286,19 @@ export class AuthService {
 
   /**
    * Loads or creates a student profile in Firestore.
+   * Only executes against Firestore if user's email is verified.
    */
   private async loadUserProfile(uid: string, email: string): Promise<void> {
+    if (!uid) return;
+
+    if (!this.isEmailVerified()) {
+      const pending = this.getPendingProfile(uid);
+      if (pending) {
+        this.profile.set(pending);
+      }
+      return;
+    }
+
     if (!this.firebase.firestore) return;
 
     try {
@@ -256,30 +307,37 @@ export class AuthService {
 
       if (snapshot.exists()) {
         const data = snapshot.data() as StudentProfile;
+        const resolvedMajor = data.major ?? 'Calculatoare';
         // Ensure defaults if existing doc lacks fields
         this.profile.set({
           ...data,
           faculty: data.faculty ?? 'Facultatea de Inginerie',
           department: data.department ?? 'CIE',
-          major: data.major ?? 'Calculatoare',
+          degree: data.degree ?? getMajorDegree(resolvedMajor),
+          major: resolvedMajor,
           year: data.year ?? 'I',
           semester: data.semester ?? 'Semestrul I',
         });
+        this.clearPendingProfile(uid);
       } else {
-        // Initial profile creation if doc doesn't exist yet
+        // Initial profile creation if doc doesn't exist yet (first verified session)
+        const pending = this.getPendingProfile(uid);
+        const resolvedMajor = pending?.major ?? 'Calculatoare';
         const newProfile: StudentProfile = {
           uid,
           email,
           institutionalDomain: 'ulbsibiu.ro',
           createdAt: new Date().toISOString(),
-          faculty: 'Facultatea de Inginerie',
-          department: 'CIE',
-          major: 'Calculatoare',
-          year: 'I',
-          semester: 'Semestrul I',
+          faculty: pending?.faculty ?? 'Facultatea de Inginerie',
+          department: pending?.department ?? 'CIE',
+          degree: pending?.degree ?? getMajorDegree(resolvedMajor),
+          major: resolvedMajor,
+          year: pending?.year ?? 'I',
+          semester: pending?.semester ?? 'Semestrul I',
         };
         await setDoc(userRef, newProfile);
         this.profile.set(newProfile);
+        this.clearPendingProfile(uid);
       }
     } catch (err) {
       console.warn('[AuthService] Could not load profile from Firestore:', err);
@@ -288,13 +346,23 @@ export class AuthService {
 
   /**
    * Saves or updates a student profile in Firestore.
+   * If email is not yet verified, stores locally to avoid unverified Firestore writes.
    */
   public async saveUserProfile(profileData: Partial<StudentProfile> & { uid: string }): Promise<void> {
+    this.profile.update((curr) => (curr ? { ...curr, ...profileData } : (profileData as StudentProfile)));
+
+    if (!this.isEmailVerified()) {
+      const current = this.profile();
+      if (current) {
+        this.savePendingProfile(profileData.uid, current);
+      }
+      return;
+    }
+
     if (!this.firebase.firestore) return;
     try {
       const userRef = doc(this.firebase.firestore, 'users', profileData.uid);
       await setDoc(userRef, profileData, { merge: true });
-      this.profile.update((curr) => (curr ? { ...curr, ...profileData } : (profileData as StudentProfile)));
     } catch (err) {
       console.error('[AuthService] Error updating user profile:', err);
       throw err;
@@ -352,7 +420,8 @@ export class AuthService {
       }
     }
 
-    // 3. Clear local storage items for grades and study context
+    // 3. Clear local storage items for grades, study context, and pending profile
+    this.clearPendingProfile(user.uid);
     if (typeof localStorage !== 'undefined') {
       try {
         for (let i = localStorage.length - 1; i >= 0; i--) {

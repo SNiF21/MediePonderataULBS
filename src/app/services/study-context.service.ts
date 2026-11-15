@@ -307,7 +307,7 @@ export class StudyContextService {
 
   private async syncToFirestore(updates: Partial<StudentProfile>): Promise<void> {
     const user = this.authService.user();
-    if (!user) return;
+    if (!user || !this.authService.isEmailVerified()) return;
 
     try {
       await this.authService.saveUserProfile({
