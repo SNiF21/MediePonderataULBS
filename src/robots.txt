@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://medieponderata-ulbs.web.app/sitemap.xml
