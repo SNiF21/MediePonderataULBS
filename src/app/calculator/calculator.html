@@ -1,39 +1,45 @@
 <section class="max-w-4xl mx-auto space-y-6">
 
   <!-- Study Context Control Header -->
-  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800">
+  <div
+    class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-white flex items-center gap-2.5">
-          <img src="assets/icon.png" alt="Icon" class="w-8 h-8 sm:w-9 sm:h-9 object-contain dark:invert select-none" /> Calculator Medie Ponderată
+          <img src="assets/icon.png" alt="Icon" class="w-8 h-8 sm:w-9 sm:h-9 object-contain dark:invert select-none" />
+          Calculator Medie Ponderată
         </h2>
 
         <!-- Data Source Disclaimer -->
         <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5 text-blue-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <span>Disciplinele și creditele sunt preluate de pe site-urile oficiale ale facultăților ULBS, conform celor mai recente planuri de învățământ publicate.</span>
+          <span>Disciplinele și creditele sunt preluate de pe site-urile oficiale ale facultăților ULBS, conform celor
+            mai recente planuri de învățământ publicate.</span>
         </p>
 
         <!-- Active Profile Badges & Link to Profile -->
         <div class="flex flex-wrap items-center gap-2 mt-2.5">
           <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Date Studii Active:</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
-            <img [src]="studyContext.facultyIcon()" [alt]="studyContext.faculty()" class="w-4 h-4 rounded-full object-contain shrink-0" />
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
+            <img [src]="studyContext.facultyIcon()" [alt]="studyContext.faculty()"
+              class="w-4 h-4 rounded-full object-contain shrink-0" />
             <span>{{ studyContext.major() }}</span>
           </span>
-          <span class="inline-flex items-center px-3 py-1 rounded-xl text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60">
+          <span
+            class="inline-flex items-center px-3 py-1 rounded-xl text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60">
             {{ studyContext.yearLabel() }}
           </span>
-          <span class="inline-flex items-center px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+          <span
+            class="inline-flex items-center px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
             {{ studyContext.department() }}
           </span>
-          <a
-            routerLink="/profile"
+          <a routerLink="/profile"
             class="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition ml-1"
-            title="Modifică profilul sau anul de studiu în pagina de profil"
-          >
+            title="Modifică profilul sau anul de studiu în pagina de profil">
             <span>Schimbă în profil</span>
             <span>→</span>
           </a>
@@ -43,37 +49,29 @@
       <!-- Quick Toggles in Calculator: Year & Semester -->
       <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto shrink-0">
         <!-- Quick Year Toggle (displays 3 or 4 depending on major) -->
-        <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
-          <button
-            type="button"
-            *ngFor="let y of studyContext.years()"
-            (click)="setYear(y.roman)"
-            [class.bg-blue-600]="studyContext.year() === y.roman"
-            [class.text-white]="studyContext.year() === y.roman"
-            [class.shadow-sm]="studyContext.year() === y.roman"
-            [class.text-slate-600]="studyContext.year() !== y.roman"
+        <div
+          class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+          <button type="button" *ngFor="let y of studyContext.years()" (click)="setYear(y.roman)"
+            [class.bg-blue-600]="studyContext.year() === y.roman" [class.text-white]="studyContext.year() === y.roman"
+            [class.shadow-sm]="studyContext.year() === y.roman" [class.text-slate-600]="studyContext.year() !== y.roman"
             [class.dark:text-slate-300]="studyContext.year() !== y.roman"
             class="px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer hover:text-blue-600 dark:hover:text-blue-400"
-            [title]="'Selectează ' + y.label"
-          >
+            [title]="'Selectează ' + y.label">
             {{ y.label }}
           </button>
         </div>
 
         <!-- Quick Semester Toggle in Calculator -->
-        <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
-          <button
-            type="button"
-            *ngFor="let s of studyContext.semesters"
-            (click)="setSemester(s.roman)"
+        <div
+          class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+          <button type="button" *ngFor="let s of studyContext.semesters" (click)="setSemester(s.roman)"
             [class.bg-blue-600]="studyContext.semester() === s.roman"
             [class.text-white]="studyContext.semester() === s.roman"
             [class.shadow-sm]="studyContext.semester() === s.roman"
             [class.text-slate-600]="studyContext.semester() !== s.roman"
             [class.dark:text-slate-300]="studyContext.semester() !== s.roman"
             class="px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer hover:text-blue-600 dark:hover:text-blue-400"
-            [title]="'Selectează ' + s.roman"
-          >
+            [title]="'Selectează ' + s.roman">
             {{ s.roman }}
           </button>
         </div>
@@ -82,16 +80,20 @@
   </div>
 
   <!-- Empty State Card (When no curriculum is configured for this major/year/semester) -->
-  <div *ngIf="subjects().length === 0" class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-md border border-slate-200/80 dark:border-slate-800 text-center space-y-6 animate-fadeIn">
-    
-    <div class="w-16 h-16 mx-auto rounded-3xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shadow-inner select-none">
+  <div *ngIf="subjects().length === 0"
+    class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-md border border-slate-200/80 dark:border-slate-800 text-center space-y-6 animate-fadeIn">
+
+    <div
+      class="w-16 h-16 mx-auto rounded-3xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shadow-inner select-none">
       <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
       </svg>
     </div>
 
     <div class="max-w-xl mx-auto space-y-3">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800/80">
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800/80">
         Programă în colectare
       </span>
 
@@ -100,29 +102,25 @@
       </h3>
 
       <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        Nu avem încă disciplinele și creditele ECTS pentru 
-        <strong class="text-slate-900 dark:text-white">{{ studyContext.major() }}</strong> 
+        Nu avem încă disciplinele și creditele ECTS pentru
+        <strong class="text-slate-900 dark:text-white">{{ studyContext.major() }}</strong>
         ({{ studyContext.faculty() }}, {{ studyContext.yearLabel() }}, {{ studyContext.semester() }}).
-        Trimite-ne fișa disciplinei sau planul de învățământ aprobat, iar noi îl vom adăuga în aplicație în cel mai scurt timp!
+        Trimite-ne fișa disciplinei sau planul de învățământ aprobat, iar noi îl vom adăuga în aplicație în cel mai
+        scurt timp!
       </p>
     </div>
 
     <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-      <a
-        routerLink="/contact"
-        [queryParams]="getContactQueryParams()"
-        class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/20 transition cursor-pointer"
-      >
+      <a routerLink="/contact" [queryParams]="getContactQueryParams()"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/20 transition cursor-pointer">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
         </svg>
         <span>Trimite Programa / Fișa Disciplinei</span>
       </a>
 
-      <a
-        routerLink="/profile"
-        class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm border border-slate-200 dark:border-slate-700 transition cursor-pointer"
-      >
+      <a routerLink="/profile"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm border border-slate-200 dark:border-slate-700 transition cursor-pointer">
         <span>Schimbă Specializarea din Profil</span>
       </a>
     </div>
@@ -130,269 +128,210 @@
   </div>
 
   <ng-container *ngIf="subjects().length > 0">
-  <!-- Subjects Grade Grid -->
-  <div class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800">
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5">
-      <div>
-        <h3 class="font-bold text-slate-800 dark:text-white text-base">
-          Discipline Semestrul {{ studyContext.semester() === 'Semestrul I' ? '1' : '2' }}
-        </h3>
-        <span class="text-xs text-slate-500">
-          {{ subjects().length }} materii • Total {{ totalCredits() }} credite ECTS
-        </span>
+    <!-- Subjects Grade Grid -->
+    <div
+      class="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5">
+        <div>
+          <h3 class="font-bold text-slate-800 dark:text-white text-base">
+            Discipline Semestrul {{ studyContext.semester() === 'Semestrul I' ? '1' : '2' }}
+          </h3>
+          <span class="text-xs text-slate-500">
+            {{ subjects().length }} materii • Total {{ totalCredits() }} credite ECTS
+          </span>
+        </div>
+
+        <!-- Sorting dropdown -->
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <label for="sortOrderSelect"
+            class="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            Ordonare:
+          </label>
+          <select id="sortOrderSelect" [value]="sortOrder()" (change)="setSortOrder($any($event.target).value)"
+            class="text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none cursor-pointer transition shadow-xs">
+            <option value="default">Default</option>
+            <option value="alfabetic">Alfabetic</option>
+            <option value="crescator">Crescător</option>
+            <option value="descrescator">Descrescător</option>
+          </select>
+        </div>
       </div>
 
-      <!-- Sorting dropdown -->
-      <div class="flex items-center gap-2 self-start sm:self-auto">
-        <label for="sortOrderSelect" class="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-          Ordonare:
-        </label>
-        <select
-          id="sortOrderSelect"
-          [value]="sortOrder()"
-          (change)="setSortOrder($any($event.target).value)"
-          class="text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none cursor-pointer transition shadow-xs"
-        >
-          <option value="default">Default</option>
-          <option value="alfabetic">Alfabetic</option>
-          <option value="crescator">Crescător</option>
-          <option value="descrescator">Descrescător</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Subject rows -->
-    <div class="divide-y divide-slate-100 dark:divide-slate-800">
-      <div
-        *ngFor="let subject of orderedSubjects(); let idx = index"
-        class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 px-3 rounded-xl transition"
-        [class.bg-purple-50/20]="isOptional(subject)"
-        [class.dark:bg-purple-950/15]="isOptional(subject)"
-      >
-        <div class="flex-1">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="font-medium text-sm text-slate-800 dark:text-slate-100">
-              {{ subject.name }}
-            </span>
-            <span
-              *ngIf="isOptional(subject)"
-              class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200/80 dark:border-purple-800/60"
-            >
-              Opțional
-            </span>
-          </div>
-
-          <!-- Dropdown for optional courses -->
-          <div *ngIf="isOptional(subject)" class="mt-2 max-w-lg">
-            <div class="relative">
-              <select
-                [id]="'opt-select-' + idx"
-                [value]="getSelectedOption(subject.name)"
-                (change)="setOptionalCourse(subject.name, $any($event.target).value)"
-                class="w-full text-xs font-semibold px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-purple-500/30 focus:border-purple-500 outline-none cursor-pointer transition shadow-xs"
-                [class.border-purple-400]="getSelectedOption(subject.name)"
-                [class.dark:border-purple-600]="getSelectedOption(subject.name)"
-              >
-                <option value="">-- Alege materia opțională --</option>
-                <option
-                  *ngFor="let opt of getAvailableOptions(subject)"
-                  [value]="opt"
-                >
-                  {{ opt }}
-                </option>
-              </select>
+      <!-- Subject rows -->
+      <div class="divide-y divide-slate-100 dark:divide-slate-800">
+        <div *ngFor="let subject of orderedSubjects(); let idx = index"
+          class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 px-3 rounded-xl transition"
+          [class.bg-purple-50/20]="isOptional(subject)" [class.dark:bg-purple-950/15]="isOptional(subject)">
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-medium text-sm text-slate-800 dark:text-slate-100">
+                {{ subject.name }}
+              </span>
+              <span *ngIf="isOptional(subject)"
+                class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200/80 dark:border-purple-800/60">
+                Opțional
+              </span>
             </div>
-            <p
-              *ngIf="!getSelectedOption(subject.name)"
-              class="text-[11px] text-amber-600 dark:text-amber-400 mt-1 font-medium"
-            >
-              Selectează materia din listă pentru a putea trece nota
-            </p>
+
+            <!-- Dropdown for optional courses -->
+            <div *ngIf="isOptional(subject)" class="mt-2 max-w-lg">
+              <div class="relative">
+                <select [id]="'opt-select-' + idx" [value]="getSelectedOption(subject.name)"
+                  (change)="setOptionalCourse(subject.name, $any($event.target).value)"
+                  class="w-full text-xs font-semibold px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-purple-500/30 focus:border-purple-500 outline-none cursor-pointer transition shadow-xs"
+                  [class.border-purple-400]="getSelectedOption(subject.name)"
+                  [class.dark:border-purple-600]="getSelectedOption(subject.name)">
+                  <option value="">-- Alege materia opțională --</option>
+                  <option *ngFor="let opt of getAvailableOptions(subject)" [value]="opt">
+                    {{ opt }}
+                  </option>
+                </select>
+              </div>
+              <p *ngIf="!getSelectedOption(subject.name)"
+                class="text-[11px] text-amber-600 dark:text-amber-400 mt-1 font-medium">
+                Selectează materia din listă pentru a putea trece nota
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 mt-1.5">
+              <!-- Evaluation Type Badge -->
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold border select-none"
+                [ngClass]="getEvaluationBadge(subject.type).classes" [title]="'Tip evaluare: ' + subject.type">
+                {{ getEvaluationBadge(subject.type).label }}
+              </span>
+
+              <!-- Credits badge -->
+              <span *ngIf="grades()[subject.name] == null"
+                class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700">
+                {{ subject.credits }} credite
+              </span>
+              <span *ngIf="grades()[subject.name] != null && grades()[subject.name]! >= 5"
+                class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/50">
+                {{ subject.credits }} credite obținute
+              </span>
+              <span *ngIf="grades()[subject.name] != null && grades()[subject.name]! < 5"
+                class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200/60 dark:border-rose-800/50">
+                Restanță (0 / {{ subject.credits }} credite)
+              </span>
+            </div>
           </div>
 
-          <div class="flex flex-wrap items-center gap-2 mt-1.5">
-            <!-- Evaluation Type Badge -->
-            <span
-              class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold border select-none"
-              [ngClass]="getEvaluationBadge(subject.type).classes"
-              [title]="'Tip evaluare: ' + subject.type"
-            >
-              {{ getEvaluationBadge(subject.type).label }}
-            </span>
+          <!-- Grade Input & Status -->
+          <div class="flex items-center gap-3">
+            <div class="flex items-center space-x-2">
+              <label [for]="'grade-' + idx" class="text-xs text-slate-500 font-medium">Notă:</label>
+              <input [id]="'grade-' + idx" type="number" min="1" max="10" step="1" placeholder="—"
+                [disabled]="isGradeDisabled(subject)"
+                [title]="isGradeDisabled(subject) ? 'Selectează mai întâi materia opțională' : ''"
+                [class.opacity-40]="isGradeDisabled(subject)" [class.cursor-not-allowed]="isGradeDisabled(subject)"
+                [class.bg-slate-100]="isGradeDisabled(subject)" [class.dark:bg-slate-800/50]="isGradeDisabled(subject)"
+                class="w-20 px-3 py-1.5 text-center font-bold text-base rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition"
+                (keydown)="onGradeKeyDown($event, subject.name)" (input)="onGradeInput(subject.name, $event)"
+                (blur)="onGradeBlur(subject.name, $event)" (focus)="$any($event.target).select()" />
+            </div>
 
-            <!-- Credits badge -->
-            <span
-              *ngIf="grades()[subject.name] == null"
-              class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700"
-            >
-              {{ subject.credits }} credite
+            <!-- Grade status badge -->
+            <span *ngIf="grades()[subject.name] != null" class="w-6 text-center text-sm font-bold select-none"
+              [class.text-emerald-500]="grades()[subject.name]! >= 5"
+              [class.text-rose-500]="grades()[subject.name]! < 5"
+              [title]="grades()[subject.name]! >= 5 ? 'Promovat' : 'Picat'">
+              {{ grades()[subject.name]! >= 5 ? '✓' : '✗' }}
             </span>
-            <span
-              *ngIf="grades()[subject.name] != null && grades()[subject.name]! >= 5"
-              class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/50"
-            >
-              {{ subject.credits }} credite obținute
-            </span>
-            <span
-              *ngIf="grades()[subject.name] != null && grades()[subject.name]! < 5"
-              class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200/60 dark:border-rose-800/50"
-            >
-              Restanță (0 / {{ subject.credits }} credite)
+            <span *ngIf="grades()[subject.name] == null"
+              class="w-6 text-center text-slate-300 dark:text-slate-600 select-none text-xs"
+              [title]="isGradeDisabled(subject) ? 'Blocat până la alegerea opționalului' : 'Neevaluat'">
+              {{ isGradeDisabled(subject) ? '🔒' : '—' }}
             </span>
           </div>
-        </div>
-
-        <!-- Grade Input & Status -->
-        <div class="flex items-center gap-3">
-          <div class="flex items-center space-x-2">
-            <label [for]="'grade-' + idx" class="text-xs text-slate-500 font-medium">Notă:</label>
-            <input
-              [id]="'grade-' + idx"
-              type="number"
-              min="1"
-              max="10"
-              placeholder="—"
-              [disabled]="isGradeDisabled(subject)"
-              [title]="isGradeDisabled(subject) ? 'Selectează mai întâi materia opțională' : ''"
-              [class.opacity-40]="isGradeDisabled(subject)"
-              [class.cursor-not-allowed]="isGradeDisabled(subject)"
-              [class.bg-slate-100]="isGradeDisabled(subject)"
-              [class.dark:bg-slate-800/50]="isGradeDisabled(subject)"
-              class="w-20 px-3 py-1.5 text-center font-bold text-base rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition"
-              [value]="grades()[subject.name] ?? ''"
-              (input)="setGrade(subject.name, $any($event.target).value)"
-            />
-          </div>
-
-          <!-- Grade status badge -->
-          <span
-            *ngIf="grades()[subject.name] != null"
-            class="w-6 text-center text-sm font-bold select-none"
-            [class.text-emerald-500]="grades()[subject.name]! >= 5"
-            [class.text-rose-500]="grades()[subject.name]! < 5"
-            [title]="grades()[subject.name]! >= 5 ? 'Promovat' : 'Picat'"
-          >
-            {{ grades()[subject.name]! >= 5 ? '✓' : '✗' }}
-          </span>
-          <span
-            *ngIf="grades()[subject.name] == null"
-            class="w-6 text-center text-slate-300 dark:text-slate-600 select-none text-xs"
-            [title]="isGradeDisabled(subject) ? 'Blocat până la alegerea opționalului' : 'Neevaluat'"
-          >
-            {{ isGradeDisabled(subject) ? '🔒' : '—' }}
-          </span>
         </div>
       </div>
-    </div>
 
-    <!-- Actions, Save Button and Sync Status -->
-    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <!-- Save Grades Button (When logged in) -->
-        <ng-container *ngIf="authService.isLoggedIn()">
-          <button
-            type="button"
-            (click)="saveGradesToCloud()"
-            [disabled]="isSaving()"
-            [class.bg-blue-600]="hasUnsavedChanges()"
-            [class.hover:bg-blue-700]="hasUnsavedChanges()"
-            [class.text-white]="hasUnsavedChanges()"
-            [class.shadow-md]="hasUnsavedChanges()"
-            [class.shadow-blue-500/25]="hasUnsavedChanges()"
-            [class.bg-slate-100]="!hasUnsavedChanges()"
-            [class.dark:bg-slate-800]="!hasUnsavedChanges()"
-            [class.text-slate-700]="!hasUnsavedChanges()"
-            [class.dark:text-slate-300]="!hasUnsavedChanges()"
-            [class.border]="!hasUnsavedChanges()"
-            [class.border-slate-200]="!hasUnsavedChanges()"
-            [class.dark:border-slate-700]="!hasUnsavedChanges()"
-            class="text-xs font-semibold px-4 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
-          >
-            <svg *ngIf="isSaving()" class="animate-spin h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-            </svg>
-            <span>{{ isSaving() ? 'Se salvează...' : 'Salvează notele' }}</span>
-            <span *ngIf="hasUnsavedChanges()" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse ml-0.5" title="Modificări nesalvate"></span>
+      <!-- Actions, Save Button and Sync Status -->
+      <div
+        class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <!-- Save Grades Button (When logged in) -->
+          <ng-container *ngIf="authService.isLoggedIn()">
+            <button type="button" (click)="saveGradesToCloud()" [disabled]="isSaving()"
+              [class.bg-blue-600]="hasUnsavedChanges()" [class.hover:bg-blue-700]="hasUnsavedChanges()"
+              [class.text-white]="hasUnsavedChanges()" [class.shadow-md]="hasUnsavedChanges()"
+              [class.shadow-blue-500/25]="hasUnsavedChanges()" [class.bg-slate-100]="!hasUnsavedChanges()"
+              [class.dark:bg-slate-800]="!hasUnsavedChanges()" [class.text-slate-700]="!hasUnsavedChanges()"
+              [class.dark:text-slate-300]="!hasUnsavedChanges()" [class.border]="!hasUnsavedChanges()"
+              [class.border-slate-200]="!hasUnsavedChanges()" [class.dark:border-slate-700]="!hasUnsavedChanges()"
+              class="text-xs font-semibold px-4 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50">
+              <svg *ngIf="isSaving()" class="animate-spin h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+              </svg>
+              <span>{{ isSaving() ? 'Se salvează...' : 'Salvează notele' }}</span>
+              <span *ngIf="hasUnsavedChanges()" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse ml-0.5"
+                title="Modificări nesalvate"></span>
+            </button>
+          </ng-container>
+
+          <!-- Reset Button with Confirmation -->
+          <button type="button" (click)="openResetModal()"
+            class="text-xs text-rose-600 dark:text-rose-400 hover:text-rose-700 font-medium px-3 py-2 rounded-xl border border-rose-200 dark:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition cursor-pointer">
+            Resetează notele
           </button>
-        </ng-container>
+        </div>
 
-        <!-- Reset Button with Confirmation -->
-        <button
-          type="button"
-          (click)="openResetModal()"
-          class="text-xs text-rose-600 dark:text-rose-400 hover:text-rose-700 font-medium px-3 py-2 rounded-xl border border-rose-200 dark:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition cursor-pointer"
-        >
-          Resetează notele
-        </button>
-      </div>
+        <!-- Cloud / Local Status -->
+        <div class="text-xs text-slate-500 flex flex-wrap items-center gap-2">
+          <ng-container *ngIf="authService.isLoggedIn(); else guestNotice">
+            <!-- Unsaved changes warning -->
+            <span *ngIf="hasUnsavedChanges()"
+              class="text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1">
+              Modificări nesalvate în cloud
+            </span>
 
-      <!-- Cloud / Local Status -->
-      <div class="text-xs text-slate-500 flex flex-wrap items-center gap-2">
-        <ng-container *ngIf="authService.isLoggedIn(); else guestNotice">
-          <!-- Unsaved changes warning -->
-          <span *ngIf="hasUnsavedChanges()" class="text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1">
-            Modificări nesalvate în cloud
-          </span>
+            <!-- Success message -->
+            <span *ngIf="saveSuccess()"
+              class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1 animate-fadeIn">
+              {{ saveSuccess() }}
+            </span>
 
-          <!-- Success message -->
-          <span *ngIf="saveSuccess()" class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1 animate-fadeIn">
-            {{ saveSuccess() }}
-          </span>
+            <!-- Error message -->
+            <span *ngIf="saveError()"
+              class="text-rose-600 dark:text-rose-400 font-medium flex items-center gap-1 animate-fadeIn">
+              {{ saveError() }}
+            </span>
 
-          <!-- Error message -->
-          <span *ngIf="saveError()" class="text-rose-600 dark:text-rose-400 font-medium flex items-center gap-1 animate-fadeIn">
-            {{ saveError() }}
-          </span>
+            <!-- Idle synced state -->
+            <span *ngIf="!hasUnsavedChanges() && !saveSuccess() && !saveError()"
+              class="text-slate-500 dark:text-slate-400 flex items-center gap-1">
+              Note sincronizate
+              <span *ngIf="gradesService.lastSyncedAt()" class="opacity-80">({{ gradesService.lastSyncedAt() }})</span>
+            </span>
+          </ng-container>
 
-          <!-- Idle synced state -->
-          <span *ngIf="!hasUnsavedChanges() && !saveSuccess() && !saveError()" class="text-slate-500 dark:text-slate-400 flex items-center gap-1">
-            Note sincronizate
-            <span *ngIf="gradesService.lastSyncedAt()" class="opacity-80">({{ gradesService.lastSyncedAt() }})</span>
-          </span>
-        </ng-container>
-
-        <ng-template #guestNotice>
-          <span class="text-slate-400">
-            Salvat local în browser •
-            <a routerLink="/login" class="text-blue-500 hover:underline font-medium">Conectează-te</a> pentru salvare în cont
-          </span>
-        </ng-template>
+          <ng-template #guestNotice>
+            <span class="text-slate-400">
+              Salvat local în browser •
+              <a routerLink="/login" class="text-blue-500 hover:underline font-medium">Conectează-te</a> pentru salvare
+              în cont
+            </span>
+          </ng-template>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Results Summary Card -->
-  <app-calculator-results
-    [weightedAverage]="weightedAverage()"
-    [isScholarshipEligible]="isScholarshipEligible()"
-    [allSubjectsPassed]="allSubjectsPassed()"
-    [hasFailingGrade]="hasFailingGrade()"
-    [passedCredits]="passedCredits()"
-    [totalCredits]="totalCredits()"
-    [failedCredits]="failedCredits()"
-    [semesterLabel]="studyContext.semester() === 'Semestrul I' ? '1' : '2'"
-    [facultyName]="studyContext.faculty()"
-    [majorName]="studyContext.major()"
-    [yearLabel]="studyContext.yearLabel()"
-  ></app-calculator-results>
+    <!-- Results Summary Card -->
+    <app-calculator-results [weightedAverage]="weightedAverage()" [isScholarshipEligible]="isScholarshipEligible()"
+      [allSubjectsPassed]="allSubjectsPassed()" [hasFailingGrade]="hasFailingGrade()" [passedCredits]="passedCredits()"
+      [totalCredits]="totalCredits()" [failedCredits]="failedCredits()"
+      [semesterLabel]="studyContext.semester() === 'Semestrul I' ? '1' : '2'" [facultyName]="studyContext.faculty()"
+      [majorName]="studyContext.major()" [yearLabel]="studyContext.yearLabel()"></app-calculator-results>
 
-  <!-- Annual Results Summary Card -->
-  <app-annual-results
-    [annualAverage]="annualAverage()"
-    [semester1Average]="semester1Average()"
-    [semester2Average]="semester2Average()"
-    [annualPassedCredits]="annualPassedCredits()"
-    [annualTotalCredits]="annualTotalCredits()"
-    [annualFailedCredits]="annualFailedCredits()"
-    [hasAnnualFailingGrade]="hasAnnualFailingGrade()"
-    [yearLabel]="studyContext.yearLabel()"
-    [hasBothSemesters]="hasBothSemesters()"
-    [activeSemester]="studyContext.semester()"
-    [facultyName]="studyContext.faculty()"
-    [majorName]="studyContext.major()"
-    (switchSemester)="setSemester($event)"
-  ></app-annual-results>
+    <!-- Annual Results Summary Card -->
+    <app-annual-results [annualAverage]="annualAverage()" [semester1Average]="semester1Average()"
+      [semester2Average]="semester2Average()" [annualPassedCredits]="annualPassedCredits()"
+      [annualTotalCredits]="annualTotalCredits()" [annualFailedCredits]="annualFailedCredits()"
+      [hasAnnualFailingGrade]="hasAnnualFailingGrade()" [yearLabel]="studyContext.yearLabel()"
+      [hasBothSemesters]="hasBothSemesters()" [activeSemester]="studyContext.semester()"
+      [facultyName]="studyContext.faculty()" [majorName]="studyContext.major()"
+      (switchSemester)="setSemester($event)"></app-annual-results>
   </ng-container>
 
   <!-- Feedback / Report Credits Helper Link -->
@@ -406,13 +345,8 @@
   </div>
 
   <!-- ================= MODAL: CONFIRMARE RESETARE NOTE ================= -->
-  <app-reset-grades-modal
-    *ngIf="showResetModal()"
-    [yearLabel]="studyContext.yearLabel()"
-    [semesterLabel]="studyContext.semester()"
-    [isLoggedIn]="authService.isLoggedIn()"
-    (closeModal)="closeResetModal()"
-    (confirmReset)="confirmResetGrades()"
-  ></app-reset-grades-modal>
+  <app-reset-grades-modal *ngIf="showResetModal()" [yearLabel]="studyContext.yearLabel()"
+    [semesterLabel]="studyContext.semester()" [isLoggedIn]="authService.isLoggedIn()" (closeModal)="closeResetModal()"
+    (confirmReset)="confirmResetGrades()"></app-reset-grades-modal>
 
 </section>

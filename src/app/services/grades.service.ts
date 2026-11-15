@@ -24,6 +24,29 @@ export class GradesService {
   }
 
   /**
+   * Sanitizes a grade value so that it is strictly an integer between 1 and 10, or null.
+   */
+  public sanitizeGrade(val: unknown): number | null {
+    if (val === null || val === undefined || val === '') return null;
+    const n = typeof val === 'number' ? val : Number(val);
+    if (!Number.isFinite(n) || !Number.isInteger(n)) return null;
+    if (n < 1) return 1;
+    if (n > 10) return 10;
+    return n;
+  }
+
+  /**
+   * Sanitizes an entire grades dictionary to guarantee all values are between 1 and 10 (or null).
+   */
+  public sanitizeGradesMap(grades: GradesMap): GradesMap {
+    const sanitized: GradesMap = {};
+    for (const [k, v] of Object.entries(grades)) {
+      sanitized[k] = this.sanitizeGrade(v);
+    }
+    return sanitized;
+  }
+
+  /**
    * Loads grades for a given curriculum key.
    * Priority:
    * 1. Reads local storage for instant render.
@@ -46,7 +69,7 @@ export class GradesService {
           const parsed = JSON.parse(local) as GradesMap;
           for (const k of Object.keys(parsed)) {
             if (k in initial) {
-              initial[k] = parsed[k];
+              initial[k] = this.sanitizeGrade(parsed[k]);
             }
           }
         }
@@ -75,7 +98,7 @@ export class GradesService {
             const cloudGrades = cloudData['grades'] as GradesMap;
             for (const k of Object.keys(cloudGrades)) {
               if (k in initial) {
-                initial[k] = cloudGrades[k];
+                initial[k] = this.sanitizeGrade(cloudGrades[k]);
               }
             }
             // Update local storage to match cloud
@@ -140,7 +163,8 @@ export class GradesService {
   public saveGradesLocally(curriculumKey: string, grades: GradesMap): void {
     if (typeof localStorage !== 'undefined') {
       try {
-        localStorage.setItem(`grades:${curriculumKey}`, JSON.stringify(grades));
+        const sanitized = this.sanitizeGradesMap(grades);
+        localStorage.setItem(`grades:${curriculumKey}`, JSON.stringify(sanitized));
       } catch {
         // ignore storage errors
       }
@@ -162,7 +186,8 @@ export class GradesService {
     grades: GradesMap,
     options?: OptionsMap
   ): Promise<boolean> {
-    this.saveGradesLocally(curriculumKey, grades);
+    const sanitizedGrades = this.sanitizeGradesMap(grades);
+    this.saveGradesLocally(curriculumKey, sanitizedGrades);
     if (options) {
       this.saveOptionsLocally(curriculumKey, options);
     }
@@ -186,7 +211,7 @@ export class GradesService {
       const currentOpts = options ?? (await this.loadOptions(curriculumKey));
       await setDoc(docRef, {
         curriculumKey,
-        grades,
+        grades: sanitizedGrades,
         selectedOptions: currentOpts,
         updatedAt: now,
       });

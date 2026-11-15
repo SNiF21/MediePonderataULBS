@@ -293,4 +293,142 @@ describe('Calculator', () => {
     expect(component.showResetModal()).toBe(false);
     expect(component['grades']()[subs[0].name]).toBeNull();
   });
+
+  describe('Grade Input Validation (1 - 10 only)', () => {
+    it('should clamp grades outside 1..10 in setGrade', () => {
+      const sub = component.subjects()[0].name;
+
+      component['setGrade'](sub, '104');
+      expect(component['grades']()[sub]).toBe(10);
+
+      component['setGrade'](sub, '0');
+      expect(component['grades']()[sub]).toBe(1);
+
+      component['setGrade'](sub, '-5');
+      expect(component['grades']()[sub]).toBe(1);
+
+      component['setGrade'](sub, '8');
+      expect(component['grades']()[sub]).toBe(8);
+
+      component['setGrade'](sub, '');
+      expect(component['grades']()[sub]).toBeNull();
+    });
+
+    it('should sanitize input and enforce DOM value to 1..10 in onGradeInput', () => {
+      const sub = component.subjects()[0].name;
+      const mockInput = document.createElement('input');
+
+      // Test typing/pasting 104
+      mockInput.value = '104';
+      component['onGradeInput'](sub, { target: mockInput } as any);
+      expect(component['grades']()[sub]).toBe(10);
+      expect(mockInput.value).toBe('10');
+
+      // Test typing 0
+      mockInput.value = '0';
+      component['onGradeInput'](sub, { target: mockInput } as any);
+      expect(component['grades']()[sub]).toBe(1);
+      expect(mockInput.value).toBe('1');
+
+      // Test clearing input
+      mockInput.value = '';
+      component['onGradeInput'](sub, { target: mockInput } as any);
+      expect(component['grades']()[sub]).toBeNull();
+      expect(mockInput.value).toBe('');
+    });
+
+    it('should prevent invalid keys via onGradeKeyDown', () => {
+      const sub = component.subjects()[0].name;
+      const mockInput = document.createElement('input');
+
+      // 1. In empty field: blocking '0'
+      mockInput.value = '';
+      mockInput.selectionStart = 0;
+      mockInput.selectionEnd = 0;
+      let prevented = false;
+      component['onGradeKeyDown']({
+        key: '0',
+        target: mockInput,
+        preventDefault: () => { prevented = true; },
+      } as any);
+      expect(prevented).toBe(true);
+
+      // 2. In empty field: blocking non-digits (e.g. 'e', '-')
+      prevented = false;
+      component['onGradeKeyDown']({
+        key: 'e',
+        target: mockInput,
+        preventDefault: () => { prevented = true; },
+      } as any);
+      expect(prevented).toBe(true);
+
+      // 3. In field with '1': typing '0' forms '10'
+      mockInput.value = '1';
+      prevented = false;
+      component['onGradeKeyDown'](
+        {
+          key: '0',
+          target: mockInput,
+          preventDefault: () => { prevented = true; },
+        } as any,
+        sub
+      );
+      expect(prevented).toBe(true);
+      expect(mockInput.value).toBe('10');
+      expect(component['grades']()[sub]).toBe(10);
+
+      // 4. In field with '10': pressing '9' overwrites with '9'
+      mockInput.value = '10';
+      prevented = false;
+      component['onGradeKeyDown'](
+        {
+          key: '9',
+          target: mockInput,
+          preventDefault: () => { prevented = true; },
+        } as any,
+        sub
+      );
+      expect(prevented).toBe(true);
+      expect(mockInput.value).toBe('9');
+      expect(component['grades']()[sub]).toBe(9);
+
+      // 5. In field with '8': pressing '5' overwrites with '5'
+      mockInput.value = '8';
+      prevented = false;
+      component['onGradeKeyDown'](
+        {
+          key: '5',
+          target: mockInput,
+          preventDefault: () => { prevented = true; },
+        } as any,
+        sub
+      );
+      expect(prevented).toBe(true);
+      expect(mockInput.value).toBe('5');
+      expect(component['grades']()[sub]).toBe(5);
+
+      // 6. In field with '10': pressing '0' is blocked (0 is not a valid grade)
+      mockInput.value = '10';
+      prevented = false;
+      component['onGradeKeyDown'](
+        {
+          key: '0',
+          target: mockInput,
+          preventDefault: () => { prevented = true; },
+        } as any,
+        sub
+      );
+      expect(prevented).toBe(true);
+      expect(mockInput.value).toBe('10'); // unchanged
+
+      // 7. Navigation/control keys should always be allowed
+      prevented = false;
+      component['onGradeKeyDown']({
+        key: 'Backspace',
+        target: mockInput,
+        preventDefault: () => { prevented = true; },
+      } as any);
+      expect(prevented).toBe(false);
+    });
+  });
 });

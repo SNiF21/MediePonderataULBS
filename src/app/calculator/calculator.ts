@@ -459,6 +459,97 @@ export class Calculator {
     this.hasUnsavedChanges.set(true);
   }
 
+  protected onGradeKeyDown(event: KeyboardEvent, subjectName?: string): void {
+    const allowedSpecialKeys = [
+      'Backspace',
+      'Delete',
+      'Tab',
+      'Escape',
+      'Enter',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowUp',
+      'ArrowDown',
+      'Home',
+      'End',
+    ];
+    if (allowedSpecialKeys.includes(event.key)) {
+      return;
+    }
+
+    if (event.ctrlKey || event.metaKey || event.altKey) {
+      return;
+    }
+
+    // Block any non-digit character (including '+', '-', '.', 'e', 'E', spaces)
+    if (!/^\d$/.test(event.key)) {
+      event.preventDefault();
+      return;
+    }
+
+    const input = event.target as HTMLInputElement;
+    const currentVal = input.value.trim();
+    const key = event.key;
+
+        // Special case: typing '0' when field currently has '1' forms '10'
+        if (currentVal === '1' && key === '0') {
+          event.preventDefault();
+          if (subjectName) {
+            this.setGrade(subjectName, '10');
+          }
+          input.value = '10';
+          return;
+        }
+
+          // If key is '0', ignore it because grade 0 does not exist in Romanian universities (grades are 1..10)
+          if (key === '0') {
+            event.preventDefault();
+            return;
+          }
+
+            // Overwrite existing grade ('10', '2'..'9', or empty) with the newly pressed digit ('1'..'9')
+            event.preventDefault();
+            if (subjectName) {
+              this.setGrade(subjectName, key);
+            }
+            input.value = key;
+          }
+
+  protected onGradeInput(subjectName: string, event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const raw = input.value.trim();
+
+    if (raw === '') {
+      this.setGrade(subjectName, '');
+      input.value = '';
+      return;
+    }
+
+    const digitsOnly = raw.replace(/\D/g, '');
+    if (!digitsOnly) {
+      this.setGrade(subjectName, '');
+      input.value = '';
+      return;
+    }
+
+    let n = parseInt(digitsOnly, 10);
+    if (isNaN(n) || n < 1) {
+      n = 1;
+    } else if (n > 10) {
+      n = 10;
+    }
+
+    this.setGrade(subjectName, String(n));
+    // Immediately force the DOM input value to match the valid grade (1..10)
+    input.value = String(n);
+  }
+
+  protected onGradeBlur(subjectName: string, event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const currentGrade = this.grades()[subjectName];
+    input.value = currentGrade != null ? String(currentGrade) : '';
+  }
+
   protected setGrade(subjectName: string, value: string): void {
     const sub = this.subjects().find((s) => s.name === subjectName);
     if (sub && this.isGradeDisabled(sub)) {
