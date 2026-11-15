@@ -4,7 +4,7 @@ Aplicație web gratuită, modernă și securizată dedicată studenților Univer
 
 **Website Oficial (Producție):** [https://medieponderata-ulbs.web.app](https://medieponderata-ulbs.web.app)  
 **Domeniu alternativ:** [https://medieponderata-ulbs.firebaseapp.com](https://medieponderata-ulbs.firebaseapp.com)  
-**Versiune:** `v1.4.0`
+**Versiune:** `v2.0.0`
 
 ---
 
