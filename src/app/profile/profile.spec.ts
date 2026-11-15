@@ -130,4 +130,30 @@ describe('ProfileComponent', () => {
     expect(component['selectedDegree']()).toBe('Licență');
     expect(component['availableMajors']()).toContain('Calculatoare');
   });
+
+  it('should handle unconfigured student profile correctly', () => {
+    const authService = TestBed.inject(AuthService);
+    authService.user.set({ uid: 'new-user', email: 'test@ulbsibiu.ro' } as any);
+    authService.profile.set({ uid: 'new-user', email: 'test@ulbsibiu.ro' } as any);
+
+    const fixtureUnconfigured = TestBed.createComponent(ProfileComponent);
+    const unconfiguredComp = fixtureUnconfigured.componentInstance;
+
+    expect(unconfiguredComp['isProfileConfigured']()).toBe(false);
+    expect(unconfiguredComp['selectedFaculty']()).toBe('');
+    expect(unconfiguredComp['selectedMajor']()).toBe('');
+    expect(unconfiguredComp['canSave']()).toBe(false);
+
+    unconfiguredComp['onFacultySelect']('Facultatea de Inginerie');
+    expect(unconfiguredComp['selectedFaculty']()).toBe('Facultatea de Inginerie');
+    expect(unconfiguredComp['canSave']()).toBe(false); // major still empty
+
+    unconfiguredComp['onDepartmentSelect']('CIE');
+    expect(unconfiguredComp['selectedDepartment']()).toBe('CIE');
+    expect(unconfiguredComp['canSave']()).toBe(false);
+
+    unconfiguredComp['onMajorSelect']('Calculatoare');
+    expect(unconfiguredComp['selectedMajor']()).toBe('Calculatoare');
+    expect(unconfiguredComp['canSave']()).toBe(true);
+  });
 });

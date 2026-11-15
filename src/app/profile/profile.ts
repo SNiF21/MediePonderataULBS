@@ -35,24 +35,13 @@ export class ProfileComponent {
   protected readonly studyContext = inject(StudyContextService);
   private readonly router = inject(Router);
 
-  constructor() {
-    effect(() => {
-      const f = this.studyContext.faculty();
-      const d = this.studyContext.department();
-      const deg = this.studyContext.degree();
-      const m = this.studyContext.major();
-      const y = this.studyContext.year();
-      const s = this.studyContext.semester();
-      if (!this.hasProfileChanges()) {
-        this.selectedFaculty.set(f);
-        this.selectedDepartment.set(d);
-        this.selectedDegree.set(deg);
-        this.selectedMajor.set(m);
-        this.selectedYear.set(y);
-        this.selectedSemester.set(s);
-      }
-    });
-  }
+  public readonly isProfileConfigured = computed<boolean>(() => {
+    if (!this.authService.isLoggedIn()) {
+      return true;
+    }
+    const prof = this.authService.profile();
+    return Boolean(prof?.faculty && prof?.major);
+  });
 
   // Password change modal state
   protected readonly showPasswordModal = signal<boolean>(false);
@@ -96,6 +85,75 @@ export class ProfileComponent {
   protected readonly verificationSuccess = signal<string | null>(null);
   protected readonly verificationError = signal<string | null>(null);
 
+  // Study context selection signals (pending save)
+  public readonly studyDegrees = STUDY_DEGREES;
+  protected readonly selectedFaculty = signal<string>(
+    this.authService.isLoggedIn() && !this.authService.profile()?.faculty
+      ? ''
+      : (this.authService.profile()?.faculty || this.studyContext.faculty())
+  );
+  protected readonly selectedDepartment = signal<string>(
+    this.authService.isLoggedIn() && !this.authService.profile()?.faculty
+      ? ''
+      : (this.authService.profile()?.department || this.studyContext.department())
+  );
+  protected readonly selectedDegree = signal<StudyDegree>(
+    this.authService.profile()?.degree ?? this.studyContext.degree()
+  );
+  protected readonly selectedMajor = signal<StudyMajor | ''>(
+    this.authService.isLoggedIn() && !this.authService.profile()?.major
+      ? ''
+      : (this.authService.profile()?.major || this.studyContext.major())
+  );
+  protected readonly selectedYear = signal<YearRoman>(
+    this.authService.profile()?.year ?? this.studyContext.year()
+  );
+  protected readonly selectedSemester = signal<SemesterRoman>(
+    this.authService.profile()?.semester ?? this.studyContext.semester()
+  );
+  protected readonly isSavingProfile = signal<boolean>(false);
+
+  constructor() {
+    effect(() => {
+      const prof = this.authService.profile();
+      const isLoggedIn = this.authService.isLoggedIn();
+
+      if (isLoggedIn && prof) {
+        if (!prof.faculty || !prof.major) {
+          // Unconfigured profile: fields stay empty unless user made unsaved changes
+          if (!this.hasProfileChanges()) {
+            this.selectedFaculty.set('');
+            this.selectedDepartment.set('');
+            this.selectedDegree.set(prof.degree ?? 'Licență');
+            this.selectedMajor.set('');
+            this.selectedYear.set(prof.year ?? 'I');
+            this.selectedSemester.set(prof.semester ?? 'Semestrul I');
+          }
+        } else {
+          // Configured profile: populate with user's saved data
+          if (!this.hasProfileChanges()) {
+            this.selectedFaculty.set(prof.faculty);
+            this.selectedDepartment.set(prof.department ?? '');
+            this.selectedDegree.set(prof.degree ?? 'Licență');
+            this.selectedMajor.set(prof.major);
+            this.selectedYear.set(prof.year ?? 'I');
+            this.selectedSemester.set(prof.semester ?? 'Semestrul I');
+          }
+        }
+      } else if (!isLoggedIn) {
+        // Guest mode: fallback to active studyContext defaults
+        if (!this.hasProfileChanges()) {
+          this.selectedFaculty.set(this.studyContext.faculty());
+          this.selectedDepartment.set(this.studyContext.department());
+          this.selectedDegree.set(this.studyContext.degree());
+          this.selectedMajor.set(this.studyContext.major());
+          this.selectedYear.set(this.studyContext.year());
+          this.selectedSemester.set(this.studyContext.semester());
+        }
+      }
+    });
+  }
+
   protected async sendVerificationEmail(): Promise<void> {
     this.isSendingVerification.set(true);
     this.verificationSuccess.set(null);
@@ -127,30 +185,35 @@ export class ProfileComponent {
     }
   }
 
-  // Study context selection signals (pending save)
-  public readonly studyDegrees = STUDY_DEGREES;
-  protected readonly selectedFaculty = signal<string>(this.studyContext.faculty());
-  protected readonly selectedDepartment = signal<string>(this.studyContext.department());
-  protected readonly selectedDegree = signal<StudyDegree>(this.studyContext.degree());
-  protected readonly selectedMajor = signal<StudyMajor>(this.studyContext.major());
-  protected readonly selectedYear = signal<YearRoman>(this.studyContext.year());
-  protected readonly selectedSemester = signal<SemesterRoman>(this.studyContext.semester());
-  protected readonly isSavingProfile = signal<boolean>(false);
+  protected readonly availableDepartments = computed(() => {
+    const fac = this.selectedFaculty();
+    return fac ? getDepartmentsForFaculty(fac) : [];
+  });
 
-  protected readonly availableDepartments = computed(() =>
-    getDepartmentsForFaculty(this.selectedFaculty())
-  );
-  protected readonly availableMajors = computed(() =>
-    getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), this.selectedDegree())
-  );
-  public readonly availableYears = computed(() =>
-    this.studyContext.getAvailableYears(this.selectedMajor(), this.selectedFaculty())
-  );
-  protected readonly selectedFacultyIcon = computed(() =>
-    getFacultyIcon(this.selectedFaculty())
-  );
+  protected readonly availableMajors = computed(() => {
+    const fac = this.selectedFaculty();
+    const dept = this.selectedDepartment();
+    const deg = this.selectedDegree();
+    if (!fac || !dept) return [];
+    return getMajorsForDepartment(fac, dept, deg);
+  });
+
+  public readonly availableYears = computed(() => {
+    const m = this.selectedMajor();
+    const f = this.selectedFaculty();
+    if (!m) return this.studyContext.allYears;
+    return this.studyContext.getAvailableYears(m, f || undefined);
+  });
+
+  protected readonly selectedFacultyIcon = computed(() => {
+    const fac = this.selectedFaculty();
+    return fac ? getFacultyIcon(fac) : 'assets/facultati/inginerie.png';
+  });
 
   protected readonly hasProfileChanges = computed(() => {
+    if (!this.isProfileConfigured()) {
+      return Boolean(this.selectedFaculty() || this.selectedMajor());
+    }
     return (
       this.selectedFaculty() !== this.studyContext.faculty() ||
       this.selectedDepartment() !== this.studyContext.department() ||
@@ -161,44 +224,70 @@ export class ProfileComponent {
     );
   });
 
+  protected readonly canSave = computed(() => {
+    if (!this.selectedFaculty() || !this.selectedMajor()) {
+      return false;
+    }
+    return this.hasProfileChanges();
+  });
+
   protected onFacultySelect(facultyName: string): void {
     this.selectedFaculty.set(facultyName);
     const depts = getDepartmentsForFaculty(facultyName);
-    if (depts.length > 0 && !depts.some((d) => d.shortName === this.selectedDepartment() || d.name === this.selectedDepartment())) {
+    if (!this.isProfileConfigured()) {
+      this.selectedDepartment.set('');
+      this.selectedMajor.set('');
+      return;
+    }
+    if (depts.length > 0) {
       const firstDept = depts[0].shortName;
       this.selectedDepartment.set(firstDept);
       const majors = getMajorsForDepartment(facultyName, firstDept, this.selectedDegree());
       if (majors.length > 0) {
         this.onMajorSelect(majors[0]);
+      } else {
+        this.selectedMajor.set('');
       }
+    } else {
+      this.selectedDepartment.set('');
+      this.selectedMajor.set('');
     }
   }
 
   protected onDepartmentSelect(departmentShortOrName: string): void {
     this.selectedDepartment.set(departmentShortOrName);
+    if (!this.isProfileConfigured() && !this.selectedMajor()) {
+      return;
+    }
     const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName, this.selectedDegree());
-    if (majors.length > 0 && !majors.includes(this.selectedMajor())) {
+    if (majors.length > 0 && (!this.selectedMajor() || !majors.includes(this.selectedMajor() as StudyMajor))) {
       this.onMajorSelect(majors[0]);
+    } else if (majors.length === 0) {
+      this.selectedMajor.set('');
     }
   }
 
   protected onDegreeSelect(degree: StudyDegree): void {
     this.selectedDegree.set(degree);
-    const majors = getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), degree);
-    if (majors.length > 0 && (!majors.includes(this.selectedMajor()) || getMajorDegree(this.selectedMajor()) !== degree)) {
-      this.onMajorSelect(majors[0]);
+    if (this.selectedFaculty() && this.selectedDepartment()) {
+      const majors = getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), degree);
+      if (majors.length > 0 && (!this.selectedMajor() || !majors.includes(this.selectedMajor() as StudyMajor) || getMajorDegree(this.selectedMajor() as StudyMajor) !== degree)) {
+        this.onMajorSelect(majors[0]);
+      }
     }
   }
 
-  protected onMajorSelect(major: StudyMajor): void {
+  protected onMajorSelect(major: StudyMajor | ''): void {
     this.selectedMajor.set(major);
-    const expDegree = getMajorDegree(major);
-    if (this.selectedDegree() !== expDegree) {
-      this.selectedDegree.set(expDegree);
-    }
-    const valid = this.studyContext.getAvailableYears(major, this.selectedFaculty());
-    if (!valid.some((y) => y.roman === this.selectedYear())) {
-      this.selectedYear.set(valid[valid.length - 1]?.roman ?? 'I');
+    if (major) {
+      const expDegree = getMajorDegree(major);
+      if (this.selectedDegree() !== expDegree) {
+        this.selectedDegree.set(expDegree);
+      }
+      const valid = this.studyContext.getAvailableYears(major, this.selectedFaculty());
+      if (!valid.some((y) => y.roman === this.selectedYear())) {
+        this.selectedYear.set(valid[valid.length - 1]?.roman ?? 'I');
+      }
     }
   }
 
@@ -214,25 +303,50 @@ export class ProfileComponent {
   }
 
   protected resetProfileSelection(): void {
-    this.selectedFaculty.set(this.studyContext.faculty());
-    this.selectedDepartment.set(this.studyContext.department());
-    this.selectedDegree.set(this.studyContext.degree());
-    this.selectedMajor.set(this.studyContext.major());
-    this.selectedYear.set(this.studyContext.year());
-    this.selectedSemester.set(this.studyContext.semester());
+    if (!this.isProfileConfigured()) {
+      this.selectedFaculty.set('');
+      this.selectedDepartment.set('');
+      this.selectedDegree.set('Licență');
+      this.selectedMajor.set('');
+      this.selectedYear.set('I');
+      this.selectedSemester.set('Semestrul I');
+    } else {
+      this.selectedFaculty.set(this.studyContext.faculty());
+      this.selectedDepartment.set(this.studyContext.department());
+      this.selectedDegree.set(this.studyContext.degree());
+      this.selectedMajor.set(this.studyContext.major());
+      this.selectedYear.set(this.studyContext.year());
+      this.selectedSemester.set(this.studyContext.semester());
+    }
   }
 
   protected async saveProfile(): Promise<void> {
+    const major = this.selectedMajor();
+    const fac = this.selectedFaculty();
+    if (!fac || !major) return;
+
     this.isSavingProfile.set(true);
     try {
       this.studyContext.setProfile(
-        this.selectedMajor(),
+        major as StudyMajor,
         this.selectedYear(),
         this.selectedSemester(),
-        this.selectedFaculty(),
+        fac,
         this.selectedDepartment(),
         this.selectedDegree()
       );
+      const user = this.authService.user();
+      if (user) {
+        await this.authService.saveUserProfile({
+          uid: user.uid,
+          faculty: fac,
+          department: this.selectedDepartment(),
+          degree: this.selectedDegree(),
+          major: major as StudyMajor,
+          year: this.selectedYear(),
+          semester: this.selectedSemester(),
+        });
+      }
       this.profileUpdateSuccess.set(true);
       setTimeout(() => this.profileUpdateSuccess.set(false), 3000);
     } finally {
@@ -265,13 +379,15 @@ export class ProfileComponent {
   }
 
   public getContactQueryParams(): Record<string, string> {
+    const fac = this.selectedFaculty() || this.studyContext.faculty();
+    const maj = this.selectedMajor() || this.studyContext.major();
     return {
       category: 'credite',
-      faculty: this.selectedFaculty(),
-      major: this.selectedMajor(),
+      faculty: fac,
+      major: maj,
       year: this.studyContext.yearLabel(),
-      subjectTitle: `Plan de învățământ: ${this.selectedFaculty()}`,
-      message: `Salut! Doresc să contribui cu planul de învățământ pentru ${this.selectedFaculty()}. Specializarea mea este ...`,
+      subjectTitle: `Plan de învățământ: ${fac}`,
+      message: `Salut! Doresc să contribui cu planul de învățământ pentru ${fac}. Specializarea mea este ...`,
     };
   }
 }

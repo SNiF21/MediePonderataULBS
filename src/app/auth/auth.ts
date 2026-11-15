@@ -3,24 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService, INSTITUTIONAL_DOMAIN } from '../services/auth.service';
-import {
-  DEFAULT_DEPARTMENT,
-  DEFAULT_FACULTY,
-  FACULTIES,
-  STUDY_DEGREES,
-  STUDY_MAJORS,
-  STUDY_SEMESTERS,
-  STUDY_YEARS,
-  SemesterRoman,
-  StudyDegree,
-  StudyMajor,
-  YearRoman,
-  getDepartmentsForFaculty,
-  getMajorDegree,
-  getMajorsForDepartment,
-  getYearsForMajor,
-} from '../models/studyProfile';
-import { StudyContextService } from '../services/study-context.service';
 
 type AuthMode = 'login' | 'register' | 'forgot';
 
@@ -32,7 +14,6 @@ type AuthMode = 'login' | 'register' | 'forgot';
 })
 export class AuthComponent {
   protected readonly authService = inject(AuthService);
-  protected readonly studyContext = inject(StudyContextService);
   private readonly router = inject(Router);
 
   protected readonly mode = signal<AuthMode>('login');
@@ -40,71 +21,6 @@ export class AuthComponent {
   protected readonly password = signal<string>('');
   protected readonly confirmPassword = signal<string>('');
   protected readonly showPassword = signal<boolean>(false);
-
-  // Profile options for registration
-  protected readonly faculties = FACULTIES;
-  public readonly studyDegrees = STUDY_DEGREES;
-  protected readonly years = STUDY_YEARS;
-  protected readonly semesters = STUDY_SEMESTERS;
-
-  protected readonly selectedFaculty = signal<string>(DEFAULT_FACULTY);
-  protected readonly availableDepartments = computed(() =>
-    getDepartmentsForFaculty(this.selectedFaculty())
-  );
-  protected readonly selectedDepartment = signal<string>(DEFAULT_DEPARTMENT);
-  protected readonly selectedDegree = signal<StudyDegree>('Licență');
-  protected readonly availableMajors = computed(() =>
-    getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), this.selectedDegree())
-  );
-
-  protected readonly selectedMajor = signal<StudyMajor>('Calculatoare');
-  protected readonly selectedYear = signal<YearRoman>('I');
-  protected readonly selectedSemester = signal<SemesterRoman>('Semestrul I');
-
-  public readonly availableYears = computed(() =>
-    this.studyContext.getAvailableYears(this.selectedMajor(), this.selectedFaculty())
-  );
-
-  protected onDegreeChange(degree: StudyDegree): void {
-    this.selectedDegree.set(degree);
-    const majors = getMajorsForDepartment(this.selectedFaculty(), this.selectedDepartment(), degree);
-    if (majors.length > 0 && (!majors.includes(this.selectedMajor()) || getMajorDegree(this.selectedMajor()) !== degree)) {
-      this.onMajorChange(majors[0]);
-    }
-  }
-
-  protected onMajorChange(major: StudyMajor): void {
-    this.selectedMajor.set(major);
-    const expDegree = getMajorDegree(major);
-    if (this.selectedDegree() !== expDegree) {
-      this.selectedDegree.set(expDegree);
-    }
-    const valid = this.studyContext.getAvailableYears(major, this.selectedFaculty());
-    if (!valid.some((y) => y.roman === this.selectedYear())) {
-      this.selectedYear.set(valid[valid.length - 1]?.roman ?? 'I');
-    }
-  }
-
-  protected onFacultyChange(facultyName: string) {
-    this.selectedFaculty.set(facultyName);
-    const depts = getDepartmentsForFaculty(facultyName);
-    if (depts.length > 0) {
-      const firstDept = depts[0].shortName;
-      this.selectedDepartment.set(firstDept);
-      const majors = getMajorsForDepartment(facultyName, firstDept, this.selectedDegree());
-      if (majors.length > 0) {
-        this.onMajorChange(majors[0]);
-      }
-    }
-  }
-
-  protected onDepartmentChange(departmentShortOrName: string) {
-    this.selectedDepartment.set(departmentShortOrName);
-    const majors = getMajorsForDepartment(this.selectedFaculty(), departmentShortOrName, this.selectedDegree());
-    if (majors.length > 0 && !majors.includes(this.selectedMajor())) {
-      this.onMajorChange(majors[0]);
-    }
-  }
 
   protected readonly isSubmitting = signal<boolean>(false);
   protected readonly errorMessage = signal<string | null>(null);
@@ -184,26 +100,10 @@ export class AuthComponent {
     try {
       if (this.mode() === 'login') {
         await this.authService.login(emailVal, passVal);
-        this.router.navigate(['/calculator']);
+        this.router.navigate(['/']);
       } else if (this.mode() === 'register') {
-        await this.authService.register(emailVal, passVal, {
-          faculty: this.selectedFaculty(),
-          department: this.selectedDepartment(),
-          degree: this.selectedDegree(),
-          major: this.selectedMajor(),
-          year: this.selectedYear(),
-          semester: this.selectedSemester(),
-        });
-        // Immediately set context in the app
-        this.studyContext.setProfile(
-          this.selectedMajor(),
-          this.selectedYear(),
-          this.selectedSemester(),
-          this.selectedFaculty(),
-          this.selectedDepartment(),
-          this.selectedDegree()
-        );
-        this.router.navigate(['/calculator']);
+        await this.authService.register(emailVal, passVal);
+        this.router.navigate(['/']);
       } else if (this.mode() === 'forgot') {
         await this.authService.resetPassword(emailVal);
         this.successMessage.set(

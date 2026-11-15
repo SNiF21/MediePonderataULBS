@@ -132,19 +132,12 @@ export class AuthService {
   }
 
   /**
-   * Registers a new student account using institutional email, password, and chosen study profile.
+   * Registers a new student account using institutional email and password.
+   * Faculty and specialization details are left unconfigured for the student to set in Profile.
    */
   public async register(
     email: string,
-    pass: string,
-    initialProfile?: {
-      faculty?: string;
-      department?: string;
-      degree?: StudyDegree;
-      major?: StudyMajor;
-      year?: YearRoman;
-      semester?: SemesterRoman;
-    }
+    pass: string
   ): Promise<User> {
     const cleanEmail = email.trim().toLowerCase();
 
@@ -166,20 +159,12 @@ export class AuthService {
       console.warn('Nu s-a putut trimite automat emailul de verificare:', verErr);
     }
 
-    // Prepare student profile in memory & localStorage.
-    // Defer writing to Firestore until email is verified (protects Spark write quota).
-    const resolvedMajor = initialProfile?.major ?? 'Calculatoare';
+    // Prepare student profile in memory & localStorage with unconfigured study fields
     const studentProfile: StudentProfile = {
       uid: user.uid,
       email: cleanEmail,
       institutionalDomain: 'ulbsibiu.ro',
       createdAt: new Date().toISOString(),
-      faculty: initialProfile?.faculty ?? 'Facultatea de Inginerie',
-      department: initialProfile?.department ?? 'CIE',
-      degree: initialProfile?.degree ?? getMajorDegree(resolvedMajor),
-      major: resolvedMajor,
-      year: initialProfile?.year ?? 'I',
-      semester: initialProfile?.semester ?? 'Semestrul I',
     };
 
     this.savePendingProfile(user.uid, studentProfile);
@@ -307,35 +292,37 @@ export class AuthService {
 
       if (snapshot.exists()) {
         const data = snapshot.data() as StudentProfile;
-        const resolvedMajor = data.major ?? 'Calculatoare';
-        // Ensure defaults if existing doc lacks fields
-        this.profile.set({
-          ...data,
-          faculty: data.faculty ?? 'Facultatea de Inginerie',
-          department: data.department ?? 'CIE',
-          degree: data.degree ?? getMajorDegree(resolvedMajor),
-          major: resolvedMajor,
-          year: data.year ?? 'I',
-          semester: data.semester ?? 'Semestrul I',
-        });
+        this.profile.set(data);
         this.clearPendingProfile(uid);
       } else {
         // Initial profile creation if doc doesn't exist yet (first verified session)
         const pending = this.getPendingProfile(uid);
-        const resolvedMajor = pending?.major ?? 'Calculatoare';
         const newProfile: StudentProfile = {
           uid,
           email,
           institutionalDomain: 'ulbsibiu.ro',
           createdAt: new Date().toISOString(),
-          faculty: pending?.faculty ?? 'Facultatea de Inginerie',
-          department: pending?.department ?? 'CIE',
-          degree: pending?.degree ?? getMajorDegree(resolvedMajor),
-          major: resolvedMajor,
-          year: pending?.year ?? 'I',
-          semester: pending?.semester ?? 'Semestrul I',
+          faculty: pending?.faculty,
+          department: pending?.department,
+          degree: pending?.degree,
+          major: pending?.major,
+          year: pending?.year,
+          semester: pending?.semester,
         };
-        await setDoc(userRef, newProfile);
+        const docData: Record<string, unknown> = {
+          uid,
+          email,
+          institutionalDomain: 'ulbsibiu.ro',
+          createdAt: newProfile.createdAt,
+        };
+        if (newProfile.faculty) docData['faculty'] = newProfile.faculty;
+        if (newProfile.department) docData['department'] = newProfile.department;
+        if (newProfile.degree) docData['degree'] = newProfile.degree;
+        if (newProfile.major) docData['major'] = newProfile.major;
+        if (newProfile.year) docData['year'] = newProfile.year;
+        if (newProfile.semester) docData['semester'] = newProfile.semester;
+
+        await setDoc(userRef, docData);
         this.profile.set(newProfile);
         this.clearPendingProfile(uid);
       }
@@ -362,7 +349,13 @@ export class AuthService {
     if (!this.firebase.firestore) return;
     try {
       const userRef = doc(this.firebase.firestore, 'users', profileData.uid);
-      await setDoc(userRef, profileData, { merge: true });
+      const cleanData: Record<string, unknown> = {};
+      for (const [key, val] of Object.entries(profileData)) {
+        if (val !== undefined) {
+          cleanData[key] = val;
+        }
+      }
+      await setDoc(userRef, cleanData, { merge: true });
     } catch (err) {
       console.error('[AuthService] Error updating user profile:', err);
       throw err;

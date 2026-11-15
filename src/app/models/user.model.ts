@@ -8,7 +8,7 @@ export interface StudentProfile {
   faculty?: string;
   department?: string;
   degree?: StudyDegree;
-  major: StudyMajor;
-  year: YearRoman;
-  semester: SemesterRoman;
+  major?: StudyMajor;
+  year?: YearRoman;
+  semester?: SemesterRoman;
 }

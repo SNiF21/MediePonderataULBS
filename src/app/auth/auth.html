@@ -40,7 +40,7 @@
         [class.text-blue-600]="mode() === 'login'"
         [class.dark:text-white]="mode() === 'login'"
         [class.shadow-sm]="mode() === 'login'"
-        class="py-2.5 rounded-lg text-slate-600 dark:text-slate-400 transition-all text-center focus:outline-none"
+        class="py-2.5 rounded-lg text-slate-600 dark:text-slate-400 transition-all text-center focus:outline-none cursor-pointer"
       >
         Autentificare
       </button>
@@ -52,7 +52,7 @@
         [class.text-blue-600]="mode() === 'register'"
         [class.dark:text-white]="mode() === 'register'"
         [class.shadow-sm]="mode() === 'register'"
-        class="py-2.5 rounded-lg text-slate-600 dark:text-slate-400 transition-all text-center focus:outline-none"
+        class="py-2.5 rounded-lg text-slate-600 dark:text-slate-400 transition-all text-center focus:outline-none cursor-pointer"
       >
         Cont Nou
       </button>
@@ -63,7 +63,7 @@
       <button
         type="button"
         (click)="setMode('login')"
-        class="text-xs text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-1"
+        class="text-xs text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-1 cursor-pointer"
       >
         ← Înapoi la autentificare
       </button>
@@ -134,7 +134,7 @@
             *ngIf="mode() === 'login'"
             type="button"
             (click)="setMode('forgot')"
-            class="text-[11px] font-medium text-slate-500 hover:text-blue-600 transition"
+            class="text-[11px] font-medium text-slate-500 hover:text-blue-600 transition cursor-pointer"
           >
             Ai uitat parola?
           </button>
@@ -176,170 +176,6 @@
           placeholder="Reintrodu parola"
           class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition"
         />
-      </div>
-
-      <!-- Registration Study Profile Details -->
-      <div *ngIf="mode() === 'register'" class="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-4">
-        
-        <!-- Faculty Selector -->
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-            Facultate
-          </label>
-          <div class="relative">
-            <select
-              [ngModel]="selectedFaculty()"
-              (ngModelChange)="onFacultyChange($event)"
-              name="selectedFaculty"
-              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100"
-            >
-              <option *ngFor="let f of faculties" [value]="f.name" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100">
-                {{ f.name }}
-              </option>
-            </select>
-            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 text-xs">
-              ▼
-            </div>
-          </div>
-        </div>
-
-        <!-- Department Selector -->
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-            Departament
-          </label>
-          <div class="relative">
-            <select
-              [ngModel]="selectedDepartment()"
-              (ngModelChange)="onDepartmentChange($event)"
-              name="selectedDepartment"
-              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100"
-            >
-              <option *ngFor="let d of availableDepartments()" [value]="d.shortName" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100">
-                {{ d.name }}
-              </option>
-            </select>
-            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 text-xs">
-              ▼
-            </div>
-          </div>
-        </div>
-
-        <!-- Degree Selector -->
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-            Ciclu de studii
-          </label>
-          <div class="grid grid-cols-2 gap-2">
-            <button
-              *ngFor="let deg of studyDegrees"
-              type="button"
-              (click)="onDegreeChange(deg)"
-              [class.bg-blue-600]="selectedDegree() === deg"
-              [class.text-white]="selectedDegree() === deg"
-              [class.border-blue-600]="selectedDegree() === deg"
-              [class.bg-white]="selectedDegree() !== deg"
-              [class.dark:bg-slate-800]="selectedDegree() !== deg"
-              [class.text-slate-700]="selectedDegree() !== deg"
-              [class.dark:text-slate-300]="selectedDegree() !== deg"
-              [class.border-slate-300]="selectedDegree() !== deg"
-              [class.dark:border-slate-700]="selectedDegree() !== deg"
-              class="py-2 px-3 text-center font-bold text-xs rounded-xl border transition-all cursor-pointer hover:border-blue-400"
-            >
-              {{ deg }}
-            </button>
-          </div>
-        </div>
-
-        <!-- Specialization / Profile -->
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-            Specializare / Program de studiu
-          </label>
-          <div class="relative">
-            <select
-              [ngModel]="selectedMajor()"
-              (ngModelChange)="onMajorChange($event)"
-              name="selectedMajor"
-              [disabled]="availableMajors().length === 0"
-              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition appearance-none cursor-pointer text-slate-800 dark:text-slate-100 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <option *ngIf="availableMajors().length === 0" value="" disabled selected class="text-xs">
-                Nicio specializare disponibilă momentan
-              </option>
-              <option *ngFor="let m of availableMajors()" [value]="m" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100">
-                {{ m }}
-              </option>
-            </select>
-            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 text-xs">
-              ▼
-            </div>
-          </div>
-          <p *ngIf="availableMajors().length === 0" class="text-[11px] text-amber-600 dark:text-amber-400 mt-1 font-medium">
-            Planul de învățământ pentru această facultate este în curs de colectare.
-          </p>
-        </div>
-
-        <!-- Year of Study (I, II, III or IV depending on major duration) -->
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-            An de studiu
-          </label>
-          <div
-            class="grid gap-2"
-            [ngClass]="availableYears().length === 3 ? 'grid-cols-3' : 'grid-cols-4'"
-          >
-            <button
-              *ngFor="let y of availableYears()"
-              type="button"
-              (click)="selectedYear.set(y.roman)"
-              [class.bg-blue-600]="selectedYear() === y.roman"
-              [class.text-white]="selectedYear() === y.roman"
-              [class.border-blue-600]="selectedYear() === y.roman"
-              [class.shadow-sm]="selectedYear() === y.roman"
-              [class.bg-white]="selectedYear() !== y.roman"
-              [class.dark:bg-slate-800]="selectedYear() !== y.roman"
-              [class.text-slate-700]="selectedYear() !== y.roman"
-              [class.dark:text-slate-300]="selectedYear() !== y.roman"
-              [class.border-slate-200]="selectedYear() !== y.roman"
-              [class.dark:border-slate-700]="selectedYear() !== y.roman"
-              class="py-2 px-1 text-center font-semibold text-xs rounded-xl border transition-all cursor-pointer hover:border-blue-400"
-            >
-              {{ y.label }}
-            </button>
-          </div>
-        </div>
-
-        <!-- Semester (Semestrul I, Semestrul II) -->
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-            Semestru activ
-          </label>
-          <div class="grid grid-cols-2 gap-2">
-            <button
-              *ngFor="let s of semesters"
-              type="button"
-              (click)="selectedSemester.set(s.roman)"
-              [class.bg-blue-600]="selectedSemester() === s.roman"
-              [class.text-white]="selectedSemester() === s.roman"
-              [class.border-blue-600]="selectedSemester() === s.roman"
-              [class.shadow-sm]="selectedSemester() === s.roman"
-              [class.bg-white]="selectedSemester() !== s.roman"
-              [class.dark:bg-slate-800]="selectedSemester() !== s.roman"
-              [class.text-slate-700]="selectedSemester() !== s.roman"
-              [class.dark:text-slate-300]="selectedSemester() !== s.roman"
-              [class.border-slate-200]="selectedSemester() !== s.roman"
-              [class.dark:border-slate-700]="selectedSemester() !== s.roman"
-              class="py-2.5 px-3 text-center font-semibold text-xs rounded-xl border transition-all cursor-pointer hover:border-blue-400 flex items-center justify-center gap-1.5"
-            >
-              <span>{{ s.roman }}</span>
-            </button>
-          </div>
-          <p class="text-[11px] text-slate-500 mt-1">
-            Poți schimba specializarea, anul sau semestrul oricând.
-          </p>
-        </div>
-
       </div>
 
       <!-- GDPR Mandatory Consent Checkbox (Register Mode Only) -->
@@ -392,18 +228,18 @@
     <div class="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800 text-center text-xs text-slate-500">
       <ng-container *ngIf="mode() === 'login'">
         Nu ai cont încă?
-        <button type="button" (click)="setMode('register')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline ml-1">
+        <button type="button" (click)="setMode('register')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline ml-1 cursor-pointer">
           Înregistrează-te
         </button>
       </ng-container>
       <ng-container *ngIf="mode() === 'register'">
         Ai deja cont?
-        <button type="button" (click)="setMode('login')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline ml-1">
+        <button type="button" (click)="setMode('login')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline ml-1 cursor-pointer">
           Conectează-te
         </button>
       </ng-container>
       <ng-container *ngIf="mode() === 'forgot'">
-        <button type="button" (click)="setMode('login')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+        <button type="button" (click)="setMode('login')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline cursor-pointer">
           Înapoi la conectare
         </button>
       </ng-container>
